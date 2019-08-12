@@ -9,6 +9,7 @@
 |family_name_kana|string|null: false|
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
+|avator|text|
 |postal_code|integer|
 |prefectures|string|
 |municipalities|string|
@@ -46,7 +47,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index|
+|name|string|null: false, index: true|
 |description|string|null: false|
 |price|integer|null: false|
 |brand_id|integer|
@@ -65,16 +66,16 @@
 - belongs_to :user
 - has_many :images
 - has_many :comments
-- has_many :large_categories, through: :products_large_categories
-- has_many :middle_categories, through: :products_middle_categories
-- has_many :small_categories, through: :products_small_categories
+- has_many :l_categories, through: :products_l_categories
+- has_many :m_categories, through: :products_m_categories
+- has_many :s_categories, through: :products_s_categories
 
 
 ## imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false|
+|product|references|null: false|
 |image|text|null: false|
 
 ### Association
@@ -85,8 +86,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|product_id|integer|null: false|
+|user|references|null: false|
+|product|references|null: false|
 |body|text|null: false|
 
 ### Association
@@ -94,36 +95,36 @@
 - belongs_to :product
 
 
-## large_categoriesテーブル
+## l_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- has_many :brands, through: :large_categories_brands
-- has_many :middle_categories, through: :large_categories_middle_categories
+- has_many :brands, through: :l_categories_brands
+- has_many :m_categories, through: :l_categories_m_categories
 
 
-## middle_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :large_categories, through: :large_categories_middle_categories
-- has_many :small_categories, through: :middle_categories_small_categories
-
-
-## small_categoriesテーブル
+## m_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- has_many :middle_categories, through: :middle_categories_small_categories
+- has_many :l_categories, through: :l_categories_m_categories
+- has_many :s_categories, through: :m_categories_s_categories
+
+
+## s_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :m_categories, through: :m_categories_s_categories
 
 
 ## brandsテーブル
@@ -133,7 +134,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :large_categories, through: :large_categories_brands
+- has_many :l_categories, through: :l_categories_brands
 
 
 ## newsテーブル
@@ -146,73 +147,73 @@
 ### Association
 
 
-## products_large_categoriesテーブル
+## products_l_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false, foreign_key: true|
-|large_category_id|integer|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+|l_category|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :product
-- belongs_to :large_category
+- belongs_to :l_category
 
 
-## products_middle_categoriesテーブル
+## products_m_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false, foreign_key: true|
-|middle_category_id|integer|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+|m_category|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :product
-- belongs_to :middle_category
+- belongs_to :m_category
 
 
-## products_small_categoriesテーブル
+## products_s_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false, foreign_key: true|
-|small_category_id|integer|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
+|s_category|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :product
-- belongs_to :small_category
+- belongs_to :s_category
 
 
-## large_categories_brandsテーブル
+## l_categories_brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|large_category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
+|l_category|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :large_category
 - belongs_to :brand
 
 
-## large_categories_middle_categoriesテーブル
+## l_categories_m_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|large_category_id|integer|null: false, foreign_key: true|
-|middle_category_id|integer|null: false, foreign_key: true|
+|l_category|references|null: false, foreign_key: true|
+|m_category|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :large_category
-- belongs_to :middle_category
+- belongs_to :l_category
+- belongs_to :m_category
 
 
-## middle_categories_small_categoriesテーブル
+## m_categories_s_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|middle_category_id|integer|null: false, foreign_key: true|
-|small_category_id|integer|null: false, foreign_key: true|
+|m_category|references|null: false, foreign_key: true|
+|s_category|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :middle_category
-- belongs_to :small_category
+- belongs_to :m_category
+- belongs_to :s_category
