@@ -15,6 +15,8 @@
 |introduction|string|
 
 ### Association
+- has_one :user_addresses
+- has_one :shipping_addresses
 - has_many :items
 - has_many :comments
 
@@ -31,7 +33,7 @@
 |building_name|string|
 
 ### Association
-
+- belongs_to :user
 
 
 ## shipping_addressesテーブル
@@ -51,7 +53,7 @@
 |phone_number|integer|
 
 ### Association
-
+- belongs_to :user
 
 ## itemsテーブル
 
