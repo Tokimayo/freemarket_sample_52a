@@ -20,7 +20,7 @@
 |introduction|string|
 
 ### Association
-- has_many :products
+- has_many :items
 - has_many :comments
 
 
@@ -43,7 +43,7 @@
 ### Association
 
 
-## productsテーブル
+## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -66,20 +66,20 @@
 - belongs_to :user
 - has_many :images
 - has_many :comments
-- has_many :l_categories, through: :products_l_categories
-- has_many :m_categories, through: :products_m_categories
-- has_many :s_categories, through: :products_s_categories
+- has_many :l_categories, through: :items_l_categories
+- has_many :m_categories, through: :items_m_categories
+- has_many :s_categories, through: :items_s_categories
 
 
 ## imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false|
+|item|references|null: false|
 |image|text|null: false|
 
 ### Association
-- belongs_to :product
+- belongs_to :item
 
 
 ## commentsテーブル
@@ -87,12 +87,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false|
-|product|references|null: false|
+|item|references|null: false|
 |body|text|null: false|
 
 ### Association
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
 
 
 ## l_categoriesテーブル
@@ -147,39 +147,39 @@
 ### Association
 
 
-## products_l_categoriesテーブル
+## items_l_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 |l_category|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product
+- belongs_to :item
 - belongs_to :l_category
 
 
-## products_m_categoriesテーブル
+## items_m_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 |m_category|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product
+- belongs_to :item
 - belongs_to :m_category
 
 
-## products_s_categoriesテーブル
+## items_s_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|product|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 |s_category|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product
+- belongs_to :item
 - belongs_to :s_category
 
 
