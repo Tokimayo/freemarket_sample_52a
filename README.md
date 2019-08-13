@@ -10,11 +10,6 @@
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
 |avator|text|
-|postal_code|integer|
-|prefectures|string|
-|municipalities|string|
-|address|integer|
-|building_name|string|
 |phone_number|integer|
 |birthday|integer|
 |introduction|string|
@@ -22,6 +17,21 @@
 ### Association
 - has_many :items
 - has_many :comments
+
+
+## user_addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false|
+|postal_code|integer|
+|prefectures|string|
+|municipalities|string|
+|street_number|string|
+|building_name|string|
+
+### Association
+
 
 
 ## shipping_addressesテーブル
@@ -36,7 +46,7 @@
 |postal_code|integer|null: false|
 |prefectures|string|null: false|
 |municipalities|string|null: false|
-|address|integer|null: false|
+|street_number|string|null: false|
 |building_name|string|
 |phone_number|integer|
 
@@ -64,14 +74,12 @@
 
 ### Association
 - belongs_to :user
-- has_many :images
+- has_many :item_images
 - has_many :comments
-- has_many :l_categories, through: :items_l_categories
-- has_many :m_categories, through: :items_m_categories
-- has_many :s_categories, through: :items_s_categories
+- has_many :categories, through: :items_categories
 
 
-## imagesテーブル
+## item_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -95,36 +103,16 @@
 - belongs_to :item
 
 
-## l_categoriesテーブル
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestory_path|string|null: false|
+
 
 ### Association
-- has_many :brands, through: :l_categories_brands
-- has_many :m_categories, through: :l_categories_m_categories
-
-
-## m_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :l_categories, through: :l_categories_m_categories
-- has_many :s_categories, through: :m_categories_s_categories
-
-
-## s_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :m_categories, through: :m_categories_s_categories
+- has_many :brands, through: :categories_brands
 
 
 ## brandsテーブル
@@ -134,7 +122,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :l_categories, through: :l_categories_brands
+- has_many :categories, through: :categories_brands
 
 
 ## newsテーブル
@@ -147,73 +135,25 @@
 ### Association
 
 
-## items_l_categoriesテーブル
+## items_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
-|l_category|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
-- belongs_to :l_category
+- belongs_to :category
 
 
-## items_m_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item|references|null: false, foreign_key: true|
-|m_category|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :m_category
-
-
-## items_s_categoriesテーブル
+## categories_brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|item|references|null: false, foreign_key: true|
-|s_category|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :s_category
-
-
-## l_categories_brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|l_category|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :large_category
+- belongs_to :category
 - belongs_to :brand
-
-
-## l_categories_m_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|l_category|references|null: false, foreign_key: true|
-|m_category|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :l_category
-- belongs_to :m_category
-
-
-## m_categories_s_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|m_category|references|null: false, foreign_key: true|
-|s_category|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :m_category
-- belongs_to :s_category
