@@ -1,0 +1,10 @@
+%h2 電話番号認証
+= form_for @user, url: step4_signup_index_path, method: :get, html: {class: 'forth-wrapper__box'} do |f|
+  -# = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :"認証番号"
+    %br/
+    = f.text_field :phone_number, autofocus: true, placeholder: "携帯電話の番号を入力"
+  .actions
+    = f.submit "認証して完了"
+-# = render "devise/shared/links"
