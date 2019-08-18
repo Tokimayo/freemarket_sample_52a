@@ -1,0 +1,8 @@
+@mixin devise-btn($color,$bgc) {
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 30px;
+  border: 1px solid $color;
+  background: $bgc;
+  border-radius: 4px;
+}

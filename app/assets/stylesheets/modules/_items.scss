@@ -1,0 +1,43 @@
+.wrapper{
+  font-family: $baseFont;
+  .main {
+    .contents{
+      min-height: 455px;
+      padding: 40px 0;
+      background: $backGrayColor;
+      .contents-head {
+        font-size: 28px;
+        text-align: center;
+      }
+      .contents-body{
+        @include clearfix();
+        width: 940px;
+        margin: 26px auto;
+        .item-box {
+          float: left;
+          display: block;
+          text-decoration: none;
+          color: $fontBlackColor;
+          background: $baseWhiteColor;
+          margin: 0 0 0 20px;
+          width: 213px;
+          &__body {
+            padding: 16px;
+            &--name {
+              overflow: hidden;
+              position: relative;
+              font-weight: 400;
+              height: 3em;
+              line-height: 1.5;
+            }
+          &--price {
+            font-size: 17px;
+            font-weight: 600;
+          }
+          }
+        }
+      }
+    
+    }
+  }
+}
