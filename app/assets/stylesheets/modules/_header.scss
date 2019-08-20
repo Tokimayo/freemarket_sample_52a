@@ -18,22 +18,17 @@
           background: $backGrayColor;
           border-radius: 4px;
           padding:0 42px 0 10px;
-          width: 100%;
+          width: 780px;
           height: 40px;
           border: 1px solid $iconGrayColor;
           transition: all ease-out .3s;
           line-height: 1.5;
           font-size: 16px;
           &__btn{
-            position: absolute;
-            top: 0;
-            right: 0;
-            border: none;
-            background: none;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            font-size: 14px;
+            @include form-btn(0);
+          }
+          &__icon{
+            @include form-btn(14px);
           }
         }
       }
