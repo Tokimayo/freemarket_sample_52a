@@ -44,6 +44,9 @@
           @include link_to($fontBlackColor);
           font-weight: bold;
           padding-right: 11px;
+          &:hover{
+            color: $iconBlueColor;
+          }          
           &--icon {
             @include icon(); 
           }
@@ -52,6 +55,9 @@
           @include link_to($fontBlackColor);
           font-weight: bold;
           padding-left: 11px;
+          &:hover{
+            color: $iconBlueColor;
+          }          
           &--icon {
             @include icon(); 
           }
@@ -89,6 +95,11 @@
           @include link_to($iconBlueColor);
           @include devise-btn($iconBlueColor,$baseWhiteColor);
           margin-left: 10px;
+          &:hover{
+            color: $baseWhiteColor;
+            background: $iconBlueColor;
+          }
+          
         }        
       }
     }
