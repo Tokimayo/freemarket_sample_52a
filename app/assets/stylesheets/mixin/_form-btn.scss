@@ -1,0 +1,11 @@
+@mixin form_btn($top) {
+  position: absolute;
+  top: $top;
+  right: 0;
+  border: none;
+  background: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 14px;
+}
