@@ -67,35 +67,6 @@
         float: right;
         height: 44px;
         line-height: 32px;
-        // &__notice {
-          // @include link_to($fontBlackColor);
-        //   padding: 0 14px;
-        // &:hover{
-        //   color: $iconBlueColor;
-        // }          
-        //   &--icon {
-        //     font-size: 20px;
-        //     color: $iconGrayColor;
-        // &:hover{
-        //   color: $iconBlueColor;
-        // }          
-        //   }
-        // }
-        // &__account {
-          // @include link_to($fontBlackColor);
-        //   padding: 0 14px;
-        //   span {
-        //     margin-left: 10px;
-        // &:hover{
-        //   color: $iconBlueColor;
-        // }          
-        //   }
-        //   .avatar {
-        //     overflow: hidden;
-        //     border-radius: 50%;
-        //     vertical-align: middle;
-        //   }
-        // }
         &__new {
           @include link_to($baseWhiteColor);
           @include devise-btn($iconRedColor,$iconRedColor);
