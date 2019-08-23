@@ -2,7 +2,7 @@ class SignupController < ApplicationController
 
   before_action :validates_step1, only: :step2
   before_action :validates_step2, only: :step3
-  before_action :validates_step4, only: :step5
+  before_action :validates_step4, only: :create
 
   def step1
     @user = User.new
@@ -102,7 +102,8 @@ class SignupController < ApplicationController
     @user.build_shipping_address(session[:shipping_address_attributes])
     if @user.save
       session[:id] = @user.id
-      redirect_to done_signup_index_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to new_card_path
     else
       render '/signup/done'
     end
@@ -140,5 +141,4 @@ private
       ]
     )
   end
-
 end

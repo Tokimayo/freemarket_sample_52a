@@ -69,3 +69,5 @@ gem 'erb2haml'
 gem 'haml-rails'
 gem 'jp_prefecture'
 gem 'pry-rails'
+gem 'payjp'
+gem "jquery-rails"
