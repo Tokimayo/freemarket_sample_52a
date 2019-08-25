@@ -17,9 +17,8 @@
 ### Association
 - has_one :user_addresses, dependent: destroy
 - has_one :shipping_addresses, dependent: destroy
-- has_many :items, dependent: destroy
+- has_many :items, dependent: destroy, through: :receipt
 - has_many :comments, dependent: destroy
-
 
 ## user_addressesテーブル
 
@@ -70,12 +69,9 @@
 |delivery_source_area|string|null: false|
 |estimated_shipping_date|string|null: false|
 |evaluation|string|null: false|
-|sold_out_flg|boolean|null: false|
-|exhibitor_user_id|integer|null: false|
-|buyer_user_id|integer|
 
 ### Association
-- belongs_to :user
+- has_many :users, through: :receipt
 - has_many :item_images, dependent: destroy
 - has_many :comments, dependent: destroy
 - has_many :categories, through: :items_categories
@@ -89,6 +85,22 @@
 |image|text|null: false|
 
 ### Association
+- belongs_to :item
+
+
+## receiptテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item|references|null: false, foreign_key: true|
+|item_status|string|null: false|
+|user|references|null: false, foreign_key: true|
+|buyer_user_id|integer|
+|purchase_date|datetime|
+
+
+### Association
+- belongs_to :user
 - belongs_to :item
 
 
