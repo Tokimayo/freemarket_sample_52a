@@ -48,7 +48,6 @@ class SignupController < ApplicationController
       email: session[:email],
       password: session[:password],
       password_confirmation: session[:password_confirmation]
-      # birthday: session[:birthday]
     )
     render '/signup/step1' unless @user.valid?(:validates_step1)
   end
@@ -125,7 +124,6 @@ private
       :"birthday(2i)",
       :"birthday(3i)",
       :phone_number,
-
       shipping_address_attributes: [
         :id,
         :first_name,
