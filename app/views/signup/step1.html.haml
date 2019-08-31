@@ -1,6 +1,10 @@
 %h2 会員情報入力
 = form_for @user, url: step2_signup_index_path, method: :get, html: {class: 'first-main__box'} do |f|
-  -# = render "devise/shared/error_messages", resource: resource
+  - if @user.errors.any?
+    %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+    %ul
+      - @user.errors.full_messages.each do |message|
+        %li= message
   .field
     = f.label :"ニックネーム"
     %br/

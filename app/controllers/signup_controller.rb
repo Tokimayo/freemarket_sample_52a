@@ -21,10 +21,6 @@ class SignupController < ApplicationController
     @user.build_shipping_address
   end
 
-  def step5
-    @user = User.new
-  end 
-
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
   end

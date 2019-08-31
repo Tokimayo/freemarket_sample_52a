@@ -8,11 +8,6 @@ class User < ApplicationRecord
   has_one :shipping_address
   accepts_nested_attributes_for :shipping_address
 
-  # has_one :user_addresses, dependent: destroy
-  # has_many :items, dependent: destroy
-  # has_many :comments, dependent: destroy
-
-
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :nickname,                presence: true, length: {maximum: 20}, on: :validates_step1
