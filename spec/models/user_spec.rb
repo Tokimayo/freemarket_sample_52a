@@ -15,7 +15,7 @@ describe User do
     end
 
     it "is invalid without a nickname" do
-      user = build(:user, nickname: nil)
+      user = build(:user, nickname: "")
       user.valid?
       expect(user.errors[:nickname]).to include("can't be blank")
     end
@@ -88,7 +88,7 @@ describe User do
     end
 
     it "is invalid with a phone_number that has more than 11 characters " do
-      user = build(:user, phone_number: "00000000000")
+      user = build(:user, phone_number: "080123456789")
       user.valid?
       expect(user.errors[:phone_number][0]).to include("is too long")
     end
