@@ -43,7 +43,10 @@ class SignupController < ApplicationController
     end
 
     user_validate_and_create_instance
-    render '/signup/step1' unless @user.valid?()
+    if !@user.valid?()
+      @user.birthday = nil
+      render '/signup/step1'
+    end 
   end
 
   def validates_step2
