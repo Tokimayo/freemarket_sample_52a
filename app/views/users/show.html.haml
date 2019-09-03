@@ -1,0 +1,68 @@
+.default-container 
+  = render 'shared/header'
+  .bread-crumbs
+    %ul
+      %li
+        %span 
+          メルカリ 
+      .icon-arrow-right
+      %li
+        %span
+          マイページ
+  .main 
+    .main-contents
+      .main-contents-usericon
+        = link_to "", class: "usericon-link" do  
+          %figure
+            = image_tag 'acount.png', alt: '', height: '60', width: '60'
+          %h2{:class => 'username'} Masafumi Yoshimura
+          .mypage-number
+            .evaluation 
+              評価
+              %span{:class => 'bold'} 0
+            .items-number 
+              出品数
+              %span{:class => 'bold'} 0          
+      .main-contents-tabs 
+        %ul{:class => 'tabs'} 
+          %li
+            .notification 
+              お知らせ
+              %span{:class => 'notification-number'} 19
+          %li
+            .to-do-list 
+              やることリスト                
+        .tabs-list 
+          %ul{:class => 'tabs-list-notification'}
+            %li
+              .tabs-list-contents
+                %figure
+                  = image_tag '//static.mercdn.net/images/mercari_profile.png', alt: '', height: '60', width: '60'
+                .tabs-list-contents-body
+                  .tabs-list-contents-body-message
+                    事務局から個別メッセージ「Facebookログイン通知」
+                  %time
+                    %i{:class => 'icon-time'}  
+                      %span
+                        50分前 
+                %i{:class => 'icon-arrow-right'}
+            %li
+              .tabs-list-contents
+                %figure
+                  = image_tag '//static.mercdn.net/images/mercari_profile.png', alt: '', height: '60', width: '60'
+                .tabs-list-contents-body
+                  .tabs-list-contents-body-message
+                    事務局から個別メッセージ「Facebookログイン通知」
+                  %time
+                    %i{:class => 'icon-time'}  
+                      %span
+                        50分前 
+                %i{:class => 'icon-arrow-right'}
+            %li
+              一覧をみる  
+          %ul
+            %li    
+              現在やることはありません        
+    .side-contents   
+  = render 'shared/footer'
+  = render 'shared/sell-btn'
