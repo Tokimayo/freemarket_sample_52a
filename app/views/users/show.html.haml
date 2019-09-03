@@ -1,13 +1,14 @@
 .default-container 
   = render 'shared/header'
-  .bread-crumbs
+  %nav.bread-crumbs
     %ul
-      %li
-        %span 
-          メルカリ 
-      .icon-arrow-right
-      %li
-        %span
+      %li{ itemscope: true, itemtype: 'http://data-vocabulary.org/Breadcrumb'}
+        = link_to "https://www.mercari.com/jp/", class: "" do 
+          %span{ itemprop: 'title'} 
+            メルカリ 
+        .icon-arrow-right
+      %li{ itemscope: true, itemtype: 'http://data-vocabulary.org/Breadcrumb'} 
+        %span{ itemscope: 'title'}
           マイページ
   .main 
     .main-contents
