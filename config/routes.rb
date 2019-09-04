@@ -1,3 +1,30 @@
 Rails.application.routes.draw do
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4'
+      get 'done'
+    end
+  end
+  
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'items#index'
 end
+

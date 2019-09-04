@@ -1,0 +1,18 @@
+%h2 支払い方法
+= form_for @user, url: signup_index_path, method: :post, html: {class: 'done-wrapper__box'} do |f|
+  -# = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :"カード番号"
+    %br/
+    = f.text_field :###, autofocus: true, placeholder: "半角数字のみ"
+  .field
+    = f.label :"有効期限"
+    %br/
+    = f.number_field :###, autofocus: true
+    = f.number_field :###, autofocus: true
+  .field
+    = f.label :"セキュリティコード"
+    %br/
+    = f.text_field :###, autofocus: true, placeholder: "カード背面4桁もしくは3桁の番号"
+  .actions
+    = f.submit "次へ進む"

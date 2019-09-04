@@ -10,7 +10,7 @@
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
 |avator|text|
-|phone_number|integer|
+|phone_number|string|
 |birthday|integer|
 |introduction|string|
 
@@ -49,7 +49,7 @@
 |municipalities|string|null: false|
 |street_number|string|null: false|
 |building_name|string|
-|phone_number|integer|
+|phone_number|string|
 
 ### Association
 - belongs_to :user

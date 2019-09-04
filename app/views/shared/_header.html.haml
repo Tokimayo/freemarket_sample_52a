@@ -16,7 +16,11 @@
           = fa_icon 'tag', class: "menu-left__brands--icon"
           %spanブランドから探す
       .menu-right
-        = link_to "", class: "menu-right__new" do
-          新規会員登録
-        = link_to "", class: "menu-right__login" do
-          ログイン
+        - if user_signed_in?
+          = link_to destroy_user_session_path, method: :delete, class: "menu-right__login" do 
+            ログアウト
+        - else
+          = link_to new_user_registration_path, class: "menu-right__new" do
+            新規会員登録
+          = link_to new_user_session_path, class: "menu-right__login" do
+            ログイン
