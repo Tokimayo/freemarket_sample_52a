@@ -6,7 +6,7 @@
         = link_to "https://www.mercari.com/jp/", class: "" do 
           %span{itemprop: 'title'} 
             メルカリ 
-        .icon-arrow-right
+        %i.icon-arrow-right
       %li{itemscope: true, itemtype: 'http://data-vocabulary.org/Breadcrumb'} 
         %span{itemscope: 'title'}
           マイページ
@@ -80,18 +80,18 @@
           %li
             =link_to "/jp/mypage/", class: "side-contents-nav-list-item" do 
               マイページ
-              .icon-arrow-right
+              %i.icon-arrow-right
         %h3{:class => 'side-contents-nav-head'} メルペイ
         %ul.side-contents-nav-list
           %li
             =link_to "", class: "side-contents-nav-list-item" do 
               売上・振込申請
-              .icon-arrow-right
+              %i.icon-arrow-right
         %h3{:class => 'side-contents-nav-head'} 設定
         %ul.side-contents-nav-list
           %li
             =link_to "", class: "side-contents-nav-list-item" do 
               プロフィール
-              .icon-arrow-right                                       　   
+              %i.icon-arrow-right                                       　   
   = render 'shared/footer'
   = render 'shared/sell-btn'

@@ -4,24 +4,22 @@
   padding: 0;
   font-size: inherit;
   line-height: inherit;
-}
-
-*, ::before{
-  border-style: solid;
-  border-width: 0;
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-}
-
-*, ::after{
-  border-style: solid;
-  border-width: 0;
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
+  &::before{
+    border-style: solid;
+    border-width: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
+  &::after{
+    border-style: solid;
+    border-width: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
 }
 
 div{
@@ -57,4 +55,93 @@ html{
   background-color: #b3d4fc;
   color: #fff;
   text-shadow: none;
+}
+
+ul{
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+li{
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+a{
+  color: #0099e8;
+  text-decoration: none;
+  touch-action: manipulation;
+  &:-webkit-any-link{
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.nav{
+  display: block;
+  ul{
+    list-style: none;
+  }
+}
+
+.bread-crumbs{
+  position: relative;
+  border-top: 1px solid #eee;
+  background: #f5f5f5;
+  -webkit-box-shadow: 0 3px 3px 0, rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0, rgba(0,0,0,0.16);
+  background: #fff; 
+  &::after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff); 
+  }
+  ul{
+    padding: 16px;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; 
+  } 
+    li{
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      a{
+        color: #333;
+      }
+      .icon-arrow-right{
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+        i{
+         display: inline-block;
+         font-family: 'icon-font';
+         speak: none;
+         font-size: normal;
+         font-weight: 400;
+         font-variant: normal;
+         text-transform: none;
+         line-height: 1;
+         -webkit-font-smoothing: antialiased;
+        }
+        &::before{
+          content: '\e005';
+        }
+      }
+      &:last-child{
+        font-weight: 600;
+      }
+    }
 }
