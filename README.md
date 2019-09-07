@@ -126,7 +126,7 @@
 |------|----|-------|
 |name|string|null: false|
 |size_flag|integer||
-|ancestory|string||
+|ancestry|string||
 
 
 ### Association
