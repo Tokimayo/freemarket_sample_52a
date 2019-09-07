@@ -61,8 +61,9 @@
 |name|string|null: false, index: true|
 |description|string|null: false|
 |price|integer|null: false|
-|brand_id|integer|
-|size|string|
+|brand|references|foreign_key: true|
+|size|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 |condition|string|null: false|
 |shipping_charge|string|
 |delivery_method|string|null: false|
@@ -72,12 +73,14 @@
 
 ### Association
 - has_many :users, through: :receipt
-- has_many :item_images, dependent: destroy
+- has_many :images, dependent: destroy
 - has_many :comments, dependent: destroy
-- has_many :categories, through: :items_categories
+- belongs_to :category
+- belongs_to :size
+- belongs_to :brand
 
 
-## item_imagesテーブル
+## imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -122,12 +125,25 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestory_path|string|null: false|
+|size_flag|integer||
+|ancestory|string||
 
 
 ### Association
+- belongs_to :size
 - has_many :brands, through: :categories_brands
+- has_many :items
+- has_ancestry
 
+## sizesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|category_flag|integer||
+### Association
+- has_many :item
+- has_many :categories
 
 ## brandsテーブル
 
@@ -136,6 +152,7 @@
 |name|string|null: false|
 
 ### Association
+- has_many :items
 - has_many :categories, through: :categories_brands
 
 
@@ -147,18 +164,6 @@
 |body|text|null: false|
 
 ### Association
-
-
-## items_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item|references|null: false, foreign_key: true|
-|category|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :category
 
 
 ## categories_brandsテーブル
