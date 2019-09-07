@@ -68,7 +68,7 @@
 |shipping_charge|string|
 |delivery_method|string|null: false|
 |delivery_source_area|string|null: false|
-|estimated_shipping_date|string|null: false|
+|delivery_days|string|null: false|
 |evaluation|string|null: false|
 
 ### Association
