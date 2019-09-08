@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_142002) do
     t.string "municipalities", null: false
     t.string "street_number", null: false
     t.string "building_name"
-    t.string "phone_number", limit: 11
+    t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_142002) do
     t.string "first_name_kana", null: false
     t.string "family_name_kana", null: false
     t.text "avator"
-    t.string "phone_number", limit: 11
-    t.string "birthday", limit: 11
+    t.integer "phone_number"
+    t.integer "birthday"
     t.string "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
