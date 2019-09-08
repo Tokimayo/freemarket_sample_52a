@@ -70,6 +70,9 @@
 |delivery_source_area|string|null: false|
 |delivery_days|string|null: false|
 |evaluation|string|null: false|
+|user|references|null: false, foreign_key: true|
+|item_status|integer|null: false|
+
 
 ### Association
 - has_many :users, through: :receipt
@@ -96,9 +99,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
-|item_status|string|null: false|
-|user|references|null: false, foreign_key: true|
-|buyer_user_id|integer|
+|buyer|references|null: false, foreign_key: true|
 |purchase_date|datetime|
 
 
