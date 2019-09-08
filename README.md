@@ -142,7 +142,7 @@
 |name|string|null: false|
 |category_flag|integer||
 ### Association
-- has_many :item
+- has_many :items
 - has_many :categories
 
 ## brandsテーブル
