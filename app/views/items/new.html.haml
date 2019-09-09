@@ -81,6 +81,7 @@
             %span.required_mark
               必須
           .shipping__area--form
+            = f.select :delivery_source_area, Item.delivery_source_areas.keys, {prompt: '選択してください'}
         .shipping__days
           .shipping__days--title
             = f.label :name, "発送までの日数"
