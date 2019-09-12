@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :size
   belongs_to :brand
+  accepts_nested_attributes_for :images
 
   enum delivery_source_area: {
     "--未選択--":0,北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
