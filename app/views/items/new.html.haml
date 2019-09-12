@@ -38,13 +38,10 @@
             %span.required_mark
               必須
           .data__category--form-l
+            = f.collection_select :category_id, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
           .data__category--form-m
           .data__category--form-s
         .data__size
-          .data__size--title
-            = f.label :name, "サイズ"
-            %span.required_mark
-              必須
           .data__size--form
         .data__brand
           .data__brand--title
@@ -52,6 +49,7 @@
             %span.required_mark
               任意
           .data__brand--form
+            = f.text_field :name, placeholder: "例）シャネル"
         .data__state
           .data__state--title
             = f.label :name, "商品の状態"
