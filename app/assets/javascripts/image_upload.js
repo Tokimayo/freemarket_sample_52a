@@ -19,7 +19,7 @@ $(function () {
   $("#item_images_attributes_0_image").change(function (e) {
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function (file) {
+    reader.onload = (function () {
       return function(e) {
         $("#img1").attr("src", e.target.result);
       };
@@ -36,7 +36,7 @@ $(function () {
   $("#item_images_attributes_1_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img2").attr("src", e.target.result);
       };
@@ -54,7 +54,7 @@ $(function () {
   $("#item_images_attributes_2_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img3").attr("src", e.target.result);
       };
@@ -72,7 +72,7 @@ $(function () {
   $("#item_images_attributes_3_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img4").attr("src", e.target.result);
       };
@@ -90,7 +90,7 @@ $(function () {
   $("#item_images_attributes_4_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img5").attr("src", e.target.result);
       };
@@ -108,7 +108,7 @@ $(function () {
   $("#item_images_attributes_5_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img6").attr("src", e.target.result);
       };
@@ -126,7 +126,7 @@ $(function () {
   $("#item_images_attributes_6_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img7").attr("src", e.target.result);
       };
@@ -144,7 +144,7 @@ $(function () {
   $("#item_images_attributes_7_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img8").attr("src", e.target.result);
       };
@@ -162,7 +162,7 @@ $(function () {
   $("#item_images_attributes_8_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img9").attr("src", e.target.result);
       };
@@ -180,7 +180,7 @@ $(function () {
   $("#item_images_attributes_9_image").change(function(e){
     var file = e.target.files[0];
     var reader = new FileReader();
-    reader.onload = (function(file){
+    reader.onload = (function(){
       return function(e){
         $("#img10").attr("src", e.target.result);
       };
