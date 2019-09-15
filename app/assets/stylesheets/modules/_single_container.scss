@@ -1,0 +1,102 @@
+.single-container {
+  font-family: $baseFont;
+  background-color: $backGrayColor;
+  text-align: center;
+  .single-main {
+    display: inline-block;
+    background-color: $baseWhiteColor;
+    width: 52%;
+    text-align: center;
+    .single-title {
+      padding: 32px;
+      font-size: 22px;
+      border-bottom: thin solid $blockBorder;
+      & p {
+        font-size: 14px;
+        margin: 15px 0 -25px; 
+      }
+      & h2{
+        font-weight: bold;
+      }
+    }
+    .form{
+      width: 350px;
+      display: inline-block;
+      padding: 15px 0;
+      .field{
+        display: inline-block;
+        margin: 10px 0;
+        .label-wrapper{
+          display: block;
+          margin: 10px 0;
+          text-align: left;
+        }
+        & input{
+          width: 320px;
+          height: 35px;
+          padding: 5px 15px;
+          border: thin solid $iconGrayColor;
+          border-radius: 5px;
+          &:focus{
+            outline:0;
+            border-color:$iconBlueColor;
+          }
+        }
+        .input__name{
+          width: 140px;
+          &--block{
+            width: 320px;
+            margin-bottom: 10px; 
+          }
+        }
+      }
+      .actions{
+        margin: 30px 0 50px;
+        font-size: 14px;
+        & input[type=submit] {
+          color: $baseWhiteColor;
+          background-color: $iconRedColor;
+          border: none;
+          height: 45px;
+          width: 100%;
+          border-radius: 0px;
+          &:focus{
+            outline:0;
+            border-color:$iconBlueColor;
+          }
+        }
+      }
+      .single-text{
+        font-size:14px;
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+        &.negative-text{
+          color: $negativeGrayColor;
+        }
+        &.link-text{
+          text-decoration: none;
+          color: $iconBlueColor;
+          margin:10px 0;
+          &.inline{
+            display: inline
+          }
+        }
+        &.right-text{
+          text-align: right;
+        }
+        &.center-text{
+          margin: 30px 0 0 0;
+          text-align: center;
+        }
+        &.input-under__text{
+          margin-top:-5px; 
+        }
+      }
+    }
+  }
+}
+
+.input-top__text{
+  margin-bottom:-5px; 
+}

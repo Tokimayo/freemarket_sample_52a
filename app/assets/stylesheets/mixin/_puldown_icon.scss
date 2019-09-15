@@ -1,0 +1,6 @@
+@mixin puldown_icon() {
+  position: absolute;
+  color: $negativeGrayColor;
+  font-size: 30px;
+  display: inline-block;
+}

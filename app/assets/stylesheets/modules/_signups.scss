@@ -1,0 +1,80 @@
+.single-main{
+  .input__top--text{
+    margin: 60px 0 -40px;
+  }
+  & label{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .Required__label{
+    background-color: $iconRedColor;
+    color: $baseWhiteColor;
+    font-size:12px;
+    padding: 4px;
+    border-radius: 10%;
+    margin:5px;
+    &.any{
+      background-color: $iconGrayColor;
+    }
+  }
+  .identification{
+    text-align: left;
+    display: inline-block;
+    margin: 5px;
+    width: 100%;
+    & p{
+      font-size: 14px;
+    }
+  }
+  .another-form__box--wrapper{
+    text-align: left;
+    display: inline-block;
+    margin: 5px;
+    width: 100%;
+    & label{
+      font-size: 15px;
+    }
+    & p{
+      font-size: 14px;
+    }
+  }
+  .form_under__link-text{
+    margin: 20px 0 30px;
+  }
+  .card_icon--wrapper{
+    display: inline-block;
+    text-align: left;
+    .card_icon{
+      width: 40px;
+      border: thin solid $blockBorder;
+      margin-top:5px;
+    }
+  }
+}
+.another-form__box{
+  border-top: thin solid $blockBorder;
+  border-bottom: thin solid $blockBorder;
+  margin-top: 20px;
+  padding: 40px 200px 50px;
+  display: block;
+  .actions{
+    margin: 30px 0 10px;
+    font-size: 14px;
+    & input[type=submit] {
+      color: $baseWhiteColor;
+      background-color: $iconRedColor;
+      border: none;
+      height: 45px;
+      width: 100%;
+      border-radius: 0px;
+      &:focus{
+        outline:0;
+        border-color:$iconBlueColor;
+      }
+    }
+  }
+}
+.footer__app--img{
+  width: 100%;
+}

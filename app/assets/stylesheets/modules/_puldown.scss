@@ -1,0 +1,69 @@
+.select-wrap{
+  position: relative;
+  text-align: left;
+  width: 350px;
+  & select{
+    padding: 10px;
+    height: 50px;
+    border: thin solid $iconGrayColor;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+  }
+  .puldown__icon--year{
+    position: absolute;
+    top:5px;
+    left: 55px;
+    color: $negativeGrayColor;
+    font-size: 30px;
+    display: inline-block;
+  }
+  .puldown__icon--month{
+    @include puldown_icon();
+    top:5px;
+    left: 160px;
+  }
+  .puldown__icon--day{
+    @include puldown_icon();
+    top:5px;
+    left: 270px;
+  }
+  .puldown__icon{
+    @include puldown_icon();
+    top:8px;
+    left: 315px;
+  }
+  .step4-puldown__icon--month{
+    @include puldown_icon();
+    top:8px;
+    left: 100px;
+  }
+  .step4-puldown__icon--year{
+    @include puldown_icon();
+    top:8px;
+    left: 275px;
+  }
+  #user_shipping_address_attributes_prefectures{
+    margin-right:3px;
+    background-color: $baseWhiteColor;
+  }
+  .year{
+    @include puldown_birthday();
+  }
+  .month{
+    @include puldown_birthday();
+    margin-left: 5px;
+  }
+  .day{
+    @include puldown_birthday();
+    margin-left: 5px;
+  }
+  .card_deadline_input{
+    width: 130px;
+    background-color: $baseWhiteColor;
+  }
+  .select__label{
+    margin: 0 10px;
+  }
+}

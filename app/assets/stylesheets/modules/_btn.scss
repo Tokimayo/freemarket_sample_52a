@@ -1,0 +1,58 @@
+.btns__box{
+  display: inline-block;
+  text-align: center;
+  margin:0 0 20px;
+  .btn__basic{
+    margin: 20px 0;
+    padding: 15px;
+    width: 320px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    color: $baseWhiteColor;
+  }
+  .btn__radius{
+    border-radius: 4px;
+  }
+  .btn__mail {
+    background-color: $iconRedColor;
+    .menu-left__categories--icon {
+      font-size: 20px;
+      position: absolute;
+      top:14px;
+      left:20px;
+    }
+  }
+  .btn__facebook {
+    background-color: $iconDarkBlueColor;
+    .menu-left__categories--icon {
+      font-size: 32px;
+      position: absolute;
+      top:10px;
+      left:15px;
+    }
+  }
+  .btn__google {
+    background-color: $baseWhiteColor;
+    border: thin solid $fontBlackColor;
+    color: $fontBlackColor;
+    .menu-left__categories--icon {
+      font-size: 20px;
+      position: absolute;
+      top:14px;
+      left:20px;
+    }
+  }
+}
+
+.btn__start {
+  font-size: 14px;
+  color: $baseWhiteColor;
+  background-color: $iconRedColor;
+  text-decoration: none;
+  margin: 30px 0 5px 0;
+  display: inline-block;
+  line-height: 40px;
+  width: 350px;
+}
