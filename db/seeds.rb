@@ -1,3 +1,11 @@
+Brand.create(name: "シャネル")
+Brand.create(name: "ナイキ")
+Brand.create(name: "ルイ ヴィトン")
+Brand.create(name: "シュプリーム")
+Brand.create(name: "アディダス")
+Brand.create(name: "アー ヴェ ヴェ")
+Brand.create(name: "アーカー")
+
 Size.create(name: "XXS以下", category_flag: 1)
 Size.create(name: "XS(SS)", category_flag: 1)
 Size.create(name: "S", category_flag: 1)
