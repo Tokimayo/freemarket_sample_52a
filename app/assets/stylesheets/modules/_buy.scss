@@ -1,0 +1,112 @@
+.single-container{
+  .single-main{
+    .single-title{
+      &__buy{
+        background-color: #fff6de;
+        font-size: 17px;
+        .single-title__buy--label{
+          display: inline-block;
+          width: 207px;
+          position: relative;
+          color: $iconRedColor;
+          text-align: left;
+          .title__icon--buy{
+            font-weight: 100;
+            font-size: 35px;
+          }
+          & label{
+            position: absolute;
+            top:3px;
+            left:37px;
+          }
+        }
+        & p{
+          margin: 0;
+        }
+      }
+    }
+    .form{
+      .buy__img--box{
+        position: relative;
+        text-align: left;
+        width: 350px;
+        &--done{
+          text-align: center;
+          & label{
+            margin-top: -10px;
+            font-size: 13px;
+            font-weight: bold;
+          }
+        }
+        .buy__img{
+          width: 80px;
+        }
+        .buy__label{
+          position: absolute;
+          top: 0;
+          left: 95px;
+          font-weight: bold;
+        }
+      }
+      .buy__price{
+        margin: 15px 0;
+        font-size: 23px;
+       & span{
+        font-size: 14px;
+        font-weight: normal;
+       }
+      }
+      .actions{
+        margin: 0 0 25px;
+        .actions__link--point{
+          margin: 0;
+          color: $fontBlackColor;
+          background-color: $iconGrayColor;
+          text-decoration: none;
+          width: 100%;
+          padding: 15px 0;
+          border-radius: 0px;
+          display: inline-block;
+        }
+      }
+      .buy__price--total{
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px 0;
+        text-align: left;
+        position: relative;
+        & span{
+          font-size: 27px;
+          font-weight: bold;
+          position: absolute;
+          top:-3px;
+          right:0;
+        }
+      }
+      .hyouka_all_icon{
+        width: 200px;
+      }
+    }
+    .another-form__box{
+      width: 351px;
+      padding: 30px 200px;
+      text-align: left;
+      border-top: thin solid $blockBorder;
+      &--center-text{
+        text-align: center;
+      }
+      .single-text{
+        & p{
+          margin: 2px 0;
+          font-size: 13px;
+        }
+        .card_icon{
+          width: 70px;
+        }
+      }
+      .single-text.center-text{
+        margin: 0;
+      }
+    }
+  }
+}

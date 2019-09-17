@@ -1,0 +1,146 @@
+.wrapper
+  = render 'shared/header'
+  .single-container.item-detail__container
+    %main.single-main
+      = form_for "", method: :get, html: {class: 'form'} do |f|
+        %h2 商品名
+        .item-detail__main-box
+          .item-detail__img
+          .item-detail__info-box
+            %ul
+              %li
+                %span.category
+                  出品名
+                %span.content
+                  ユーザー名
+                  = fa_icon 'grin', class: "rvaluation__icon--good"
+                  100
+                  = fa_icon 'history', class: "rvaluation__icon--nomal"
+                  100
+                  = fa_icon 'history', class: "rvaluation__icon--bad"
+                  100
+              %li
+                %span.category
+                  カテゴリー
+                %span.content
+                  家電・スマホ・カメラ<br>
+                  >スマートフォン/携帯電話<br>
+                  >バッテリー/充電器
+              %li
+                %span.category
+                  ブランド
+                %span.content
+                  アップル
+              %li
+                %span.category
+                  商品の状態
+                %span.content
+                  新品、未使用
+              %li
+                %span.category
+                  配送料の負担
+                %span.content
+                  送料込み(出品者負担)
+              %li
+                %span.category
+                  配送の方法
+                %span.content
+                  普通郵便(提携、定形外)
+              %li
+                %span.category
+                  配送元地域
+                %span.content
+                  北海道
+              %li
+                %span.category
+                  発送日の目安
+                %span.content
+                  1~2日で発送
+          .item-detail__price-box
+            ¥1,980
+            %span.tax
+              (税込)
+            %span.send__fee
+              送料込み
+          = f.submit "購入画面に進む", {class: "buy__btn"}
+          .item-detail__detail-comment
+            詳細な商品の説明
+          .good__btn
+            = fa_icon 'history', class: "good__btn--icon"
+            いいね!
+            %span
+              0
+          .bad-report__btn
+            = fa_icon 'history', class: "bad-report__btn--icon"
+            不適切な商品の報告
+          .single-text.link-text.right-text
+            = fa_icon 'history', class: "safe-link__btn--icon"
+            あんしん・あんぜんへの取り組み
+    %main.single-main
+      = form_for "", method: :get, html: {class: 'form'} do |f|
+        .comment__attention-box
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area "", {class: ''}
+        = f.submit "コメントする", {class: "comment__btn"}
+    .single-text.link-text
+      %p <前の商品
+    .single-text.link-text
+      %p 後の商品>
+    %main.single-main
+      = fa_icon 'history', class: "facebook__icon--buy"
+      = fa_icon 'history', class: "twitter__icon--buy"
+      = fa_icon 'history', class: "pinterest__icon--buy"
+    .main
+      .contents
+        .contents-head
+          ユーザー名さんのその他の商品
+        .contents-body
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+      .contents
+        .contents-head
+          カテゴリー小(カテゴリー大)のその他の商品
+        .contents-body
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+    %p.pankuzu
+      メルカリ > 商品名
+    = render 'shared/footer'

@@ -1,0 +1,43 @@
+.single-container
+  = render 'shared/header_single'
+  %main.single-main
+    .single-title.single-title__buy
+      .single-title__buy--label
+        = fa_icon 'history', class: "title__icon--buy"
+        %label 発送をお待ちください
+      %p 出品者からの発送通知をお待ちください
+    .single-title
+      %h2 購入が完了しました
+    = form_for "", method: :get, html: {class: 'form'} do |f|
+      .field
+        .buy__img--box.buy__img--box--done
+          = image_tag 'acount.png', alt: 'buy__img', class:"buy__img"
+        .buy__img--box.buy__img--box--done
+          = f.label :"購入商品名", class:"buy__label--done"
+    .form.another-form__box.another-form__box--center-text
+      .field
+        %p.buy__price.buy__price-done
+          ¥799
+          %span 送料込み
+    .form.another-form__box
+      .single-text
+        %b 配送先
+        %p 〒 000-0000
+        %p 東京都○○区○○0-0-0
+        %p 鈴木 太郎
+    .form.another-form__box
+      .single-text
+        %b 支払い方法
+        %p ※※※※※※※※※※※※0000
+        %p 00/00
+        = image_tag 'visa.png', alt: 'card_icon', class:"card_icon"
+    .form.another-form__box.another-form__box--center-text
+      .single-text.center-text
+        発送通知後の流れ
+      = image_tag 'hyouka.png', alt: 'hyouka_all_icon', class:"card_icon"
+      .single-text.center-text
+        商品を受け取ったら<br>
+        出品者の評価をしましょう。<br>
+        購入代金が出品者に振り込まれます。<br>
+        評価後に取引は完了です。
+  = render 'shared/footer_single'
