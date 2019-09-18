@@ -33,7 +33,7 @@
             %span.required_mark
               必須
           .item__name--form
-            = f.text_field :name, placeholder: "商品名（必須40文字まで）"
+            = f.text_field :name, placeholder: "商品名（必須40文字まで）", autocomplete: 'off'
             - if @item.errors.full_messages_for(:name).any?
               .alert
                 入力してください
@@ -70,7 +70,7 @@
               %span.required_mark
                 任意
             .data__brand--form
-              = f.text_field :brand_id, placeholder: "例）シャネル", value: nil
+              = f.text_field :brand_id, placeholder: "例）シャネル", value: nil, autocomplete: 'off'
               .data__brand--form--seggestions
           .data__state
             .data__state--title
@@ -131,7 +131,7 @@
                 必須
             .sale__price--form
               ¥
-              = f.text_field :price, val:"", placeholder: "例）300", class: "price_form"
+              = f.text_field :price, val:"", placeholder: "例）300", class: "price_form", autocomplete: 'off'
             - if @item.errors.full_messages_for(:price).any?
               .alert
                 300以上9999999以下で入力してください
