@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create] do
     collection do
       get 'search'
+      get 'brand_suggestions'
     end
   end
 end
