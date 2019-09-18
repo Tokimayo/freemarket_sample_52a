@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_035939) do
+ActiveRecord::Schema.define(version: 2019_09_15_153231) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,13 +58,13 @@ ActiveRecord::Schema.define(version: 2019_09_10_035939) do
     t.string "description", null: false
     t.integer "price", null: false
     t.bigint "brand_id"
-    t.bigint "size_id", null: false
+    t.bigint "size_id"
     t.string "condition", null: false
     t.string "shipping_charge"
     t.string "delivery_method", null: false
     t.string "delivery_source_area", null: false
     t.string "delivery_days", null: false
-    t.string "evaluation", null: false
+    t.string "evaluation"
     t.bigint "user_id", null: false
     t.integer "item_status", null: false
     t.datetime "created_at", null: false
@@ -78,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_035939) do
 
   create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.bigint "buyer_id", null: false
+    t.bigint "buyer_id"
     t.datetime "purchase_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
