@@ -1,0 +1,6 @@
+@mixin login_btn($font-size, $top, $left) {
+  font-size: $font-size;
+  position: absolute;
+  top: $top;
+  left: $left;
+}

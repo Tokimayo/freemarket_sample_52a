@@ -47,14 +47,14 @@
     text-align: left;
     .card_icon{
       width: 40px;
-      border: thin solid $blockBorder;
+      border: $blockBorder;
       margin-top:5px;
     }
   }
 }
 .another-form__box{
-  border-top: thin solid $blockBorder;
-  border-bottom: thin solid $blockBorder;
+  border-top: $blockBorder;
+  border-bottom: $blockBorder;
   margin-top: 20px;
   padding: 40px 200px 50px;
   display: block;

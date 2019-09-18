@@ -5,8 +5,9 @@
 @import "./mixin/form-btn";
 @import "./mixin/devise-btn";
 @import "./mixin/step_border";
-@import "./mixin/puldown_icon";
-@import "./mixin/puldown_birthday";
+@import "./mixin/pulldown_icon";
+@import "./mixin/pulldown_birthday";
+@import "./mixin/login_btn";
 @import "./modules/header";
 @import "./modules/header_single";
 @import "./modules/header_signup";
@@ -14,7 +15,7 @@
 @import "./modules/footer";
 @import "./modules/footer_single";
 @import "./modules/btn";
-@import "./modules/puldown";
+@import "./modules/pulldown";
 @import "./modules/single_container";
 @import "./modules/signups";
 @import "./modules/login";

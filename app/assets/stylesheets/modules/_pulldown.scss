@@ -11,7 +11,7 @@
     appearance: none;
     width: 100%;
   }
-  .puldown__icon--year{
+  .pulldown__icon--year{
     position: absolute;
     top:5px;
     left: 55px;
@@ -19,44 +19,34 @@
     font-size: 30px;
     display: inline-block;
   }
-  .puldown__icon--month{
-    @include puldown_icon();
-    top:5px;
-    left: 160px;
+  .pulldown__icon--month{
+    @include pulldown_icon(5px, 160px);
   }
-  .puldown__icon--day{
-    @include puldown_icon();
-    top:5px;
-    left: 270px;
+  .pulldown__icon--day{
+    @include pulldown_icon(5px, 270px);
   }
-  .puldown__icon{
-    @include puldown_icon();
-    top:8px;
-    left: 315px;
+  .pulldown__icon{
+    @include pulldown_icon(8px, 315px);
   }
-  .step4-puldown__icon--month{
-    @include puldown_icon();
-    top:8px;
-    left: 100px;
+  .step4-pulldown__icon--month{
+    @include pulldown_icon(8px, 100px);
   }
-  .step4-puldown__icon--year{
-    @include puldown_icon();
-    top:8px;
-    left: 275px;
+  .step4-pulldown__icon--year{
+    @include pulldown_icon(8px, 275px);
   }
   #user_shipping_address_attributes_prefectures{
     margin-right:3px;
     background-color: $baseWhiteColor;
   }
   .year{
-    @include puldown_birthday();
+    @include pulldown_birthday();
   }
   .month{
-    @include puldown_birthday();
+    @include pulldown_birthday();
     margin-left: 5px;
   }
   .day{
-    @include puldown_birthday();
+    @include pulldown_birthday();
     margin-left: 5px;
   }
   .card_deadline_input{
