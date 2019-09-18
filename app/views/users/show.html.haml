@@ -1,97 +1,49 @@
 .default-container 
   = render 'shared/header'
-  %nav.bread-crumbs
-    %ul
-      %li{itemscope: true, itemtype: 'http://data-vocabulary.org/Breadcrumb'}
-        = link_to "https://www.mercari.com/jp/", class: "" do 
-          %span{itemprop: 'title'} 
-            メルカリ 
-        %i.icon-arrow-right
-      %li{itemscope: true, itemtype: 'http://data-vocabulary.org/Breadcrumb'} 
-        %span{itemscope: 'title'}
-          マイページ
-  %main.main 
-    .main-contents
-      %section.main-contents-usericon
-        = link_to "https://www.mercari.com/jp/u/557471576/", class: "" do  
-          %figure
-            = image_tag '//static.mercdn.net/thumb/members/557471576.jpg?1530996473', alt: '', height: '60', width: '60'
-          %h2{:class => 'main-contents-username'} Masafumi Yoshimura
-          .main-contents-userstatus 
-            .evaluation 
-              評価
-              %span{:class => 'bold'} 0
-            .items-number 
-              出品数
-              %span{:class => 'bold'} 0          
-      %section.main-contents-tabs 
-        %ul{:class => 'main-contents-tabs-list'} 
-          %li{:class => 'main-contents-tabs-list-notification'}
-            %h3
-              =link_to "", class: "" do   
-                お知らせ
-                %span{:class => 'main-contents-tabs-list-notification-number'} 
-                  19
-          %li
-            %h3
-              =link_to "", class: "" do
-                やることリスト              
-        .main-contents-tabs-segment 
-          %ul{:class => 'main-contents-tabs-segment-one'}
-            %li
-              =link_to "", class: "" do 
-                %figure
-                  = image_tag '//static.mercdn.net/images/mercari_profile.png', alt: '', height: '48', width: '48'
-                .main-contents-tabs-segment-one-discribe 
-                  .main-contents-tabs-segment-one-discribe-text 
-                    事務局から個別メッセージ「Facebookログイン通知」
-                  %time
-                    %i{:class => 'icon-time'}  
-                    %span
-                      50分前 
-                %i{:class => 'icon-arrow-right'}
-            %li{:class => 'main-contents-tabs-segment-more'}
-              一覧をみる  
-          %ul{id: 'main-contents-tabs-segment-not-found'}
-            %li    
-              現在やることはありません        
-      %section.main-contents-deal
-        %h2.main-contents-deal-head 
+  = render 'shared/bread-crumbs'
+  .main__contents-clearfix        
+    .main__contents 
+      = render 'users/shared/profile-status' 
+      .sub__contents__all
+        .sub__contents__all-titles
+          .menu__item.active
+            .notification__text
+              お知らせ
+              .notification__number
+                19 
+          .menu__item      
+            やることリスト                                          
+      .content.show 
+        = render 'shared/notificationlist'
+        = render 'shared/notificationlist'
+        = render 'shared/notificationlist'
+        = render 'shared/notificationlist'
+        .contents__list__btn 
+          .contents__list__btn-contents  
+            一覧を見る
+      #hide.content 
+        現在、リストはありません          
+      .contents__middle
+        .contents__middle__head
           購入した商品
-        %ul{:class => 'main-contents-tabs-list'}
-          %li.active
-            %h3
-              =link_to "https://www.mercari.com/jp/mypage/#mypage-tab-transaction-now", class: "" do 
+        .contents__middle__sub
+          .tabs.action
+            .on-deal
+              .on-deal-link
                 取引中
-          %li.pre-deal
-            %h3
-              =link_to "https://www.mercari.com/jp/mypage/#mypage-tab-transaction-old", class: "" do 
-                過去の取引
-        .main-contents-pre-deal
-          %ul{:class => 'main-contents-pre-deal-progress'} 
-            %li.main-contents-pre-deal-not-found 
-              取引中の商品がありません 
-        %ul{:class => 'main-contents-tabs-old'}
-          %li.main-contents-pre-deal-not-found 
-            過去に取引した商品がありません
-    .side-contents
-      %nav.side-contents-nav  
-        %ul.side-contents-nav-list
-          %li
-            =link_to "/jp/mypage/", class: "side-contents-nav-list-item" do 
-              マイページ
-              %i.icon-arrow-right
-        %h3{:class => 'side-contents-nav-head'} メルペイ
-        %ul.side-contents-nav-list
-          %li
-            =link_to "", class: "side-contents-nav-list-item" do 
-              売上・振込申請
-              %i.icon-arrow-right
-        %h3{:class => 'side-contents-nav-head'} 設定
-        %ul.side-contents-nav-list
-          %li
-            =link_to "", class: "side-contents-nav-list-item" do 
-              プロフィール
-              %i.icon-arrow-right                                       　   
+          .tabs
+            .on-old-deal
+              .old-top-link
+                過去の取引     
+        .items-history 
+          .items-history__describe.showoff 
+            .items-history__describe-itemicon
+              取引中の商品がありません
+          .items-history__describe
+            .items-history__describe-itemicon 
+              過去に取引した商品がありません  
+    = render 'shared/sidecontent'
   = render 'shared/footer'
   = render 'shared/sell-btn'
+
+    

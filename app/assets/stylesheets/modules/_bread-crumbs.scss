@@ -1,0 +1,60 @@
+.bread-crumbs{
+  position: relative;
+  height: 48px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  &-segments{
+    padding: 16px;
+    width: 700px;
+    white-space: nowrap;
+    overflow: auto;
+    margin: 0 125px;
+    &-over{
+      font-size: 14px;
+      line-height: 1.2;
+      display: inline-block;
+      .bread-crumbs-link{
+        color: #333;
+        text-decoration: none;
+      }
+    
+      .icon-angle-right-a{
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+        display: inline;
+        font-family: 'icon-font';
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+
+        .fa{ 
+          font-size: 14px;
+          font-family: FontAwesome;
+          font-weight: bold;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased
+        }
+      }
+  }
+  .bread-crumbs-segments__second{
+    font-weight: 600;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+    &__2{
+      font-size: 14px;
+      color: #333;
+      line-height: 1;
+      font-weight: 600;
+    }
+  }   
+}
