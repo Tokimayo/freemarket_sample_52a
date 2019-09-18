@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   $(function () {
 
     function buildmeans1() {
-      var html =`<select class="means--form" id="means" name="shipping_means">
+      var html =`<select class="means--form" id="means" name="item[delivery_method]">
                   <option value="">---</option>
                   <option value="未定">未定</option>
                   <option value="らくらくメルカリ便">らくらくメルカリ便</option>
@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
       return html;}
 
     function buildmeans2() {
-      var html =`<select class="means--form" id="means" name="shipping_means">
+      var html =`<select class="means--form" id="means" name="item[delivery_method]">
                   <option value="">---</option>
                   <option value="未定">未定</option>
                   <option value="クロネコヤマト">クロネコヤマト</option>
