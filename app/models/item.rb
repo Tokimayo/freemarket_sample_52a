@@ -1,10 +1,28 @@
 class Item < ApplicationRecord
   has_many :users, through: :receipt
   has_many :images, dependent: :destroy
-  belongs_to :category
-  belongs_to :size
-  belongs_to :brand
+  belongs_to :category, optional: true
+  belongs_to :size, optional: true
+  belongs_to :brand, optional: true
   accepts_nested_attributes_for :images
+
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true,  length: { maximum: 1000 }
+  validates :price, presence: true, 
+            numericality: {
+              greater_than_or_equal_to: 300,
+              less_than_or_equal_to: 9999999,
+            }
+  validates :shipping_charge, presence: true
+  validates :condition, presence: true
+  validates :shipping_charge, presence: true
+  validates :delivery_method, presence: true
+  validates :delivery_source_area, presence: true
+  validates :delivery_days, presence: true
+  validates :item_status, presence: true
+  validates :user_id, presence: true
+  validates :category_id, presence: true
+  validates :images, presence: true
 
   enum delivery_source_area: {
     "--未選択--":0,北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
