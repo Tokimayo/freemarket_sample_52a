@@ -1,7 +1,4 @@
 .wrapper
-  .header
-    = link_to root_path, class: "header-top__logo" do
-      = image_tag 'logo.svg', alt: 'mercari', height: '36', width: '134'
   .content
     = form_for [@item] do |f|
       .content_title
@@ -26,108 +23,142 @@
                 = f.fields_for :images do |i|
                   = i.label  :image, id:  "files" do
                     = i.file_field :image
+            - if @item.errors.full_messages_for(:images).any?
+              .alert
+                画像がありません
       .item
-      .item__name
-        .item__name--title
-          = f.label :name, "商品名"
-          %span.required_mark
-            必須
-        .item__name--form
-          = f.text_field :name, maxlength: 40, placeholder: "商品名（必須40文字まで）"
-      .item__text
-        .item__text--title
-          = f.label :name, "商品の説明"
-          %span.required_mark
-            必須
-        .item__text--form
-          = f.text_area :description, maxlength: 1000, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-      .data
-        .data__title
-          = f.label :name, "商品の詳細"
-        .data__category
-          .data__category--title
-            = f.label :name, "カテゴリー"
+        .item__name
+          .item__name--title
+            = f.label :name, "商品名"
             %span.required_mark
               必須
-          .data__category--form-l
-            = f.collection_select :category_id, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
-          .data__category--form-m
-          .data__category--form-s
-        .data__size
-          .data__size--form
-        .data__brand
-          .data__brand--title
-            = f.label :name, "ブランド"
-            %span.required_mark
-              任意
-          .data__brand--form
-            = f.text_field :brand_id, placeholder: "例）シャネル"
-            .data__brand--form--seggestions
-        .data__state
-          .data__state--title
-            = f.label :name, "商品の状態"
+          .item__name--form
+            = f.text_field :name, placeholder: "商品名（必須40文字まで）"
+            - if @item.errors.full_messages_for(:name).any?
+              .alert
+                入力してください
+        .item__text
+          .item__text--title
+            = f.label :name, "商品の説明"
             %span.required_mark
               必須
-          .data__state--form
-            = f.select :condition, [["---",""],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]]
-      .shipping
-        .shipping__title
-          = f.label :name, "配送について"
-        .shipping__price
-          .shipping__price--title
-            = f.label :name, "配送量の負担"
-            %span.required_mark
-              必須
-          .shipping__price--form
-            = f.select :shipping_charge,[["---",""],["送料込み(出品者負担)"],["着払い(購入者負担)"]]
-        .shipping__means
-          .shipping__means--title
-            = f.label :name, "配送の方法"
-            %span.required_mark
-              必須
-          .shipping__means--form
-        .shipping__area
-          .shipping__area--title
-            = f.label :name, "発送元の地域"
-            %span.required_mark
-              必須
-          .shipping__area--form
-            = f.select :delivery_source_area, Item.delivery_source_areas.keys, {prompt: '選択してください'}
-        .shipping__days
-          .shipping__days--title
-            = f.label :name, "発送までの日数"
-            %span.required_mark
-              必須
-          .shipping__days--form
-            = f.select :delivery_days, [["---",""],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]]
-      .sale
-        .sale__title
-          = f.label :name, "販売価格(300~9,999,999)"
-        .sale__price
-          .sale__price--title
-            = f.label :name, "価格"
-            %span.required_mark
-              必須
-          .sale__price--form
-            ¥
-            = f.text_field :price, val:"", placeholder: "例）300", class: "price_form"
-        .sale__tax
-          .sale__commission--title
-            = f.label :name, "販売手数料(10%)"
-          .sale__commission--price
-            \-
-        .sale__profit
-          .sale__profit--title
-            = f.label :name, "販売利益"
-            .sale__profit--price
+          .item__text--form
+            = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            - if @item.errors.full_messages_for(:description).any?
+              .alert
+                入力してください
+        .data
+          .data__title
+            = f.label :name, "商品の詳細"
+          .data__category
+            .data__category--title
+              = f.label :name, "カテゴリー"
+              %span.required_mark
+                必須
+            .data__category--form-l
+              = f.collection_select :category_id, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
+            .data__category--form-m
+            .data__category--form-s
+            - if @item.errors.full_messages_for(:category_id).any?
+              .alert
+                選択してください 
+          .data__size
+            .data__size--form
+          .data__brand
+            .data__brand--title
+              = f.label :name, "ブランド"
+              %span.required_mark
+                任意
+            .data__brand--form
+              = f.text_field :brand_id, placeholder: "例）シャネル", value: nil
+              .data__brand--form--seggestions
+          .data__state
+            .data__state--title
+              = f.label :name, "商品の状態"
+              %span.required_mark
+                必須
+            .data__state--form
+              = f.select :condition, [["---",""],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]]
+            - if @item.errors.full_messages_for(:condition).any?
+              .alert
+                選択してください
+        .shipping
+          .shipping__title
+            = f.label :name, "配送について"
+          .shipping__price
+            .shipping__price--title
+              = f.label :name, "配送料の負担"
+              %span.required_mark
+                必須
+            .shipping__price--form
+              = f.select :shipping_charge,[["---",""],["送料込み(出品者負担)"],["着払い(購入者負担)"]]
+            - if @item.errors.full_messages_for(:shipping_charge).any?
+              .alert
+                選択してください
+          .shipping__means
+            .shipping__means--title
+              = f.label :name, "配送の方法"
+              %span.required_mark
+                必須
+            .shipping__means--form
+          .shipping__area
+            .shipping__area--title
+              = f.label :name, "発送元の地域"
+              %span.required_mark
+                必須
+            .shipping__area--form
+              = f.select :delivery_source_area, Item.delivery_source_areas.keys, {prompt: '選択してください'}
+            - if @item.errors.full_messages_for(:delivery_source_area).any?
+              .alert
+                選択してください
+          .shipping__days
+            .shipping__days--title
+              = f.label :name, "発送までの日数"
+              %span.required_mark
+                必須
+            .shipping__days--form
+              = f.select :delivery_days, [["---",""],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]]
+            - if @item.errors.full_messages_for(:delivery_days).any?
+              .alert
+                選択してください
+        .sale
+          .sale__title
+            = f.label :name, "販売価格(300~9,999,999)"
+          .sale__price
+            .sale__price--title
+              = f.label :name, "価格"
+              %span.required_mark
+                必須
+            .sale__price--form
+              ¥
+              = f.text_field :price, val:"", placeholder: "例）300", class: "price_form"
+            - if @item.errors.full_messages_for(:price).any?
+              .alert
+                300以上9999999以下で入力してください
+          .sale__tax
+            .sale__commission--title
+              = f.label :name, "販売手数料(10%)"
+            .sale__commission--price
               \-
-      .exhibit-btn
-        = f.submit "出品する"
-      .back-btn
-        = link_to root_path do
-          もどる
-  .fotter
-    = link_to root_path, class: "fotter__logo" do
-      = image_tag 'logo-gray.svg', alt: 'mercari', height: '36', width: '134'
-    .footer__text
-      © 2019 Merari
+          .sale__profit
+            .sale__profit--title
+              = f.label :name, "販売利益"
+              .sale__profit--price
+                \-
+        .caution
+          %p
+            = link_to "禁止されている出品、行為", "#"
+            を必ずご確認ください。
+            %br
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "#"
+            は犯罪であり処罰される可能性があります。
+            %br
+            また、出品を持ちまして
+            = link_to "加盟店規約", "#"
+            に同意したことになります。
+        .exhibit-btn
+          = f.submit "出品する"
+        .back-btn
+          = link_to root_path do
+            もどる
