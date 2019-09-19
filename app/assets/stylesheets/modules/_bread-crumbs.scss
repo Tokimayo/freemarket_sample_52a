@@ -20,25 +20,9 @@
       }
     
       .icon-angle-right-a{
-        margin: 0 8px;
-        font-size: 9px;
-        color: #888;
-        display: inline;
-        speak: none;
-        font-style: normal;
-        font-weight: 400;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-
+          @include icon-angle();
         .fa{ 
-          font-size: 14px;
-          font-weight: bold;
-          font-variant: normal;
-          text-transform: none;
-          line-height: 1;
-          -webkit-font-smoothing: antialiased
+          @include fa();
         }
       }
   }
@@ -48,11 +32,26 @@
     font-size: 14px;
     line-height: 1.2;
   }
-    &__2{
-      font-size: 14px;
-      color: #333;
-      line-height: 1;
-      font-weight: 600;
-    }
   }   
+}
+
+
+.icon-angle-right-b{
+  @include icon-angle();
+.fa{ 
+  @include fa();
+}
+}
+
+.bread-crumbs-segments__third{
+  font-weight: 600;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.bread-crumbs-link-a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #333;
 }
