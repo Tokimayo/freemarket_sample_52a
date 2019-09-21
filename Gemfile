@@ -80,6 +80,7 @@ gem 'pry-rails'
 gem 'payjp'
 gem "jquery-rails"
 gem 'font-awesome-rails'
+gem 'ancestry'
 
 group :production do
   gem 'unicorn', '5.4.1'
