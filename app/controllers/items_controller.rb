@@ -20,9 +20,9 @@ class ItemsController < ApplicationController
     end
       @item = Item.new(item_params)
       @item.item_status = 1
-    if @item.save
-      Receipt.create(item_id: @item.id)
-      redirect_to root_path
+      if @item.save
+        Receipt.create(item_id: @item.id)
+        redirect_to root_path
     else
       10.times { @item.images.build }
       @category = Category.all.order("id ASC").limit(13)
