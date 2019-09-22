@@ -67,11 +67,11 @@
             end_year:1900,
             date_separator:'%s'),'年','月')+'日'
           = f.label :"birthday_1i" do
-            = fa_icon 'angle-down', class: "pulldown__icon--year", for: "user_birthday_1i"
+            = icon 'fas', 'angle-down', class: "pulldown__icon--year", for: "user_birthday_1i"
           = f.label :"birthday_2i" do
-            = fa_icon 'angle-down', class: "pulldown__icon--month", for: "user_birthday_2i"
+            = icon 'fas', 'angle-down', class: "pulldown__icon--month", for: "user_birthday_2i"
           = f.label :"birthday_3i" do
-            = fa_icon 'angle-down', class: "pulldown__icon--day", for: "user_birthday_3i"
+            = icon 'fas', 'angle-down', class: "pulldown__icon--day", for: "user_birthday_3i"
       %p.single-text.negative-text
         ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       %p.single-text.center-text
