@@ -1,0 +1,20 @@
+.single-main__login {
+  width: 456px;
+  .single-title__login {
+    padding: 15px;
+    & p {
+      font-size: 14px;
+      margin: 15px 0 -25px; 
+    }
+    .btn__mail {
+      font-size: 14px;
+      color: $baseWhiteColor;
+      background-color: $iconBlueColor;
+      text-decoration: none;
+      margin: 30px 0 5px 0;
+      display: inline-block;
+      line-height: 40px;
+      width: 350px;
+    }
+  }
+}

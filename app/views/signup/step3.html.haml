@@ -1,8 +1,43 @@
-%h2 電話番号認証
-= form_for @user, url: step4_signup_index_path, method: :get, html: {class: 'forth-wrapper__box'} do |f|
-  .field
-    = f.label :"認証番号"
-    %br/
-    = f.text_field :phone_number, autofocus: true, placeholder: "携帯電話の番号を入力"
-  .actions
-    = f.submit "認証して完了"
+.single-container
+  = render 'shared/header_signup', { stepflg: "step3" }
+  %main.single-main
+    .single-title
+      %h2 電話番号認証
+    = form_for @user, url: step4_signup_index_path, method: :get, html: {class: 'form'} do |f|
+      - if @user.errors.any?
+        %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
+      .field
+        .label-wrapper
+          = f.label :"認証番号"
+          %br/
+        = f.text_field :phone_number, autofocus: true, placeholder: "認証番号を入力"
+      %p.single-text
+        SMSで届いた認証番号を入力してください
+      .actions
+        = f.submit "認証して完了"
+    = form_for "", method: :get, html: {class: 'another-form__box'} do |f|
+      .form__wrapper
+        .field.another-form__box--wrapper
+          %label
+            30秒たっても認証番号が届かない方へ
+          %p
+            電話で認証番号を聞くこともできます。
+        .actions
+          = f.submit "電話で認証番号を聞く（通話無料）"
+    .form
+      .form__wrapper
+        .field.another-form__box--wrapper
+          %label
+            認証番号を再送することもできます。もう一度電話番号を入力してください。
+        = link_to "#", class: "single-text link-text" do
+          電話番号を再度入力する
+        .form_under__link-text
+          %p.single-text
+            ※SMSが届かない場合は
+            = link_to "#", class: "single-text link-text inline" do
+              SMS受信設定
+            を確認して、もう一度電話番号を入力してください。
+  = render 'shared/footer_single'
