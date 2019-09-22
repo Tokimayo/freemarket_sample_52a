@@ -208,7 +208,8 @@
       min-height:100%;
       &--head{
         text-align: left;
-        margin-left:155px; 
+        margin:0 auto;
+        width: 700px;
         .another-items__head{
           color:$iconBlueColor;
           text-decoration: none;
@@ -234,4 +235,8 @@
       font-weight: bold;
     }
   }
+}
+.like-btn__on{
+  color: $iconGoodColor;
+  background-color: $baseWhiteColor;
 }

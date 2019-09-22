@@ -88,7 +88,7 @@
         = f.submit "購入画面に進む", {class: "item-detail__btn--buy"}
         .item-detail__detail-comment
           詳細な商品の説明 詳細な商品の説明 詳細な商品の説明 詳細な商品の説明 詳細な商品の説明
-        %button#like-btn.item-detail__btn.item-detail__btn--like
+        %button#like-btn.item-detail__btn.item-detail__btn--like{data: {flg: "off"}}
           = icon "far", "heart", class: "btn__icon--like"
           いいね!
           %span
