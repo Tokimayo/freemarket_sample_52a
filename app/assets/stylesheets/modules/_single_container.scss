@@ -10,7 +10,7 @@
     .single-title {
       padding: 32px;
       font-size: 22px;
-      border-bottom: thin solid $blockBorder;
+      border-bottom: $blockBorder;
       & p {
         font-size: 14px;
         margin: 15px 0 -25px; 
@@ -99,4 +99,4 @@
 
 .input-top__text{
   margin-bottom:-5px; 
-} 
+}

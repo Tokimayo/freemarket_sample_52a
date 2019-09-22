@@ -1,0 +1,15 @@
+@mixin step_border( $bordert_type ) {
+  @if $bordert_type == "before" {
+    right: 50%;
+  }
+  @else if $bordert_type == "after" {
+    left: 50%;
+  }
+  position:absolute;
+  bottom:5px;
+  display:block;
+  content:'';
+  width:130%;
+  height:2px;
+  background:#ccc;
+}

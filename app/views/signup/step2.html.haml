@@ -1,13 +1,26 @@
-%h2 電話番号の確認
-= form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'third-wrapper__box'} do |f|
-  - if @user.errors.any?
-    %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
-    %ul
-      - @user.errors.full_messages.each do |message|
-        %li= message
-  .field
-    = f.label :"携帯電話の番号"
-    %br/
-    = f.text_field :phone_number, autofocus: true, placeholder: "携帯電話の番号を入力"
-  .actions
-    = f.submit "SMSを送信する"
+.single-container
+  = render 'shared/header_signup', { stepflg: "step2" }
+  %main.single-main
+    .single-title
+      %h2 電話番号の確認
+    = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'form'} do |f|
+      - if @user.errors.any?
+        %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
+      .field
+        .label-wrapper
+          = f.label :"携帯電話の番号"
+          %br/
+        = f.text_field :phone_number, autofocus: true, placeholder: "携帯電話の番号を入力"
+      %p.single-text.input-under__text
+        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+      .actions
+        = f.submit "SMSを送信する"
+      %p.single-text.input-under__text
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      .form_under__link-text
+        = link_to "#", class: "single-text link-text right-text" do
+          電話番号の確認が必要な理由>
+  = render 'shared/footer_single'
