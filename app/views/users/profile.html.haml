@@ -3,6 +3,27 @@
   = render 'shared/bread-crumbs-profile'
   .main__contents-clearfix        
     .main__contents
+      %section.container
+        %h2.container__head
+          プロフィール
+        %form{:action => "", :method => ""}
+          %input{:name => "", :size => "", :class => "inputone"}
+          .setting__profile__icon
+            %figure
+              .icon-imageprofile
+                = image_tag '//static.mercdn.net/thumb/members/557471576.jpg?1530996473', alt: '', height: '60', width: '60'
+            %input{:name => "nickname", :type => "text", :value => "MasafumiYoshimura", :class => "profile__input"}
+          .setting__profile__text
+            %textarea{:class => "text-space", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+            %input{:class => "below-input", :size => ""}
+            %button{:class => "below-btn", :size => ""}
+              変更する
+
+  
+
+       
+      
+      
     
     = render 'shared/sidecontent'
   = render 'shared/footer'
