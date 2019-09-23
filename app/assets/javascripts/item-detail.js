@@ -10,7 +10,6 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
 
     var likeBtnFlg = $(".item-detail__btn--like").data("flg");
-    console.log(likeBtnFlg);
     $(".item-detail__btn--like").css("");
     if( likeBtnFlg === "off" ){
       $(".item-detail__btn--like").css("border", "thin solid #ef5185");

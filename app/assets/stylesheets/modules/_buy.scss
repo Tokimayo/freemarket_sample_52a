@@ -91,7 +91,8 @@
       width: 351px;
       padding: 30px 200px;
       text-align: left;
-      border-top: thin solid $blockBorder;
+      border-top: $blockBorder;
+      border-bottom: none;
       &--center-text{
         text-align: center;
       }
