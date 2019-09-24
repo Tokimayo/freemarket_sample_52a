@@ -79,7 +79,7 @@ gem 'jp_prefecture'
 gem 'pry-rails'
 gem 'payjp'
 gem "jquery-rails"
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'ancestry'
 
 group :production do

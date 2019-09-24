@@ -6,12 +6,12 @@
     .form
       .btns__box
         = link_to step1_signup_index_path, class: "btn__basic btn__mail btn__radius" do
-          = fa_icon 'envelope', class: "menu-left__categories--icon"
+          = icon 'far', 'envelope', class: "menu-left__categories--icon"
           メールアドレスで登録する
         = link_to "", class: "btn__basic btn__facebook btn__radius" do
-          = fa_icon 'facebook-square', class: "menu-left__categories--icon"
+          = icon 'fab', 'facebook-square', class: "menu-left__categories--icon"
           Facebookで登録する
         = link_to "", class: "btn__basic btn__google btn__radius" do
-          = fa_icon 'google', class: "menu-left__categories--icon"
+          = icon 'fab', 'google', class: "menu-left__categories--icon"
           Googleで登録する
   = render 'shared/footer_single'

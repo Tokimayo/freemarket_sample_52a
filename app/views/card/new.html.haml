@@ -37,7 +37,7 @@
             %option{value: "11"}11
             %option{value: "12"}12
           =label_tag "exp_month" do
-            = fa_icon 'angle-down', class: "step4-pulldown__icon--month", for: "exp_month"
+            = icon 'fas', 'angle-down', class: "step4-pulldown__icon--month", for: "exp_month"
           %span.select__label 月
           %select#exp_year{name: "exp_year", type: "text", class:"card_deadline_input"}
             %option{value: ""} --
@@ -53,7 +53,7 @@
             %option{value: "2028"}28
             %option{value: "2029"}29
           =label_tag "exp_year" do
-            = fa_icon 'angle-down', class: "step4-pulldown__icon--year", for: "exp_year"
+            = icon 'fas', 'angle-down', class: "step4-pulldown__icon--year", for: "exp_year"
           %span.select__label 年
           %br
       .field
@@ -62,7 +62,7 @@
           %span.Required__label 必須
         = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
         = link_to "#", class: "single-text link-text right-text" do
-          = fa_icon 'question-circle', class: "question__icon"
+          = icon 'far', 'question-circle', class: "question__icon"
           カード背面の番号とは？
       #card_token
       .actions

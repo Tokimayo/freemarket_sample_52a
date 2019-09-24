@@ -8,10 +8,10 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form '}) do |f|
       .btns__box
         = link_to "", class: "btn__basic btn__facebook" do
-          = fa_icon 'facebook-square', class: "menu-left__categories--icon"
+          = icon 'fab', 'facebook-square', class: "menu-left__categories--icon"
           Facebookでログイン
         = link_to "", class: "btn__basic btn__google" do
-          = fa_icon 'google', class: "menu-left__categories--icon"
+          = icon 'fab', 'google', class: "menu-left__categories--icon"
           Googleでログイン
       .field
         .label-wrapper
