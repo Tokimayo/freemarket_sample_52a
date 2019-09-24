@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
-  var suggestions_list = $('.data__brand--form--seggestions')
+  var suggestions_list = $('.data-form__brand--form--seggestions')
 
   function appendBrand(brand) {
     var html   =`<div class="brand_name" data-brand-name="${ brand.name }">${ brand.name }</div>`
@@ -15,14 +15,14 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(brands) {
-      $(".data__brand--form--seggestions").empty();
+      $(".data-form__brand--form--seggestions").empty();
       if (brands.length !== 0) {
         brands.forEach(function(brand){
           appendBrand(brand);
         });
       }
       else {
-        $(".data__brand--form--seggestions").empty();
+        $(".data-form__brand--form--seggestions").empty();
       }
     })
   });

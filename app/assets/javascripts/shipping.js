@@ -33,10 +33,10 @@ $(document).on('turbolinks:load', function() {
         $('#means').remove();
       }else if (val == "送料込み(出品者負担)") {
         var html  = buildmeans1();
-        $('.shipping__means--form').append(html)
+        $('.shipping-form__means--form').append(html)
       }else{
         var html  = buildmeans2();
-        $('.shipping__means--form').append(html)  
+        $('.shipping-form__means--form').append(html)  
       }
     });
   });
