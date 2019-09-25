@@ -1,0 +1,265 @@
+.wrapper{
+  font-family: $baseFont;
+  background: $backGrayColor;
+  & header{
+    text-align: center;
+  }
+}
+
+.content {
+  @include clearfix();
+  background: $baseWhiteColor;
+  width: 700px;
+  margin: 0 auto;
+  &__title{
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+  }
+  & label{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .Required__label{
+    background-color: $iconRedColor;
+    color: $baseWhiteColor;
+    font-size:12px;
+    padding: 4px;
+    border-radius: 10%;
+    margin:5px;
+    &.any{
+      background-color: $iconGrayColor;
+    }
+  }
+  &__form{
+    border-top: $blockBorder;
+    .images {
+      width: 620px;
+      padding: 40px;
+      &__title {
+        .image_label{
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      &__text{
+        margin: 8px 0 0;
+        font-size: 14px;
+      }
+    }
+    .item{
+      @include clearfix();
+      @include form-area-padding();
+      &__name{
+        &--form{
+          & input{
+            width: 94%;
+          }
+        }
+      }
+      &__text{
+        margin: $boxMargin;
+      }
+    }
+    .data{
+      @include form-area-padding();
+      @include clearfix();
+      & h3{
+        @include form-title();
+      }
+      .data-form{
+        float: right;
+        &__size{
+          margin: $boxMargin;
+        }
+        &__brand{
+          margin: $boxMargin;
+          &--form{
+            & input{
+              width: 366px;
+            }
+          }
+        }
+        &__state{
+          margin: $boxMargin;
+        }
+      }
+    }
+    .shipping{
+      @include form-area-padding();
+      @include clearfix();
+      & h3{
+        @include form-title();
+      }
+      .shipping-form{
+        float: right;
+        &__means{
+          margin: $boxMargin;
+        }
+          &__area{
+          margin: $boxMargin;
+        }
+        &__days{
+          margin: $boxMargin;
+        }
+          }
+    }
+    .sale{
+      @include form-area-padding();
+      @include clearfix();
+      & h3{
+        @include form-title();
+      }
+      .sale-form{
+        float: right;
+        width: 400px;
+        &__price{
+          padding: 0 0  24px;
+          &__box{
+            @include clearfix();
+            &--title{
+              float: left;
+              width: 50%;
+              line-height: 48px;
+              text-align: left;
+            }
+            &--form{
+              float: right;
+              width: 50%;
+              &--field{
+                display: inline-block;
+                width: 80%;
+                margin: 0 0 0 5%;
+                & input{
+                  text-align: right;
+                  width: 140px;
+                }
+              }
+            }
+          }
+        }
+        &__commission{
+          padding: 24px 0;
+          border-top: $itemFormBoxBordr;
+          @include clearfix();
+          &--title{
+            float: left;
+            & label{
+              font-weight: normal;
+            }
+          }
+          &--price{
+            float: right;
+          }
+        }
+        &__profit{
+          padding: 24px 0;
+          border-top: $itemFormBoxBordr;
+          @include clearfix();
+          &--title{
+            float: left;
+            & label{
+              font-size: 16px;
+            }
+          }
+          &--price{
+            float: right;
+            font-size: 34px;
+          }
+        }
+      }
+    }
+    .caution{
+      @include form-area-padding();
+      @include clearfix();
+      & p{
+      font-size: 14px;
+      & a{
+        color: $iconBlueColor;
+        text-decoration: none;
+      }
+      }
+      .exhibit-btn{
+        margin: 40px 0 0;
+        background: $iconRedColor;
+        border: $iconRedColor;
+        color: $baseWhiteColor;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+      }
+      .back-btn{
+        width: 45%;
+        margin: 24px auto 0;
+        background: $backBtnColor;
+        border: 1px solid $backBtnColor;
+        color: $baseWhiteColor;
+        display: block;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+  }
+  .alert{
+    color: $iconRedColor;
+    font-size: 14px;
+    margin: 8px 0 0;
+  }
+  .form-group{
+    margin: 8px 0 0;
+    & input{
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: $itemFormBoxBordr;
+      background: $baseWhiteColor;
+      line-height: 1.5;
+      font-size: 16px;
+      &:focus{
+        outline:0;
+        border-color:$iconBlueColor;
+      }
+    }
+    & textarea {
+      width: 96%;
+      max-width: 96%;
+      min-height: 120px;
+      padding: 10px;
+      border: $itemFormBoxBordr;
+      background: $baseWhiteColor;
+      font-size: 16px;
+      line-height: 1.5;
+      &:focus{
+        outline:0;
+        border-color:$iconBlueColor;
+      }
+    }
+    & select{
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding: 10px 30px 8px 16px;
+      border-radius: 4px;
+      border: $itemFormBoxBordr;
+      background: $baseWhiteColor;
+      line-height: 1.5;
+      width: 400px;
+      font-size: 16px;
+      background-image: url(icon_arrow.svg);
+      background-repeat: no-repeat;
+      background-size: 18px 15px;
+      background-position: right 10px center;
+      &:focus{
+        outline:0;
+        border-color:$iconBlueColor;
+      }
+    }
+
+  }
+}
