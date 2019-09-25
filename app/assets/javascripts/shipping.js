@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
                    必須
                    </span>
                  </div>
-                 <div class="shipping-form__means--form">
+                 <div class="shipping-form__means--form form-group">
                    <select class="means--form" id="means" name="item[delivery_method]">
                      <option value="">---</option>
                      <option value="未定">未定</option>
@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function() {
                    必須
                    </span>
                  </div>
-                 <div class="shipping-form__means--form">
+                 <div class="shipping-form__means--form form-group">
                   <select class="means--form" id="means" name="item[delivery_method]">
                     <option value="">---</option>
                     <option value="未定">未定</option>

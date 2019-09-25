@@ -16,8 +16,8 @@ $(document).on('turbolinks:load', function() {
       function buildSize(){
         var html = `<div class="data-form__size" id="sizebox">
                       <label class="data-form__size--title">サイズ</label>
-                      <span class="required_mark">必須</span>
-                      <div class="data-form__size--tab"></div>
+                      <span class="Required__label">必須</span>
+                      <div class="data-form__size--tab form-group">
                         <select class="select--box" required:"required" id="size" name="item[size_id]"></select>
                       </div>
                     </div>`
