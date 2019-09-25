@@ -29,5 +29,6 @@ $(document).on('turbolinks:load', function() {
   $(document).on("click",".brand_name",function () {
     var brand_name = $(this).text();
     $("#item_brand_id").val(brand_name);
+    $('.brand_name').remove();
   })
 });
