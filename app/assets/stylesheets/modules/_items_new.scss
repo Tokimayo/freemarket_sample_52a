@@ -80,6 +80,22 @@
             & input{
               width: 366px;
             }
+            &--seggestions{
+              overflow: auto;
+              position: absolute;
+              z-index: 10;
+              width: 400px;
+              background: $baseWhiteColor;
+              max-height: 280px;
+              -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+              box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+              -webkit-overflow-scrolling: touch;
+              cursor: pointer;
+              .brand_name:hover{
+                background: $iconBlueColor;
+                color: $baseWhiteColor;
+              }
+            }
           }
         }
         &__state{
