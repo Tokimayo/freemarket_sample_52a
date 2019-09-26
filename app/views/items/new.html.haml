@@ -15,19 +15,17 @@
           .images__upload-area
             .images__upload-area__preview#preview
             .images__upload-area__uploader
-              #form_upload.form_upload
-                .images__upload-area__uploader__text
-                  %p
+              .images__upload-area__uploader__body
+                .images__upload-area__uploader__body__text
                   ドラッグアンドドロップまたは
                   %br
                   クリックしてファイルをアップロード
-                  %br
-                  = f.fields_for :images do |i|
-                    = i.label  :image, id:  "files" do
-                      = i.file_field :image
-              - if @item.errors.full_messages_for(:images).any?
-                .alert
-                  画像がありません
+                = f.fields_for :images do |i|
+                  = i.label  :image, id:  "files" do
+                    = i.file_field :image
+            - if @item.errors.full_messages_for(:images).any?
+              .alert
+                画像がありません
         .item
           .item__name
             .item__name--title
