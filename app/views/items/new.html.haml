@@ -23,7 +23,7 @@
                 = f.fields_for :images do |i|
                   = i.label  :image, id:  "files" do
                     = i.file_field :image
-            - if @item.errors.full_messages_for(:images).any?
+            - if @errors.full_messages_for(:images).any?
               .alert
                 画像がありません
         .item
@@ -34,7 +34,7 @@
                 必須
             .item__name--form.form-group
               %div= f.text_field :name, placeholder: "商品名（必須40文字まで）", autocomplete: 'off'
-              - if @item.errors.full_messages_for(:name).any?
+              - if @errors.full_messages_for(:name).any?
                 .alert
                   入力してください
           .item__text
@@ -44,7 +44,7 @@
                 必須
             .item__text--form.form-group
               = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-              - if @item.errors.full_messages_for(:description).any?
+              - if @errors.full_messages_for(:description).any?
                 .alert
                   入力してください
         .data
@@ -60,7 +60,7 @@
                 = f.collection_select :category_id, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
               .data-form__category--form-m.form-group
               .data-form__category--form-s.form-group
-              - if @item.errors.full_messages_for(:category_id).any?
+              - if @errors.full_messages_for(:category_id).any?
                 .alert
                   選択してください 
             .data-form__size
@@ -80,7 +80,7 @@
                   必須
               .data-form__state--form.form-group
                 = f.select :condition, [["---",""],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]]
-              - if @item.errors.full_messages_for(:condition).any?
+              - if @errors.full_messages_for(:condition).any?
                 .alert
                   選択してください
         .shipping
@@ -95,7 +95,7 @@
                   必須
               .shipping-form__price--form.form-group
                 = f.select :shipping_charge,[["---",""],["送料込み(出品者負担)"],["着払い(購入者負担)"]]
-              - if @item.errors.full_messages_for(:shipping_charge).any?
+              - if @errors.full_messages_for(:shipping_charge).any?
                 .alert
                   選択してください
             .shipping-form__means
@@ -116,7 +116,7 @@
                   必須
               .shipping-form__days--form.form-group
                 = f.select :delivery_days, [["---",""],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]]
-              - if @item.errors.full_messages_for(:delivery_days).any?
+              - if @errors.full_messages_for(:delivery_days).any?
                 .alert
                   選択してください
         .sale
@@ -134,7 +134,7 @@
                   ¥
                   .sale-form__price__box--form--field
                     = f.text_field :price, val:"", placeholder: "例）300", class: "price_form", autocomplete: 'off'
-              - if @item.errors.full_messages_for(:price).any?
+              - if @errors.full_messages_for(:price).any?
                 .alert
                   300以上9999999以下で入力してください
             .sale-form__commission
