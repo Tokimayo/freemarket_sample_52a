@@ -1,0 +1,177 @@
+.wrapper
+  = render 'shared/header'
+  .single-container.item-detail__container
+    %main.single-main
+      = form_for "", method: :get, html: {class: 'form'} do |f|
+        .item-detail__title
+          %h2 商品名
+        .item-detail__main-box
+          .item-detail__main-box--img
+            = image_tag 'acount.png', alt: 'item__detail--img', class:"item__detail--img" 
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'logo.svg', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            .item-detail__main-box--img-mini
+              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+          %table.item-detail__main-box--info-box
+            %tr
+              %th.category
+                出品名
+              %th.content
+                = link_to "ユーザー名", "", class: 'single-text link-text'
+                .evaluation
+                  = icon "fas", "laugh",  class: "rvaluation__icon--good"
+                  100
+                  = icon "fas", "meh", class: "rvaluation__icon--nomal"
+                  100
+                  = icon "fas", "frown", class: "rvaluation__icon--bad"
+                  100
+            %tr
+              %th.category
+                カテゴリー
+              %th.content
+                = link_to "家電・スマホ・カメラ", "", class: 'single-text link-text'
+                = link_to ">スマートフォン/携帯電話", "", class: 'single-text link-text'
+                = link_to ">バッテリー/充電器", "", class: 'single-text link-text'                  
+            %tr
+              %th.category
+                ブランド
+              %th.content
+                = link_to "アップル", "", class: 'single-text link-text'
+            %tr
+              %th.category
+                商品の状態
+              %th.content
+                新品、未使用
+            %tr
+              %th.category
+                配送料の負担
+              %th.content
+                送料込み(出品者負担)
+            %tr
+              %th.category
+                配送の方法
+              %th.content
+                普通郵便(提携、定形外)
+            %tr
+              %th.category
+                配送元地域
+              %th.content
+                = link_to "北海道", "", class: 'single-text link-text'
+            %tr
+              %th.category
+                発送日の目安
+              %th.content
+                1~2日で発送
+        .item-detail__price-box
+          %span.item-detail__price-box--price
+            ¥1,980
+          %span.item-detail__price-box--tax
+            (税込)
+          %span.item-detail__price-box--send-fee
+            送料込み
+        = f.submit "購入画面に進む", {class: "item-detail__btn--buy"}
+        .item-detail__detail-comment
+          詳細な商品の説明 詳細な商品の説明 詳細な商品の説明 詳細な商品の説明 詳細な商品の説明
+        %button#like-btn.item-detail__btn.item-detail__btn--like{data: {flg: "off"}}
+          = icon "far", "heart", class: "btn__icon--like"
+          いいね!
+          %span
+            0
+        .item-detail__btn.item-detail__btn--bad-report
+          = icon "far", "flag", class: ""
+          不適切な商品の報告
+        =link_to "", class: "link-text right-text inline-text" do
+          = icon "fas", "unlock-alt", class: "safe-link__btn--icon"
+          あんしん・あんぜんへの取り組み
+    %main.single-main.single-main__comment
+      = form_for "", method: :get, html: {class: 'form'} do |f|
+        .item-detail__comment--attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area "", {class: 'item-detail__comment--textarea'}
+        = f.submit "コメントする", {class: "item-detail__comment--btn"}
+    .item-detail__behind-next-items
+      = link_to "<前の商品", "", class: 'single-text link-text left-text'
+      = link_to "後の商品>", "", class: 'single-text link-text right-text'
+    %main.single-main.item-detail__icons
+      = link_to "", class: 'link-btn' do
+        = icon "fab", "facebook-square", class: "item-detail__icons--facebook"
+      = link_to "", class: 'link-btn' do
+        = icon "fab", "twitter-square", class: "item-detail__icons--twitter"
+      = link_to "", class: 'link-btn' do
+        = icon "fab", "line", class: "item-detail__icons--line"
+      = link_to "", class: 'link-btn' do
+        = icon "fab", "pinterest-square", class: "item-detail__icons--pinterest"
+    .main
+      .contents.item-detail__another-items
+        .contents-head.item-detail__another-items--head
+          = link_to "", class: "another-items__head" do
+            ユーザー名さんのその他の商品
+        .contents-body.item-detail__another-items--contents-body
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+      .contents.item-detail__another-items
+        .contents-head.item-detail__another-items--head
+          = link_to "", class: "another-items__head" do
+            カテゴリー小(カテゴリー大)のその他の商品
+        .contents-body.item-detail__another-items--contents-body
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+          = link_to "", class: "item-box" do
+            = image_tag 'acount.png', alt: '', height: '213', width: '213'
+            .item-box__body
+              .item-box__body--name
+                sample
+              .item-box__body--price
+                ¥ 999
+    %p.pankuzu
+      メルカリ >
+      %span
+        商品名
+    = render 'shared/footer'
