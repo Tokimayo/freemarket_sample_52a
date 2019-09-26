@@ -4,3 +4,8 @@
   font-size: 14px;
   font-weight: bold;
 }
+
+@mixin form-area-padding() {
+  padding: 40px;
+  border-top: $blockBorder;
+}
