@@ -29,6 +29,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
+  def update
+    
+  end
+
   def search
     @children = Category.find(params[:parent_id]).children
     @sizing = Category.find(params[:parent_id]).size_flag
