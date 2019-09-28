@@ -2,43 +2,28 @@
   = render 'shared/header'
   .main
     .contents
-      .contents-head
-        商品一覧
-      .contents-body
-        = link_to "", class: "item-box" do
-          = image_tag 'acount.png', alt: '', height: '213', width: '213'
-          .item-box__body
-            .item-box__body--name
-              sample
-            .item-box__body--price
-              ¥ 999
-        = link_to "", class: "item-box" do
-          = image_tag 'acount.png', alt: '', height: '213', width: '213'
-          .item-box__body
-            .item-box__body--name
-              sample
-            .item-box__body--price
-              ¥ 999
-        = link_to "", class: "item-box" do
-          = image_tag 'acount.png', alt: '', height: '213', width: '213'
-          .item-box__body
-            .item-box__body--name
-              sample
-            .item-box__body--price
-              ¥ 999
-        = link_to "", class: "item-box" do
-          = image_tag 'acount.png', alt: '', height: '213', width: '213'
-          .item-box__body
-            .item-box__body--name
-              sample
-            .item-box__body--price
-              ¥ 999
-        = link_to "", class: "item-box" do
-          = image_tag 'acount.png', alt: '', height: '213', width: '213'
-          .item-box__body
-            .item-box__body--name
-              sample
-            .item-box__body--price
-              ¥ 999
+      -create_items_list.each_with_index do |topCategory, i|
+        - if i < 4
+          .contents-head
+            - title = topCategory[0].split("/")
+            = title[0] + " 新着アイテム"
+          .contents-body
+            - itemsCount = 0
+            -@items.each do |item|
+              -categories = item.category.ancestry.split("/")
+              -if itemsCount < 4
+                -if title[1] == categories[0]
+                  = link_to buy_path(item.id), class: "item-box" do
+                    = image_tag 'acount.png', alt: '', height: '213', width: '213'
+                    .item-box__body
+                      .item-box__body--name
+                        = "#{item.name}"
+                      .item-box__body--price
+                        = "¥" + "#{item.price}"
+                        -itemsCount += 1
+              -else
+                -break
+            = link_to "", class: "link-text" do
+              .single-text すべての商品を見る
   = render 'shared/footer'
   = render 'shared/sell-btn'
