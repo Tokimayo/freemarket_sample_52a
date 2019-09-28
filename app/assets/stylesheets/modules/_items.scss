@@ -12,7 +12,8 @@
       .contents-body{
         @include clearfix();
         width: 940px;
-        margin: 26px auto;
+        margin: 26px auto 100px;
+        position: relative;
         .item-box {
           float: left;
           display: block;
@@ -35,6 +36,14 @@
             font-weight: 600;
           }
           }
+        }
+        .link-text{
+          color:$iconBlueColor;
+          text-decoration: none;
+          font-size:13px;
+          position: absolute;
+          bottom: -35px;
+          right: 9px;
         }
       }
     
