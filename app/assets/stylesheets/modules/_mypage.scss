@@ -14,6 +14,16 @@ body{
   line-height: 1;
 }
 
+.mypage-link-profile{
+  background:$baseWhiteColor;
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding: 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
+}
 .default-container{
   position: relative;
   min-height: 100%;

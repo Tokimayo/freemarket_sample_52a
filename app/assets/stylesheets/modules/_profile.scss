@@ -1,9 +1,9 @@
 .container{
-  background: #fff;
+  background: $baseWhiteColor;
   .container__head{
     font-size: 24px;
     padding: 8px 24px;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid $backGrayColor;
     text-align: center;
     line-height: 1.4;
     font-weight: bold;
@@ -39,8 +39,8 @@
       vertical-align: middle;
       padding: 10px 16px 8px;
       border-radius: 4px;
-      border: 1px solid #ccc;
-      background: #fff;
+      border: 1px solid $iconGrayColor;
+      background: $baseWhiteColor;
       line-height: 1.5;
       font-size: 16px;
         }
@@ -54,8 +54,8 @@
         display: block;
         width: 100%;
         max-width: 100%;
-        border: 1px solid #ccc;
-        background: #fff;
+        border: 1px solid $iconGrayColor;
+        background: $baseWhiteColor;
         font-size: 16px;
         line-height: 1.5;
       }
@@ -63,9 +63,9 @@
         display: none;
       }
       .below-btn{
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
+        background: $iconRedColor;
+        border: 1px solid $iconRedColor;
+        color: $baseWhiteColor;
         margin: 16px 0 0;
         display: block;
         width: 100%;
