@@ -11,8 +11,6 @@
     overflow: auto;
     margin: 0 125px;
     &-over{
-      font-size: 14px;
-      line-height: 1.2;
       display: inline-block;
       .bread-crumbs-link{
         color: #333;
@@ -27,9 +25,7 @@
       }
   }
   .bread-crumbs-segments__second{
-    font-weight: 600;
     display: inline-block;
-    font-size: 14px;
     line-height: 1.2;
   }
   }   
@@ -46,8 +42,6 @@
 .bread-crumbs-segments__third{
   font-weight: 600;
   display: inline-block;
-  font-size: 14px;
-  line-height: 1.2;
 }
 
 .bread-crumbs-link-a {
