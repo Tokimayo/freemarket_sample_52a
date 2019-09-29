@@ -1,0 +1,8 @@
+@mixin pulldown_icon($top, $left) {
+  position: absolute;
+  color: $negativeGrayColor;
+  font-size: 30px;
+  display: inline-block;
+  top: $top;
+  left: $left;
+}

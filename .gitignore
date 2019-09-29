@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+.DS_Store
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
@@ -23,6 +25,8 @@
 /public/assets
 .byebug_history
 
+public/uploads/
+spec/fixtures/
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/secrets.yml

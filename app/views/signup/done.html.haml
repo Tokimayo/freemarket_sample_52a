@@ -1,5 +1,13 @@
-%h2 会員登録完了
-.info-message
-  ありがとうございます。<br>会員登録が完了しました。
-  .button
-    = link_to "メルカリをはじめる", root_path, class: 'btn'
+.single-container
+  = render 'shared/header_signup', { stepflg: "done" }
+  %main.single-main
+    .single-title
+      %h2 会員登録完了
+    .single-form
+      %p.input__top--text
+        ありがとうございます。<br>会員登録が完了しました。
+      .form
+        .actions
+          = link_to "メルカリをはじめる", root_path, class: 'btn__start'
+    = image_tag 'footer_bar_img.png', alt: 'app', class:"footer__app--img" 
+  = render 'shared/footer_single'

@@ -1,0 +1,106 @@
+%header.signup__header
+  = link_to root_path, class: "signup__logo" do
+    = image_tag 'logo.svg', alt: 'mercari'
+  %nav.step-box
+    %ol
+      -if stepflg == "step1"
+        %li.active
+          会員情報
+          .progress-status
+        %li
+          電話番号認証
+          .progress-status
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+
+      -if stepflg == "step2"
+        %li.past-step
+          会員情報
+          .progress-status.active-border
+        %li.active.now-step
+          電話番号認証
+          .progress-status.active-border
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+
+      -if stepflg == "step3"
+        %li.past-step
+          会員情報
+          .progress-status.active-border
+        %li.active.now-step
+          電話番号認証
+          .progress-status.active-border
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+
+      -if stepflg == "step4"
+        %li.past-step
+          会員情報
+          .progress-status.active-border
+        %li.past-step
+          電話番号認証
+          .progress-status.active-border
+        %li.active.now-step
+          お届け先住所入力
+          .progress-status.active-border
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+
+      -if stepflg == "step5"
+        %li.past-step
+          会員情報
+          .progress-status.active-border
+        %li.past-step
+          電話番号認証
+          .progress-status.active-border
+        %li.active.now-step
+          お届け先住所入力
+          .progress-status.active-border
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+
+      -if stepflg == "done"
+        %li.past-step
+          会員情報
+          .progress-status.active-border
+        %li.past-step
+          電話番号認証
+          .progress-status.active-border
+        %li.past-step
+          お届け先住所入力
+          .progress-status.active-border
+        %li.past-step
+          支払い方法
+          .progress-status.active-border
+        %li.active.now-step
+          完了
+          .progress-status
