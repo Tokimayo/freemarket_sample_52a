@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
       Receipt.create(item_id: @item.id)
       redirect_to root_path
     else
-      10.times { @item.images.build }
       @category = Category.all.order("id ASC").limit(13)
       render :new
     end

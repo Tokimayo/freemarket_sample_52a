@@ -1,0 +1,61 @@
+.signup__header{
+  padding: 30px;
+  margin-bottom: 20px;
+  .single-header__logo{
+    margin: 0 15px 0 0;
+    display: inline-block;
+  }
+  .signup__logo img{
+    width: 180px;
+  }
+  .step-box{
+    margin: -10px 0 0 15px;
+    display: inline-block;
+    vertical-align:top;
+    ol{
+      li{
+        position: relative;
+        font-size: 12px;
+        display: inline-block;
+        color: $negativeGrayColor;
+        margin:10px 25px;
+        .progress-status{
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background-color: $iconGrayColor;
+          border-radius: 50%;
+        }
+        .active-border{
+          background-color: $iconRedColor;
+          position: relative;
+          z-index: 1;
+        }
+        &.now-step::before{
+          background: $iconRedColor !important;
+        }
+        &.past-step::before{
+          background: $iconRedColor !important;
+        }
+        &.past-step::after{
+          background: $iconRedColor !important;
+        }
+      }
+      li:not(:first-child)::before{
+        @include step_border( "before" );
+      }
+      li:not(:last-child)::after{
+        @include step_border( "after" );
+      }
+      .active{
+        font-weight: bold;
+        color: $iconRedColor;
+        .progress-status{
+          background-color: $iconRedColor;
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

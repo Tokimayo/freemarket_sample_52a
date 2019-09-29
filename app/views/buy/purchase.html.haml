@@ -1,0 +1,37 @@
+.single-container
+  = render 'shared/header_single'
+  %main.single-main
+    .single-title
+      %h2 購入内容の確認
+    = form_for "", method: :get, html: {class: 'form'} do |f|
+      .field
+        .buy__img--box
+          = image_tag 'acount.png', alt: 'buy__img', class:"buy__img"
+          = f.label :"購入商品名", class:"buy__label"
+        %p.buy__price
+          ¥799
+          %span 送料込み
+      .actions
+        = link_to "ポイントはありません", "", class: 'actions__link--point'
+      %p.buy__price--total
+        支払い金額
+        %span ¥799  
+      .actions
+        = f.submit "購入する"
+    .form.another-form__box
+      .single-text
+        %b 配送先
+        %p 〒 000-0000
+        %p 東京都○○区○○0-0-0
+        %p 鈴木 太郎
+      = link_to "#", class: "single-text link-text right-text" do
+        変更する>
+    .form.another-form__box
+      .single-text
+        %b 支払い方法
+        %p ※※※※※※※※※※※※0000
+        %p 00/00
+        = image_tag 'visa.png', alt: 'card_icon', class:"card_icon"
+      = link_to "#", class: "single-text link-text right-text" do
+        変更する>
+  = render 'shared/footer_single'
