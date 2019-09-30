@@ -1,9 +1,5 @@
 .bread-crumbs{
-  position: relative;
-  height: 48px;
-  background-color: #fff;
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  @include bread-crumbs;
   &-segments{
     padding: 16px;
     width: 700px;
@@ -13,16 +9,16 @@
     &-over{
       display: inline-block;
       .bread-crumbs-link{
-        color: #333;
+        color:$fontBlackColor;
         text-decoration: none;
       }
-    
       .icon-angle-right-a{
           @include icon-angle();
         .fa{ 
           @include fa();
+        @include icon-arrow
         }
-      }
+    }
   }
   .bread-crumbs-segments__second{
     display: inline-block;
@@ -49,3 +45,4 @@
   font-weight: normal;
   color: #333;
 }
+  
