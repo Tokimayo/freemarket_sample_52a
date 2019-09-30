@@ -33,7 +33,14 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'items#index'
-
+  
+  scope(path_names: { show: 'mypage'}) do
+    resources :users do
+      collection do
+        get 'mypage/profile',  to: 'users#profile'
+      end
+    end
+  end
   resources :items, only: [:index, :new, :create] do
     collection do
       get 'search'
