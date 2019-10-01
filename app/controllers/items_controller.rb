@@ -86,15 +86,6 @@ class ItemsController < ApplicationController
     end
 
     newlst = lst.sort_by{ | k, v | v }.reverse
-    # topCategories = []
-
-    # newlst.each_with_index do |li,  i|
-    #   if i < 4 
-    #     topCategories << li[0]
-    #   else
-    #     break
-    #   end
-    # end
     
     return newlst
 
