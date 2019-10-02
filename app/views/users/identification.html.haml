@@ -30,17 +30,43 @@
             %label
               生年月日
             %p    
-              1993/05/29             
-          .setting__profile__icon
-            %figure
-              .icon-imageprofile
-                = image_tag '//static.mercdn.net/thumb/members/557471576.jpg?1530996473', alt: '', height: '60', width: '60'
-            %input{name: "nickname", type: "text", value: "MasafumiYoshimura", class: "profile__input"}
-          .setting__profile__text
-            %textarea{class: "text-space", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-            %input{class: "below-input", size: ""}
-            %button{class: "below-btn", size: ""}
-              変更する
+              1993/05/29 
+          %div.form-segment
+            %label
+              郵便番号
+            %span.form-arbitrary     
+              任意
+            %input.input-default{ placeholder: "東京都"}      
+          %div.form-segment
+            %label
+              都道府県
+            %span.form-arbitrary   
+              任意 
+            %input.input-default{ placeholder: "例）東京都"}      
+          %div.form-segment
+            %label
+              市町村
+            %span.form-arbitrary    
+              任意
+            %input.input-default{ placeholder: "例）横浜市緑区"}      
+          %div.form-segment
+            %label
+              番地
+            %span.form-arbitrary    
+              任意
+            %input.input-default{ placeholder: "例）青山1-1-1"}      
+          %div.form-segment
+            %label
+              建物名
+            %span.form-arbitrary    
+              任意
+            %input.input-default{ placeholder: "例）柳ビル"}      
+          %button{class: "below-btn", size: ""}
+            登録する
+          .right-text
+            .icon-angle-right-c
+              本人情報の登録について
+              =fa_icon 'angle-right'
     = render 'shared/side-contents-profile'
   = render 'shared/footer'
   = render 'shared/sell-btn'
