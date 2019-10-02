@@ -89,5 +89,6 @@ group :production do
 end
 
 gem 'fog-aws'
+gem 'rb-readline'
 
 gem 'nokogiri', '>= 1.10.4'
