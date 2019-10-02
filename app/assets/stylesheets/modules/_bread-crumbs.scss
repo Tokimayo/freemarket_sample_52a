@@ -1,0 +1,48 @@
+.bread-crumbs{
+  @include bread-crumbs;
+  &-segments{
+    padding: 16px;
+    width: 700px;
+    white-space: nowrap;
+    overflow: auto;
+    margin: 0 125px;
+    &-over{
+      display: inline-block;
+      .bread-crumbs-link{
+        color:$fontBlackColor;
+        text-decoration: none;
+      }
+      .icon-angle-right-a{
+          @include icon-angle();
+        .fa{ 
+          @include fa();
+        @include icon-arrow
+        }
+    }
+  }
+  .bread-crumbs-segments__second{
+    display: inline-block;
+    line-height: 1.2;
+  }
+  }   
+}
+
+
+.icon-angle-right-b{
+  @include icon-angle();
+.fa{ 
+  @include fa();
+}
+}
+
+.bread-crumbs-segments__third{
+  font-weight: 600;
+  display: inline-block;
+}
+
+.bread-crumbs-link-a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #333;
+}
+  

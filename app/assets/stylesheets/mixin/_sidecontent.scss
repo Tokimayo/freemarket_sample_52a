@@ -1,0 +1,50 @@
+.side-content{
+      width: 280px;
+      float: left;
+      margin: 0 40px 0 0;
+    &__alllists{
+      .mypage__property{
+        &-list{
+          .mypage-link{
+            background: #eee;
+            font-weight: 600;
+            position: relative;
+            display: block;
+            border-bottom: 1px solid #eee;
+            padding: 16px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #333;
+          }
+          .mypage-non-active{
+            border-bottom: 1px solid #eee;
+            padding: 16px;
+            background:$baseWhiteColor;
+          }
+        }
+        .merpay__property{
+          margin: 40px 4% 0;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .merpay__property-list{
+          margin: 8px 0 0;
+          padding: 0;
+          border-style: solid;
+          border-width: 0;
+          display: block;
+          &__profit{
+            .profit-text{
+              padding: 16px;
+              border-bottom: 1px solid #eee;
+              background: $baseWhiteColor;
+            }
+            .point-text{
+              padding: 16px;
+              background: $baseWhiteColor;
+            }
+          }
+        }
+      }
+    }
+  }

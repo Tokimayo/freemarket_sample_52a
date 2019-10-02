@@ -79,13 +79,16 @@ gem 'jp_prefecture'
 gem 'pry-rails'
 gem 'payjp'
 gem "jquery-rails"
+gem 'sassc', '2.2.1'
+gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 gem 'ancestry'
-
 group :production do
   gem 'unicorn', '5.4.1'
+  
 end
 
 gem 'fog-aws'
+gem 'rb-readline'
 
 gem 'nokogiri', '>= 1.10.4'
