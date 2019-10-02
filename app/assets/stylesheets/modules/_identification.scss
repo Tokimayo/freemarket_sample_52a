@@ -1,0 +1,38 @@
+.myself-contents{
+  background: $baseWhiteColor; 
+  .myself__head{
+    border-bottom: 1px solid $backGrayColor;
+    font-size: 24px;
+    line-height: 1.4;
+    padding: 8px 24px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .inner-form{
+    padding: 64px;
+      p{
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+      .right-text{
+        text-align: right;
+        margin: 8px 0 0;
+        .icon-angle-right-c{
+          color:$iconBlueColor;
+          text-decoration: none;
+          }
+        }
+      }
+  }
+
+  .form-segment{
+    margin: 40px 0 0;
+    label{
+      display: inline-block;
+      font-weight: bold;
+    }
+  }
+  %label{
+    display: inline-block;
+    font-weight: 600px;
+  }
