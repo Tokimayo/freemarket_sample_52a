@@ -8,4 +8,7 @@ class UsersController < ApplicationController
 
   def identification
   end 
+
+  def credit
+  end 
 end   

@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       collection do
         get 'mypage/profile',  to: 'users#profile'
         get 'mypage/identification', to: 'users#identification'
+        get 'mypage/credit', to: 'users#credit'
       end
     end
   end
