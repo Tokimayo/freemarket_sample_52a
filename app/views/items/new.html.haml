@@ -1,10 +1,10 @@
-.wrapper
+.exhibit-wrapper
   = render 'shared/header_single'
-  .content
+  .exhibit-content
     = form_for [@item] do |f|
-      .content__title
+      .exhibit-content__title
         商品の情報を入力
-      .content__form
+      .exhibit-content__form
         .images
           .images__title
             = f.label :name, "出品画像",class: "image_label"

@@ -1,4 +1,4 @@
-.wrapper{
+.exhibit-wrapper{
   font-family: $baseFont;
   background: $backGrayColor;
   & header{
@@ -6,7 +6,7 @@
   }
 }
 
-.content {
+.exhibit-content {
   @include clearfix();
   background: $baseWhiteColor;
   width: 700px;
