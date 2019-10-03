@@ -17,7 +17,7 @@
           %spanブランドから探す
       .menu-right
         - if user_signed_in?
-          = link_to destroy_user_session_path, method: :delete, class: "menu-right__logout" do 
+          = link_to user_path(current_user.id), class: "menu-right__logout" do 
             = image_tag 'acount.png', alt: '', height: '40', width: '40'
             %span マイページ
         - else
