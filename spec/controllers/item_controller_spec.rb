@@ -7,6 +7,19 @@ RSpec.describe ItemsController, type: :controller do
   let(:image_path) { File.join(Rails.root, 'spec/fixtures/image.jpg') }
   let(:image) { Rack::Test::UploadedFile.new(image_path) }
 
+  describe 'GET #index' do
+    it "get all items" do
+      items = create_list(:item, 3)
+      get :index
+      expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template :index
+    end
+  end
+
   describe '#new' do
     context 'log in' do
       before do

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   helper_method :create_items_list
 
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
