@@ -5,8 +5,8 @@ $(document).on('turbolinks:load', function() {
       var commission = Math.floor( i / 10 );
       var result = ( i - commission );
 
-      var commission_price = $('.sale__commission--price');
-      var profit_price = $('.sale__profit--price');
+      var commission_price = $('.sale-form__commission--price');
+      var profit_price = $('.sale-form__profit--price');
       
       if ( i >= 300 && i <= 9999999 ) {
       commission_price.text('¥' + commission);

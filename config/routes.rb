@@ -38,8 +38,11 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get 'mypage/profile',  to: 'users#profile'
+
         get 'mypage/identification', to: 'users#identification'
         get 'mypage/credit', to: 'users#credit'
+        get 'logout',  to: 'users#logout'
+
       end
     end
   end
