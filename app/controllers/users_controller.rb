@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end 
 
   def credit
-    
+  end 
   def logout
   end 
 end   
