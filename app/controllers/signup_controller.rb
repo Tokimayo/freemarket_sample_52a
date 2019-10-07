@@ -34,7 +34,7 @@ class SignupController < ApplicationController
     session[:email]                 = user_params[:email]
     session[:password]              = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
-    session[:phone_number]          = "08012345678"
+    session[:phone_number]          = "8012345678"
     
     if user_params[:"birthday(1i)"] == "" || user_params[:"birthday(2i)"] == "" || user_params[:"birthday(3i)"] == ""
       session[:birthday]            = nil
