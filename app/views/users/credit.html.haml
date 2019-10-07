@@ -1,0 +1,27 @@
+.default-container 
+  = render 'shared/header'
+  = render 'shared/bread-crumbs-profile'
+  .main__contents-clearfix        
+    .main__contents
+      %section.myself-contents
+        %h2.myself__head
+          支払い方法
+        .inner-credit
+          %section
+            .longcontent
+              %h3.sub-head
+                クレジットカード一覧
+          %section.add-card
+            .longcontent
+              =link_to '', class: "payment-btn" do 
+                %i.icon-card
+                  .credit-box
+                    = fa_icon 'credit-card'
+                    クレジットカードを追加する 
+          .payment-text
+            .icon-angle-right-c
+              支払い方法について
+              =fa_icon 'angle-right' 
+    = render 'shared/side-contents-profile'
+  = render 'shared/footer'
+  = render 'shared/sell-btn'

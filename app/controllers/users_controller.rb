@@ -6,6 +6,12 @@ class UsersController < ApplicationController
   def profile
   end
 
+
+  def identification
+  end 
+
+  def credit
+    
   def logout
   end 
 end   
