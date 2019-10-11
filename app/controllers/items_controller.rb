@@ -43,6 +43,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy if item.user_id == current_user.id
+    
+    redirect_to list_items_users_path
+  end
+
   def brand_suggestions
     @brand = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|

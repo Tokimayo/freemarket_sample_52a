@@ -8,27 +8,14 @@
             =@item.name
         .item-detail__main-box
           .item-detail__main-box--img
-            = image_tag 'acount.png', alt: 'item__detail--img', class:"item__detail--img" 
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'logo.svg', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            -@item.images.each_with_index do | image, i |
+              -if i == 0
+                = image_tag "#{ image.image }", alt: 'item__detail--img', class: 'item__detail--img'
+                .item-detail__main-box--img-mini
+                  = image_tag "#{ image.image }", alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+              - else
+                .item-detail__main-box--img-mini
+                  = image_tag "#{ image.image }", alt: 'item__detail--img-mini', class:"item__detail--img-mini"
           %table.item-detail__main-box--info-box
             %tr
               %th.category
@@ -129,13 +116,17 @@
         .contents-body.item-detail__another-items--contents-body
           -@items.each_with_index do |item, i|
             -if item.user_id == @item.user_id && i < 6
-              = link_to buy_path(item.id), class: "item-box" do
-                = image_tag 'acount.png', alt: '', height: '213', width: '213'
-                .item-box__body
-                  .item-box__body--name
-                    =item.name
-                  .item-box__body--price
-                    = "¥" + "#{item.price}"
+              -if item.id != @item.id
+                = link_to buy_path(item.id), class: "item-box" do
+                  .item-box__img
+                    -item.images.each do | image |
+                      = image_tag "#{ image.image }", alt: '', class: 'item_img__index'
+                      -break
+                  .item-box__body
+                    .item-box__body--name
+                      = "#{item.name}"
+                    .item-box__body--price
+                      = "¥" + "#{item.price}"
       .contents.item-detail__another-items
         .contents-head.item-detail__another-items--head
           = link_to "", class: "another-items__head" do
@@ -143,13 +134,17 @@
         .contents-body.item-detail__another-items--contents-body
           -@items.each_with_index do |item, i|
             -if item.category_id == @item.category_id && i < 6
-              = link_to buy_path(item.id), class: "item-box" do
-                = image_tag 'acount.png', alt: '', height: '213', width: '213'
-                .item-box__body
-                  .item-box__body--name
-                    =item.name
-                  .item-box__body--price
-                    = "¥" + "#{item.price}"
+              -if item.id != @item.id
+                = link_to buy_path(item.id), class: "item-box" do
+                  .item-box__img
+                    -item.images.each do | image |
+                      = image_tag "#{ image.image }", alt: '', class: 'item_img__index'
+                      -break
+                  .item-box__body
+                    .item-box__body--name
+                      = "#{item.name}"
+                    .item-box__body--price
+                      = "¥" + "#{item.price}"
     %p.pankuzu
       メルカリ >
       %span

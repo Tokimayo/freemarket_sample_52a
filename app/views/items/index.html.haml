@@ -14,14 +14,16 @@
               -if itemsCount < 4
                 -if title[1] == categories[0]
                   = link_to buy_path(item.id), class: "item-box" do
-                    -item.images.each do | image |
-                      = image_tag "#{ image.image }", alt: '', height: '213', width: '213'
-                      .item-box__body
-                        .item-box__body--name
-                          = "#{item.name}"
-                        .item-box__body--price
-                          = "¥" + "#{item.price}"
-                          -itemsCount += 1
+                    .item-box__img
+                      -item.images.each do | image |
+                        = image_tag "#{ image.image }", alt: '', class: 'item_img__index'
+                        -break
+                    .item-box__body
+                      .item-box__body--name
+                        = "#{item.name}"
+                      .item-box__body--price
+                        = "¥" + "#{item.price}"
+                        -itemsCount += 1
               -else
                 -break
             = link_to "", class: "link-text" do

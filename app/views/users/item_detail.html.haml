@@ -1,0 +1,89 @@
+.wrapper
+  = render 'shared/header'
+  .single-container.item-detail__container
+    %main.single-main
+      = form_for "", method: :get, html: {class: 'form'} do |f|
+        .item-detail__title
+          %h2
+            =@item.name
+        .item-detail__main-box
+          .item-detail__main-box--img
+            -@item.images.each_with_index do | image, i |
+              -if i == 0
+                = image_tag "#{ image.image }", alt: 'item__detail--img', class: 'item__detail--img'
+                .item-detail__main-box--img-mini
+                  = image_tag "#{ image.image }", alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+              - else
+                .item-detail__main-box--img-mini
+                  = image_tag "#{ image.image }", alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+          %table.item-detail__main-box--info-box
+            %tr
+              %th.category
+                出品名
+              %th.content
+                = link_to "", class: 'single-text link-text' do
+                  =current_user.nickname
+            %tr
+              %th.category
+                カテゴリー
+              %th.content
+                -@categories.each_with_index do |category, i|
+                  = link_to  "", class: 'single-text link-text' do
+                    =((i > 0) ? ">" : "") + category.name
+            %tr
+              %th.category
+                ブランド
+              %th.content
+                = link_to "", class: 'single-text link-text' do
+                  =@item.brand.name
+            %tr
+              %th.category
+                商品の状態
+              %th.content
+                =@item.condition
+            %tr
+              %th.category
+                配送料の負担
+              %th.content
+                =@item.shipping_charge
+            %tr
+              %th.category
+                配送の方法
+              %th.content
+                =@item.delivery_method
+            %tr
+              %th.category
+                配送元地域
+              %th.content
+                = link_to "", class: 'single-text link-text' do
+                  =@item.delivery_source_area
+            %tr
+              %th.category
+                発送日の目安
+              %th.content
+                =@item.delivery_days
+        .item-detail__price-box
+          %span.item-detail__price-box--price
+            = "¥" + "#{@item.price}"
+          %span.item-detail__price-box--tax
+            (税込)
+          %span.item-detail__price-box--send-fee
+            送料込み
+        .item-detail__detail-comment
+          =@item.description
+    %main.single-main.item-detail__edit
+      = link_to "", class: "item-detail__btn--edit" do
+        商品の編集
+      .or
+        or
+      = link_to "", class: "item-detail__btn--stop" do
+        出品を一旦停止する
+      = link_to item_path, method: :delete, class: "item-detail__btn--delete" do
+        この商品を削除する
+    %main.single-main.single-main__comment
+      = form_for "", method: :get, html: {class: 'form'} do |f|
+        .item-detail__comment--attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area "", {class: 'item-detail__comment--textarea'}
+        = f.submit "コメントする", {class: "item-detail__comment--btn"}
+    = render 'shared/footer'

@@ -83,6 +83,7 @@ gem "jquery-rails"
 gem 'sassc', '2.2.1'
 gem 'font-awesome-sass'
 gem 'ancestry'
+gem 'config'
 group :production do
   gem 'unicorn', '5.4.1'
   

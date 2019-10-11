@@ -1,0 +1,65 @@
+.default-container 
+  = render 'shared/header'
+  = render 'shared/bread-crumbs'
+  .main__contents-clearfix
+    .main__contents 
+      .contents__middle.list-items
+        .contents__middle__head
+          出品した商品
+        .contents__middle__sub
+          .tabs.action
+            .on-deal
+              .on-deal-link
+                出品中
+          .tabs
+            .on-old-deal
+              .old-top-link
+                取引中
+          .tabs
+            .on-old-deal
+              .old-top-link
+                売却済み
+        .items-history 
+          .items-history__describe.showoff
+            -if @items.length != 0
+              -@items.each do |item|
+                -if item.item_status == 1
+                  = link_to item_detail_users_path(item.id), class: "mypage-link" do
+                    .item-box
+                      .image-box
+                        -item.images.each do | image |
+                          = image_tag "#{ image.image }", alt: '', class: 'item_img__mypage--mini'
+                          -break
+                      .item_status__box
+                        %p.item_status__box--name
+                          =item.name
+                        %p.item_status__box--tips
+                          = icon "far", "heart", class: "btn__icon--like"
+                          %span
+                            0
+                          = icon "far", "comment-alt", class: "btn__icon--like"
+                          %span
+                            0
+                          %span.item_status
+                            -if item.item_status == 1
+                              出品中
+                            -if item.item_status == 2
+                              公開停止中
+                            -if item.item_status == 3
+                              売却済み
+                      .icon-angle-right-b
+                        = icon 'fas', 'angle-right'
+            -else
+              .items-history__describe-itemicon
+                出品中の商品がありません
+          .items-history__describe
+            .items-history__describe-itemicon 
+              取引中の商品がありません
+          .items-history__describe
+            .items-history__describe-itemicon 
+              売却済みの商品がありません
+    = render 'shared/sidecontent'
+  = render 'shared/footer'
+  = render 'shared/sell-btn'
+
+    

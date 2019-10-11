@@ -5,7 +5,7 @@
     &__alllists{
       .mypage__property{
         &-list{
-          .mypage-link{
+          .mypage-active{
             background: #eee;
             font-weight: 600;
             position: relative;
@@ -20,6 +20,10 @@
             border-bottom: 1px solid #eee;
             padding: 16px;
             background:$baseWhiteColor;
+          }
+          .mypage-link{
+            text-decoration: none;
+            color: #333;
           }
         }
         .merpay__property{

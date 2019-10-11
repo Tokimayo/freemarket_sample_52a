@@ -7,7 +7,8 @@ class User < ApplicationRecord
 
   has_one :shipping_address
   accepts_nested_attributes_for :shipping_address
-  has_many :items, dependent: :destroy, through: :receipt
+  has_many :items, through: :receipt, dependent: :destroy
+  has_many :receipts
 
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
