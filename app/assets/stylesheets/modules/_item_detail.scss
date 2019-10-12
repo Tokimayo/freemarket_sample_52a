@@ -144,7 +144,9 @@
     }
   }
   .item-detail__edit{
-    margin:-20px 40px 50px;
+    margin:-20px auto 50px;
+    display: block;
+    padding: 10px 0;
     .item-detail__btn--edit{
       display: block;
       cursor: pointer;

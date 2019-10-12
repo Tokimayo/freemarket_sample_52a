@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   scope(path_names: {}) do
-    resources :users, path: 'mypage' do
+    resources :users, path: 'mypage', only: [:show] do
       collection do
         get 'mypage/profile', to: 'users#profile'
         get 'list_items/:id', to: 'users#list_items', as: 'list_items'
