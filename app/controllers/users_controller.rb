@@ -15,4 +15,14 @@ class UsersController < ApplicationController
     category = @item.category.ancestry.split("/")
     @categories = Category.where("(id = ?) OR (id = ?) OR (id = ?)" , category[0], category[1], @item.category_id)
   end
+
+  def identification
+  end 
+
+  def credit
+  end 
+
+  def logout
+  end 
+  
 end   

@@ -21,5 +21,5 @@ class User < ApplicationRecord
   validates :first_name_kana,         presence: true
   validates :family_name_kana,        presence: true
   validates :birthday,                presence: true
-  validates :phone_number,            presence: true, length: {maximum: 11}
+  validates :phone_number,            presence: true, length: {maximum: 10}
 end

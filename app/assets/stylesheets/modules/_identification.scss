@@ -1,0 +1,110 @@
+.myself-contents{
+  background: $baseWhiteColor; 
+  .myself__head{
+    border-bottom: 1px solid $backGrayColor;
+    font-size: 24px;
+    line-height: 1.4;
+    padding: 8px 24px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .inner-form{
+    padding: 64px;
+      p{
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+      .right-text{
+        text-align: right;
+        margin: 8px 0 0;
+        .icon-angle-right-c{
+          color:$iconBlueColor;
+          text-decoration: none;
+          }
+        }
+      }
+  }
+
+  .form-segment{
+    margin: 40px 0 0;
+    label{
+      display: inline-block;
+      font-weight: bold;
+    }
+    .form-arbitrary{
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: $baseWhiteColor;
+      background: $iconGrayColor;
+      font-size: 12px;
+      vertical-align: top;
+    }
+    .input-default{
+      width: calc(100% - 30px);
+      margin: 8px 0 0;
+      max-height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: $blockGrayBorder;
+      background: $baseWhiteColor;
+      line-height: 1.5;
+      font-size: 16px;
+      min-height: 1.5em;
+    }
+  }
+
+  .under-arrow{
+    position: relative;
+    background: $baseWhiteColor;
+    .icon-arrow-bottom{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: $negativeGrayColor;
+    font-size: 8px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: inline-block;
+    font-family: 'icon-font';
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    }
+    .select-default{
+      width: 100%;
+      margin: 8px 0 0;
+      max-height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: $blockGrayBorder;
+      background: $baseWhiteColor;
+      line-height: 1.5;
+      font-size: 16px;
+      min-height: 1.5em;
+    }
+  }
+  
+  .below-btn{
+    background: $iconRedColor;
+    border: 1px solid $iconRedColor;
+    color: $baseWhiteColor;
+    margin: 40px 0 40px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 48px;
+    .just-btn{
+      width: 100%;
+    }
+  }
+
+  .right-text{
+    text-align: right;
+    margin: 8px 0 0;
+  }

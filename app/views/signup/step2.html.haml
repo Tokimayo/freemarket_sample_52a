@@ -13,7 +13,9 @@
         .label-wrapper
           = f.label :"携帯電話の番号"
           %br/
-        = f.text_field :phone_number, autofocus: true, placeholder: "携帯電話の番号を入力"
+        %span.num-top
+          +81
+        = f.text_field :phone_number, autofocus: true, class:"input__cellphone", placeholder: "携帯電話の番号を入力"
       %p.single-text.input-under__text
         本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
       .actions

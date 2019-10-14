@@ -1,0 +1,13 @@
+.default-container 
+  = render 'shared/header'
+  = render 'shared/bread-crumbs-profile'
+  .main__contents-clearfix        
+    .main__contents-logout
+      %section.container
+        %form{action: "", method: ""}
+          .setting__profile__text-logout
+            %button{class: "below-btn-logout", size: ""}
+              ログアウト
+    = render 'shared/side-contents-profile'
+  = render 'shared/footer'
+  = render 'shared/sell-btn'
