@@ -56,7 +56,7 @@
               %span.required_mark
                 必須
             .data__category--form-l
-              = f.collection_select :category_id, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
+              = f.collection_select :ancestor_category, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
             .data__category--form-m
             .data__category--form-s
             - if @item.errors.full_messages_for(:category_id).any?
