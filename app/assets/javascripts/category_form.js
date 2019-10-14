@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   $(function () {
 
     function buildChild() {
-      var html =`<select class="select-wrap" id="child" name="item[category_id]"><option value="">---</option></select>`
+      var html =`<select class="select-wrap" id="child" name="item[parent_category]"><option value="">---</option></select>`
       return html;}
 
     function buildGrandChild() {
@@ -14,14 +14,13 @@ $(document).on('turbolinks:load', function() {
       return html;}
 
       function buildSize(){
-        var html = `<div class="data__size" id="sizebox">
-                      <label class="data__size--title">サイズ</label>
+        var html = `<div class="data__size--form" id="sizebox">
+                      <label class="data__size--form--title">サイズ</label>
                       <span class="required_mark">必須</span>
-                      <div class="data__size--tab"></div>
+                      <div class="data__size--form--tab"></div>
                         <select class="select--box" required:"required" id="size" name="item[size_id]"></select>
                       </div>
                     </div>`
-
         return html;}
 
       function buildSizeOption(sizingOption){
@@ -61,28 +60,28 @@ $(document).on('turbolinks:load', function() {
             if (cnt == 0) {
               $('#grand_child').remove();
             }else{
-            var html  = buildGrandChild();
-            $('.data__category--form-s').append(html)
-            data.categories.forEach(function(cateChild) {
-              var option  = buildOption(cateChild);
-              $('#grand_child').append(option);
-            })
-          }
+              var html  = buildGrandChild();
+              $('.data__category--form-s').append(html)
+              data.categories.forEach(function(cateChild) {
+                var option  = buildOption(cateChild);
+                $('#grand_child').append(option);
+              })
+            }
             $('#grand_child').on("change",function(){
               $('#sizebox').remove();
               var parentValue = document.getElementById("grand_child").value;
               $.ajax({
-                  url:  '/items/search',
-                  type: "GET",
-                  data: { parent_id: parentValue },
-                  dataType: 'json'
+                url:  '/items/search',
+                type: "GET",
+                data: { parent_id: parentValue },
+                dataType: 'json'
               })
               .done(function(data) {
                 if(data.sizes == ""){$('#sizebox').css('display', 'none')
                 }else{
-                  $('.data__size').css('display', 'block')
+                  $('#sizebox').css('display', 'block')
                     var html = buildSize();
-                  $('.data__size--form').append(html)
+                  $('.data__size').append(html)
                   data.sizes.forEach(function(sizingOption){
                     var option = buildSizeOption(sizingOption);
                     $('#size').append(option);
@@ -92,6 +91,76 @@ $(document).on('turbolinks:load', function() {
             });
           });
         });
+      });
+    });
+
+    $("#child").on("change",function () {
+      $('#grand_child').remove();
+      $('#sizebox').remove();
+      var parentValue = document.getElementById("child").value;
+      $.ajax({
+        url: '/items/search',
+        type: "GET",
+        data: {parent_id: parentValue},
+        dataType: 'json'
+      })
+      .done(function (data) {
+        cnt = data.categories.length
+        if (cnt == 0) {
+          $('#grand_child').remove();
+        }else{
+          var html  = buildGrandChild();
+          $('.data__category--form-s').append(html)
+          data.categories.forEach(function(cateChild) {
+            var option  = buildOption(cateChild);
+            $('#grand_child').append(option);
+          })
+        }
+        $('#grand_child').on("change",function(){
+          $('#sizebox').remove();
+          var parentValue = document.getElementById("grand_child").value;
+          $.ajax({
+              url:  '/items/search',
+              type: "GET",
+              data: { parent_id: parentValue },
+              dataType: 'json'
+          })
+          .done(function(data) {
+            if(data.sizes == ""){$('#sizebox').css('display', 'none')
+            }else{
+              $('#sizebox').css('display', 'block')
+                var html = buildSize();
+              $('.data__size').append(html)
+              data.sizes.forEach(function(sizingOption){
+                var option = buildSizeOption(sizingOption);
+                $('#size').append(option);
+              });
+            }
+          });
+        });
+      });
+    });
+
+    $('#grand_child').on("change",function(){
+      $('#sizebox').remove();
+      var parentValue = document.getElementById("grand_child").value;
+      $.ajax({
+          url:  '/items/search',
+          type: "GET",
+          data: { parent_id: parentValue },
+          dataType: 'json'
+      })
+      .done(function(data) {
+        if(data.sizes == ""){$('#sizebox').css('display', 'none')
+        }else{
+          $('#sizebox').css('display', 'block')
+            var html = buildSize();
+          $('.data__size').append(html)
+          data.sizes.forEach(function(sizingOption){
+            var option = buildSizeOption(sizingOption);
+            $('#size').append(option);
+          });
+        }
       });
     });
   });
