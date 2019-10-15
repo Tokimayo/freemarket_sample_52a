@@ -92,3 +92,6 @@ gem 'fog-aws'
 gem 'rb-readline'
 
 gem 'nokogiri', '>= 1.10.4'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
