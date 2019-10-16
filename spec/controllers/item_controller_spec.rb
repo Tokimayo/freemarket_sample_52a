@@ -97,4 +97,128 @@ RSpec.describe ItemsController, type: :controller do
       end
     end
   end
+  describe 'GET #edit' do
+    before do
+      login_user user
+    end
+
+    it "assigns the requested tweet to @item" do
+      create(:category, id:1, ancestry: nil)
+      create(:category, id:20, ancestry: "1")
+      item = create(:item)
+      get :edit,params:{id: item}
+      expect(assigns(:item)).to eq item
+    end
+    it "renders the :edit template" do
+      create(:category, id:1, ancestry: nil)
+      create(:category, id:20, ancestry: "1")
+      item = create(:item)
+      get :edit, params: { id: item }
+      expect(response).to render_template :edit
+    end
+  end
+  describe "#update" do
+    before do
+      login_user user
+    end
+    context "as an authorized user" do
+      # 正常に記事を更新できるか？
+      it "updates an article" do
+        item = create(:item)
+        item_params = {
+          id: "1",
+          name: "test",
+          description: "テスト用です",
+          price: "3000",
+          condition: "新品、未使用",
+          shipping_charge: "送料込み(出品者負担)",
+          delivery_method: "らくらくメルカリ便",
+          delivery_source_area: "北海道",
+          delivery_days: "1~2日で発送",
+          brand_id: "シャネル",
+          size_id: size.id,
+          category_id: category.id,
+          item_status: "1",
+          user_id: user.id,
+          images_attributes: {"0":{image: image}}
+        }
+        patch :update, params: {id: item, item: item_params}
+        expect(item.reload.price).to eq 3000
+      end
+      # 記事を更新した後、更新された記事の詳細ページへリダイレクトするか？
+      it "redirects the page to /articles/article.id(1)" do
+        item = create(:item)
+        item_params = {
+          id: "1",
+          name: "test",
+          description: "テスト用です",
+          price: "3000",
+          condition: "新品、未使用",
+          shipping_charge: "送料込み(出品者負担)",
+          delivery_method: "らくらくメルカリ便",
+          delivery_source_area: "北海道",
+          delivery_days: "1~2日で発送",
+          brand_id: "シャネル",
+          size_id: size.id,
+          category_id: category.id,
+          item_status: "1",
+          user_id: user.id,
+          images_attributes: {"0":{image: image}}
+        }
+        patch :update, params: {id: item, item: item_params}
+        expect(response).to redirect_to root_path
+      end
+    end
+    context "with invalid attributes" do
+      # 不正なアトリビュートを含む記事は更新できなくなっているか？
+      it "does not update an article" do
+        item = create(:item)
+        item_params = {
+          id: "1",
+          name: nil,
+          description: "テスト用です",
+          price: "3000",
+          condition: "新品、未使用",
+          shipping_charge: "送料込み(出品者負担)",
+          delivery_method: "らくらくメルカリ便",
+          delivery_source_area: "北海道",
+          delivery_days: "1~2日で発送",
+          brand_id: "シャネル",
+          size_id: size.id,
+          category_id: category.id,
+          item_status: "1",
+          user_id: user.id,
+          images_attributes: {"0":{image: image}}
+        }
+        patch :update, params: {id: item, item: item_params}
+        expect(item.reload.name).to eq "test"
+      end
+      # 不正な記事を更新しようとすると、再度更新ページへリダイレクトされるか？
+      it "redirects the page to item/.id(1)/edit" do
+        item = create(:item)
+        create(:category, id:1, ancestry: nil)
+        create(:category, id:20, ancestry: "1")  
+        item_params = {
+          id: "1",
+          name: nil,
+          description: "テスト用です",
+          price: "3000",
+          condition: "新品、未使用",
+          shipping_charge: "送料込み(出品者負担)",
+          delivery_method: "らくらくメルカリ便",
+          delivery_source_area: "北海道",
+          delivery_days: "1~2日で発送",
+          brand_id: "シャネル",
+          size_id: size.id,
+          category_id: category.id,
+          item_status: "1",
+          user_id: user.id,
+          images_attributes: {"0":{image: image}}
+        }
+        patch :update, params: {id: item, item: item_params}
+        get :edit, params: { id: item }
+        expect(response).to render_template :edit
+        end
+    end
+  end
 end
