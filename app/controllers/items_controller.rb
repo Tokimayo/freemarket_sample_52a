@@ -1,15 +1,14 @@
 class ItemsController < ApplicationController
+ before_action :authenticate_user!, except: :index
+ before_action :get_item, only: [:edit, :update]
+ 
   def index
   end
 
   def new
-    unless current_user
-      redirect_to new_user_session_path
-    else
     @item = Item.new
     10.times { @item.images.build }
     @category = Category.all.order("id ASC").limit(13)
-    end
   end
 
   def create
@@ -30,7 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     grandchild = @item.category
     child = grandchild.parent
     parent = child.parent
@@ -43,15 +41,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if brand = Brand.find_by(name: params[:item][:brand_id])
       params[:item][:brand_id] = brand.id
     else
       params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
     end
-    if @item.user_id == current_user.id
-       @item.update(update_params)
-       redirect_to root_path
+    if @item.update(update_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -77,10 +73,46 @@ class ItemsController < ApplicationController
   end
 
 private
+  def get_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
-    params.require(:item).permit(:name, :description, :price, :condition, :shipping_charge, :delivery_method, :delivery_source_area, :delivery_days, :evaluation, :brand_id, :size_id, :ancestor_category, :parent_category, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(
+      :name,
+      :description,
+      :price,
+      :condition,
+      :shipping_charge,
+      :delivery_method,
+      :delivery_source_area,
+      :delivery_days,
+      :evaluation,
+      :brand_id,
+      :size_id,
+      :ancestor_category,
+      :parent_category,
+      :category_id,
+      images_attributes: [:image]
+    ).merge(user_id: current_user.id)
   end
   def update_params
-    params.require(:item).permit(:name, :description, :price, :condition, :shipping_charge, :delivery_method, :delivery_source_area, :delivery_days, :evaluation, :brand_id, :size_id, :ancestor_category, :parent_category, :category_id, images_attributes: [:image,:id]).merge(user_id: current_user.id)
+    params.require(:item).permit(
+      :name,
+      :description,
+      :price,
+      :condition,
+      :shipping_charge,
+      :delivery_method,
+      :delivery_source_area,
+      :delivery_days,
+      :evaluation,
+      :brand_id,
+      :size_id,
+      :ancestor_category,
+      :parent_category,
+      :category_id,
+      images_attributes: [:image,:id]
+    ).merge(user_id: current_user.id)
   end
 end
