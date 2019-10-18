@@ -1,6 +1,7 @@
-.wrapper
-  .content
-    = form_for [@item] do |f|
+.exhibit-wrapper
+  = render 'shared/header_single'
+  .exhibit-content
+    = form_for @item do |f|
       .content_title
         商品の情報を入力
       .images
@@ -166,3 +167,4 @@
         .back-btn
           = link_to root_path do
             もどる
+  = render 'shared/footer_single'
