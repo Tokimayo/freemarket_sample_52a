@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :size, optional: true
   belongs_to :brand, optional: true
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, reject_if: :reject_images, allow_destroy: true
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true,  length: { maximum: 1000 }
@@ -34,4 +34,12 @@ class Item < ApplicationRecord
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
+  def reject_images(attributes)
+    if attributes[:id]
+      attributes.merge!(_destroy: "1") if attributes[:image].blank? and attributes[:id].blank?
+      !attributes[:image].blank? and attributes[:id].blank?
+    else
+      attributes[:image].blank? and attributes[:id].blank?
+    end
+  end
 end

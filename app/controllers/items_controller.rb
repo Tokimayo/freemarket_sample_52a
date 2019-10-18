@@ -41,6 +41,15 @@ class ItemsController < ApplicationController
   end
 
   def update
+    grandchild = @item.category
+    child = grandchild.parent
+    parent = child.parent
+    @category = child.children
+    @children = parent.children
+    @parent = Category.all.order("id ASC").limit(13)
+    @sizing = grandchild.size_flag
+    @size = Size.where(category_flag:@sizing)
+
     if brand = Brand.find_by(name: params[:item][:brand_id])
       params[:item][:brand_id] = brand.id
     else
@@ -49,7 +58,7 @@ class ItemsController < ApplicationController
     if @item.update(update_params)
       redirect_to root_path
     else
-      render :edit
+      redirect_to edit_item_path
     end
     
   end
@@ -112,7 +121,7 @@ private
       :ancestor_category,
       :parent_category,
       :category_id,
-      images_attributes: [:image,:id]
+      images_attributes: [:image,:id,:_destroy]
     ).merge(user_id: current_user.id)
   end
 end

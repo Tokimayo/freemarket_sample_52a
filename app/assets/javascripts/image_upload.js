@@ -199,4 +199,54 @@ $(document).on('turbolinks:load', function() {
       reader.readAsDataURL(file);
       });
   });
+  $(document).on('click', '#delete_btn0', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_0__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn1', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_1__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn2', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_2__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn3', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_3__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn4', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_4__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn5', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_5__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn6', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_6__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn7', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_7__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn8', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_8__destroy`).prop('checked',true);
+  });
+  $(document).on('click', '#delete_btn9', function(){
+    var target_image = $(this).parent().parent();
+    target_image.remove();
+    $(`#item_images_attributes_9__destroy`).prop('checked',true);
+  });
 });
