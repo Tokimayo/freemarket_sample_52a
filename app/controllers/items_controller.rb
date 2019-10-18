@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
+
+  helper_method :create_items_list
+
   def index
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
@@ -43,12 +47,59 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    
+    redirect_to list_items_users_path
+  end
+
   def brand_suggestions
     @brand = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
       format.json
     end
+  end
+
+  def create_items_list
+    
+    lst = {}
+    lst['レディース/1']             = 0
+    lst['メンズ/2']                = 0
+    lst['ベビー・キッズ/3']         = 0
+    lst['インテリア・住まい・小物/4'] = 0
+    lst['本・音楽・ゲーム/5']        = 0
+    lst['おもちゃ・ホビー・グッズ/6'] = 0
+    lst['コスメ・香水・美容/7']      = 0
+    lst['家電・スマホ・カメラ/8']    = 0
+    lst['スポーツ・レジャー/9']      = 0
+    lst['ハンドメイド/10']           = 0
+    lst['チケット/11']              = 0
+    lst['自転車・オートバイ/12']      = 0
+    lst['その他/13']                = 0
+    
+    @items.each do |item|
+      categories = item.category.ancestry.split("/")
+      lst['レディース/1']            += categories[0] == "1" ? 1 : 0
+      lst['メンズ/2']                += categories[0] == "2" ? 1 : 0
+      lst['ベビー・キッズ/3']         += categories[0] == "3" ? 1 : 0
+      lst['インテリア・住まい・小物/4'] += categories[0] == "4" ? 1 : 0
+      lst['本・音楽・ゲーム/5']        += categories[0] == "5" ? 1 : 0
+      lst['おもちゃ・ホビー・グッズ/6'] += categories[0] == "6" ? 1 : 0
+      lst['コスメ・香水・美容/7']      += categories[0] == "7" ? 1 : 0
+      lst['家電・スマホ・カメラ/8']    += categories[0] == "8" ? 1 : 0
+      lst['スポーツ・レジャー/9']      += categories[0] == "9" ? 1 : 0
+      lst['ハンドメイド/10']           += categories[0] == "10" ? 1 : 0
+      lst['チケット/11']              += categories[0] == "11" ? 1 : 0
+      lst['自転車・オートバイ/12']      += categories[0] == "12" ? 1 : 0
+      lst['その他/13']                += categories[0] == "13" ? 1 : 0
+    end
+
+    newlst = lst.sort_by{ | k, v | v }.reverse
+    
+    return newlst
+
   end
 
 private

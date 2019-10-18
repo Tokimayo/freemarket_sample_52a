@@ -11,8 +11,18 @@
       }
       .contents-body{
         @include clearfix();
-        width: 940px;
-        margin: 26px auto;
+        width: 1050px;
+        margin: 26px auto 100px;
+        position: relative;
+        .item-box__img{
+          width: 213px;
+          height: 213px;
+          .item_img__index{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+          }
+        }
         .item-box {
           float: left;
           display: block;
@@ -35,6 +45,14 @@
             font-weight: 600;
           }
           }
+        }
+        .link-text{
+          color:$iconBlueColor;
+          text-decoration: none;
+          font-size:13px;
+          position: absolute;
+          bottom: -35px;
+          right: 9px;
         }
       }
     

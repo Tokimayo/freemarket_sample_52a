@@ -80,7 +80,18 @@
             color: $baseWhiteColor;
             background: $iconBlueColor;
           }
-          
+        }
+        &__logout {
+          text-decoration: none;
+          color: $fontBlackColor;
+          font-size: 14px;
+          & img {
+            border-radius: 50%;
+          }
+          & span {
+            margin: 8px;
+            vertical-align:15px;
+          }
         }        
       }
     }

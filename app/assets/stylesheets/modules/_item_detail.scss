@@ -14,21 +14,25 @@
             vertical-align: top;
             display: inline-block;
             width: 300px;
+            height: 300px;
             margin: 20px 8px;
             background-color: $backGrayColor;
             .item__detail--img{
               width: 100%;
-              height: 300px;
-              margin-bottom: 20px; 
+              height: 100%;
+              margin-bottom: 20px;
+              object-fit: cover;
             }
             .item-detail__main-box--img-mini{
               margin:0 -3px 0;
               width: 61px;
+              height: 61px;
               display: inline-block;
               .item__detail--img-mini{
                 width: 100%;
-                height: 61px;
+                height: 100%;
                 vertical-align: middle;
+                object-fit: cover;
               }
             }
           }
@@ -139,6 +143,47 @@
       }
     }
   }
+  .item-detail__edit{
+    margin:-20px auto 50px;
+    display: block;
+    padding: 10px 0;
+    .item-detail__btn--edit{
+      display: block;
+      cursor: pointer;
+      outline: none;
+      width: 625px;
+      padding: 17px;
+      margin: 10px auto 15px;
+      font-size: 15px;
+      background-color: $iconRedColor;
+      color:$baseWhiteColor;
+      text-decoration: none;
+    }
+    .item-detail__btn--stop{
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      outline: none;
+      width: 625px;
+      padding: 17px;
+      margin: 15px auto 10px;
+      font-size: 15px;
+      background-color: $commentBtnBackColor;
+      color:$baseWhiteColor;
+    }
+    .item-detail__btn--delete{
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      outline: none;
+      width: 625px;
+      padding: 17px;
+      margin: 10px auto;
+      font-size: 15px;
+      background-color: $commentBtnBackColor;
+      color:$baseWhiteColor;
+    }
+  }
   .single-main.single-main__comment{
     margin: -32px 0 35px;
     font-size: 14px;
@@ -219,7 +264,7 @@
         }
       }
       &--contents-body{
-        width: 720px;
+        width: 775px;
         margin: 5px auto;
       }
     }

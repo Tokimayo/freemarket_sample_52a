@@ -7,6 +7,18 @@ RSpec.describe ItemsController, type: :controller do
   let(:image_path) { File.join(Rails.root, 'spec/fixtures/image.jpg') }
   let(:image) { Rack::Test::UploadedFile.new(image_path) }
 
+  describe 'GET #index' do
+    it "responds successfully" do
+      get :index
+      expect(response).to be_success
+    end
+    
+    it "returns a 200 response" do
+      get :index
+      expect(response).to have_http_status "200"
+    end
+  end
+
   describe '#new' do
     context 'log in' do
       before do
@@ -41,7 +53,7 @@ RSpec.describe ItemsController, type: :controller do
               delivery_method: "らくらくメルカリ便",
               delivery_source_area: "北海道",
               delivery_days: "1~2日で発送",
-              brand_id: "シャネル",
+              brand_id: "1",
               size_id: size.id,
               category_id: category.id,
               item_status: "1",
@@ -94,6 +106,29 @@ RSpec.describe ItemsController, type: :controller do
       it 'redirects to new_user_session_path' do
         get :new
         expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    @user = FactoryBot.create(:user)
+    @brand = FactoryBot.create(:brand)
+    @category = FactoryBot.create(:category)
+    @size = FactoryBot.create(:size)
+    item = FactoryBot.create(:item, user_id:@user.id, brand_id:@brand.id, category_id:@category.id, size_id:@size.id)
+  
+    let(:image_path) { File.join(Rails.root, 'spec/fixtures/image.jpg') }
+    let(:image) { Rack::Test::UploadedFile.new(image_path) }
+
+    describe 'DELETE #destroy' do
+      it "responds successfully" do
+        expect do
+          delete :destroy, params: {id: item.id}, session: {}
+          expect{ subject }.to change(Item, :count).by(-1)
+        end
+      end
+      
+      it 'redirects the :create template' do
+        delete :destroy, params: { id: item.id }, session: {}
+        expect(response).to redirect_to(list_items_users_path)
       end
     end
   end

@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :item do
-    id                    {1}
+    id                    {Faker::Number.number(1)}
     name                  {"test"} 
     description           {"テスト用です"}
     price                 {1000}
@@ -13,9 +13,10 @@ FactoryBot.define do
     brand_id              {1}
     size_id               {1}
     category_id           {1}
-    user_id               {1}
+    user_id               {Faker::Number.number(1)}
     item_status           {1}
     images                {[FactoryBot.build(:image)]}
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 
 end

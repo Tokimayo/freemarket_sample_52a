@@ -31,23 +31,22 @@ Rails.application.routes.draw do
     end
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'items#index'
 
-  scope(path_names: { show: 'mypage'}) do
-    resources :users do
+  scope(path_names: {}) do
+    resources :users, path: 'mypage', only: [:show] do
       collection do
-        get 'mypage/profile',  to: 'users#profile'
-
+        get 'mypage/profile', to: 'users#profile'
+        get 'list_items/:id', to: 'users#list_items', as: 'list_items'
+        get 'list_items/item_detail/:id', to: 'users#item_detail', as: 'item_detail'
         get 'mypage/identification', to: 'users#identification'
         get 'mypage/credit', to: 'users#credit'
         get 'logout',  to: 'users#logout'
-
       end
     end
   end
 
-  resources :items, only: [:index, :new, :create] do
+  resources :items, only: [:index, :new, :create, :destroy] do
     collection do
       get 'search'
       get 'brand_suggestions'
