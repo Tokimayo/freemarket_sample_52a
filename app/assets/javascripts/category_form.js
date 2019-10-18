@@ -14,10 +14,10 @@ $(document).on('turbolinks:load', function() {
       return html;}
 
       function buildSize(){
-        var html = `<div class="data__size--form" id="sizebox">
-                      <label class="data__size--form--title">サイズ</label>
-                      <span class="required_mark">必須</span>
-                      <div class="data__size--form--tab"></div>
+        var html = `<div class="data-form__size" id="sizebox">
+                      <label class="data-form__size--title">サイズ</label>
+                      <span class="Required__label">必須</span>
+                      <div class="data-form__size--tab form-group">
                         <select class="select--box" required:"required" id="size" name="item[size_id]"></select>
                       </div>
                     </div>`
@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function() {
       })
       .done(function (data) {
         var html  = buildChild();
-        $('.data__category--form-m').append(html)
+        $('.data-form__category--form-m').append(html)
         data.categories.forEach(function(cateChild) {
           var option  = buildOption(cateChild);
           $('#child').append(option);
@@ -60,13 +60,13 @@ $(document).on('turbolinks:load', function() {
             if (cnt == 0) {
               $('#grand_child').remove();
             }else{
-              var html  = buildGrandChild();
-              $('.data__category--form-s').append(html)
-              data.categories.forEach(function(cateChild) {
-                var option  = buildOption(cateChild);
-                $('#grand_child').append(option);
-              })
-            }
+            var html  = buildGrandChild();
+            $('.data-form__category--form-s').append(html)
+            data.categories.forEach(function(cateChild) {
+              var option  = buildOption(cateChild);
+              $('#grand_child').append(option);
+            })
+          }
             $('#grand_child').on("change",function(){
               $('#sizebox').remove();
               var parentValue = document.getElementById("grand_child").value;
@@ -79,9 +79,9 @@ $(document).on('turbolinks:load', function() {
               .done(function(data) {
                 if(data.sizes == ""){$('#sizebox').css('display', 'none')
                 }else{
-                  $('#sizebox').css('display', 'block')
+                  $('.data-form__size').css('display', 'block')
                     var html = buildSize();
-                  $('.data__size').append(html)
+                  $('.data-form__size--form').append(html)
                   data.sizes.forEach(function(sizingOption){
                     var option = buildSizeOption(sizingOption);
                     $('#size').append(option);

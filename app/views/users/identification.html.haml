@@ -1,0 +1,73 @@
+.default-container 
+  = render 'shared/header'
+  = render 'shared/bread-crumbs-profile'
+  .main__contents-clearfix        
+    .main__contents
+      %section.myself-contents
+        %h2.myself__head
+          本人情報の登録
+        %form{class: "inner-form", action: "", method: ""}
+          %div
+            %p
+              お客様本人の情報をご登録ください
+              %br
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            .right-text
+              .icon-angle-right-c
+                本人確認書類のアップロードについて
+                =fa_icon 'angle-right'
+          %div.form-segment
+            %label
+              名前
+            %p    
+              吉村　雅史
+          %div.form-segment
+            %label
+              お名前カナ
+            %p    
+              ヨシムラ　マサフミ
+          %div.form-segment
+            %label
+              生年月日
+            %p    
+              1993/05/29 
+          %div.form-segment
+            %label
+              郵便番号
+            %span.form-arbitrary     
+              任意
+            %input.input-default{ placeholder: "東京都"}      
+          %div.form-segment
+            %label
+              都道府県
+            %span.form-arbitrary   
+              任意 
+            %input.input-default{ placeholder: "例）東京都"}      
+          %div.form-segment
+            %label
+              市町村
+            %span.form-arbitrary    
+              任意
+            %input.input-default{ placeholder: "例）横浜市緑区"}      
+          %div.form-segment
+            %label
+              番地
+            %span.form-arbitrary    
+              任意
+            %input.input-default{ placeholder: "例）青山1-1-1"}      
+          %div.form-segment
+            %label
+              建物名
+            %span.form-arbitrary    
+              任意
+            %input.input-default{ placeholder: "例）柳ビル"}      
+          %button{class: "below-btn", size: ""}
+            .just-btn
+              登録する
+          .right-text
+            .icon-angle-right-c
+              本人情報の登録について
+              =fa_icon 'angle-right'
+    = render 'shared/side-contents-profile'
+  = render 'shared/footer'
+  = render 'shared/sell-btn'

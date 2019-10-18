@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @errors = @item.errors
     10.times { @item.images.build }
     @category = Category.all.order("id ASC").limit(13)
   end
@@ -23,6 +24,9 @@ class ItemsController < ApplicationController
       Receipt.create(item_id: @item.id)
       redirect_to root_path
     else
+      @errors = @item.errors
+      @item = Item.new
+      10.times { @item.images.build }
       @category = Category.all.order("id ASC").limit(13)
       render :new
     end
