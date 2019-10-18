@@ -91,41 +91,11 @@ private
   end
 
   def item_params
-    params.require(:item).permit(
-      :name,
-      :description,
-      :price,
-      :condition,
-      :shipping_charge,
-      :delivery_method,
-      :delivery_source_area,
-      :delivery_days,
-      :evaluation,
-      :brand_id,
-      :size_id,
-      :ancestor_category,
-      :parent_category,
-      :category_id,
-      images_attributes: [:image]
-    ).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:description,:price,:condition,:shipping_charge,:delivery_method,:delivery_source_area,:delivery_days,
+      :evaluation,:brand_id,:size_id,:ancestor_category,:parent_category,:category_id,images_attributes: [:image]).merge(user_id: current_user.id)
   end
   def update_params
-    params.require(:item).permit(
-      :name,
-      :description,
-      :price,
-      :condition,
-      :shipping_charge,
-      :delivery_method,
-      :delivery_source_area,
-      :delivery_days,
-      :evaluation,
-      :brand_id,
-      :size_id,
-      :ancestor_category,
-      :parent_category,
-      :category_id,
-      images_attributes: [:image,:id,:_destroy]
-    ).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:description,:price,:condition,:shipping_charge,:delivery_method,:delivery_source_area,:delivery_days,
+      :evaluation,:brand_id,:size_id,:ancestor_category,:parent_category,:category_id,images_attributes: [:image,:id,:_destroy]).merge(user_id: current_user.id)
   end
 end

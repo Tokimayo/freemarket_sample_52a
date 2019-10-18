@@ -124,6 +124,8 @@ RSpec.describe ItemsController, type: :controller do
     context "as an authorized user" do
       # 正常に記事を更新できるか？
       it "updates an article" do
+        create(:category, id:1, ancestry: nil)
+        create(:category, id:20, ancestry: "1")  
         item = create(:item)
         item_params = {
           id: "1",
@@ -147,6 +149,8 @@ RSpec.describe ItemsController, type: :controller do
       end
       # 記事を更新した後、更新された記事の詳細ページへリダイレクトするか？
       it "redirects the page to /articles/article.id(1)" do
+        create(:category, id:1, ancestry: nil)
+        create(:category, id:20, ancestry: "1")  
         item = create(:item)
         item_params = {
           id: "1",
@@ -172,6 +176,8 @@ RSpec.describe ItemsController, type: :controller do
     context "with invalid attributes" do
       # 不正なアトリビュートを含む記事は更新できなくなっているか？
       it "does not update an article" do
+        create(:category, id:1, ancestry: nil)
+        create(:category, id:20, ancestry: "1")  
         item = create(:item)
         item_params = {
           id: "1",
@@ -216,8 +222,7 @@ RSpec.describe ItemsController, type: :controller do
           images_attributes: {"0":{image: image}}
         }
         patch :update, params: {id: item, item: item_params}
-        get :edit, params: { id: item }
-        expect(response).to render_template :edit
+        expect(response).to redirect_to edit_item_path
         end
     end
   end
