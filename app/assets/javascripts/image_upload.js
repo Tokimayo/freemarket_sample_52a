@@ -11,18 +11,18 @@ $(document).on('turbolinks:load', function() {
     $('#item_images_attributes_9_image').hide();
 
     $("#item_images_attributes_0_image").on("change", function () {
-      var preimage1 = `<div class="preimage"><div class="preimage__top"><img id="img1" style="width:110px; height:80px;" /></div><div class="preimage__bottom"><p href class="preimage__bottom__side1">編集</p><p href class="preimage__bottom__side2">削除</p></div></div>`
+      var preimage1 = '<div class="preimage"><div class="preimage__top"><img id="img1" style="width:110px; height:80px;" /></div><div class="preimage__bottom"><p href class="preimage__bottom__side1">編集</p><p href class="preimage__bottom__side2">削除</p></div></div>'
       $('#item_images_attributes_0_image').hide();
       $('#item_images_attributes_1_image').show();
       $('#preimg1').hide();
       $('#preview').append(preimage1)
     })
 
-    $("#item_images_attributes_0_image").change(function (e) {
+    $("#item_images_attributes_0_image").change(function(e){
       var file = e.target.files[0];
       var reader = new FileReader();
-      reader.onload = (function () {
-        return function(e) {
+      reader.onload = (function(){
+        return function(e){
           $("#img1").attr("src", e.target.result);
         };
       })(file);
