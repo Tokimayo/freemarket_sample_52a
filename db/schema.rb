@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_145540) do
+ActiveRecord::Schema.define(version: 2019_09_12_034838) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 2019_10_01_145540) do
     t.integer "price", null: false
     t.bigint "brand_id"
     t.bigint "size_id"
+    t.bigint "category_id", null: false
+    t.integer "ancestor_category"
+    t.integer "parent_category"
     t.string "condition", null: false
     t.string "shipping_charge"
     t.string "delivery_method", null: false
@@ -69,7 +72,6 @@ ActiveRecord::Schema.define(version: 2019_10_01_145540) do
     t.integer "item_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
@@ -98,7 +100,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_145540) do
     t.string "municipalities", null: false
     t.string "street_number", null: false
     t.string "building_name"
-    t.string "phone_number", limit: 11
+    t.integer "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
@@ -120,8 +122,8 @@ ActiveRecord::Schema.define(version: 2019_10_01_145540) do
     t.string "first_name_kana", null: false
     t.string "family_name_kana", null: false
     t.text "avator"
-    t.string "phone_number", limit: 11
-    t.string "birthday", limit: 11
+    t.integer "phone_number"
+    t.integer "birthday"
     t.string "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

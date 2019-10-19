@@ -7,13 +7,14 @@
       .exhibit-content__form
         .images
           .images__title
-            = f.label :name, "出品画像",class: "image_label"
+            = f.label :name, "出品画像"
             %span.Required__label
               必須
           .images__text
             最大10枚までアップロードできます
           .images__upload-area
             .images__upload-area__preview#preview
+              = render partial: 'preview', collection: @item.images.limit(10), as: 'image'
             .images__upload-area__uploader
               .images__upload-area__uploader__body
                 .images__upload-area__uploader__body__text
@@ -23,7 +24,8 @@
                 = f.fields_for :images do |i|
                   = i.label  :image, id:  "files" do
                     = i.file_field :image
-            - if @errors.full_messages_for(:images).any?
+                    = i.check_box :_destroy
+            - if @item.errors.full_messages_for(:images).any?
               .alert
                 画像がありません
         .item
@@ -34,7 +36,7 @@
                 必須
             .item__name--form.form-group
               %div= f.text_field :name, placeholder: "商品名（必須40文字まで）", autocomplete: 'off'
-              - if @errors.full_messages_for(:name).any?
+              - if @item.errors.full_messages_for(:name).any?
                 .alert
                   入力してください
           .item__text
@@ -44,7 +46,7 @@
                 必須
             .item__text--form.form-group
               = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-              - if @errors.full_messages_for(:description).any?
+              - if @item.errors.full_messages_for(:description).any?
                 .alert
                   入力してください
         .data
@@ -57,21 +59,29 @@
                 %span.Required__label
                   必須
               .data-form__category--form-l.form-group
-                = f.collection_select :ancestor_category, @category, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
+                = f.collection_select :ancestor_category, @parent, :id, :name,{prompt: "---"}, class: "select-dafault",id: "parent-form"
               .data-form__category--form-m.form-group
+                = f.collection_select :parent_category, @children, :id, :name,{prompt: "---"}, class: "select-wrap",id: "child"
               .data-form__category--form-s.form-group
-              - if @errors.full_messages_for(:category_id).any?
+                = f.collection_select :category_id, @category, :id, :name,{prompt: "---"}, class: "select-wrap2",id: "grand_child"
+              - if @item.errors.full_messages_for(:category_id).any?
                 .alert
                   選択してください 
             .data-form__size
-              .data-form__size--form
+              .data-form__size--form#sizebox
+                .data-form__size--form--title
+                  = f.label :name, "サイズ"
+                  %span.Required__label
+                    必須
+                .data-form__size--form--tab.form-group
+                  = f.collection_select :size_id, @size, :id, :name,{prompt: "---"}, class: "select-dafault",id: "size"
             .data-form__brand
               .data-form__brand--title
                 = f.label :name, "ブランド"
                 %span.Required__label.any
                   任意
               .data-form__brand--form.form-group
-                = f.text_field :brand_id, placeholder: "例）シャネル", value: nil, autocomplete: 'off'
+                = f.text_field :brand_id, placeholder: "例）シャネル", value: @item.brand.name, autocomplete: 'off'
                 .data-form__brand--form--seggestions
             .data-form__state
               .data-form__state--title
@@ -80,7 +90,7 @@
                   必須
               .data-form__state--form.form-group
                 = f.select :condition, [["---",""],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]]
-              - if @errors.full_messages_for(:condition).any?
+              - if @item.errors.full_messages_for(:condition).any?
                 .alert
                   選択してください
         .shipping
@@ -95,10 +105,19 @@
                   必須
               .shipping-form__price--form.form-group
                 = f.select :shipping_charge,[["---",""],["送料込み(出品者負担)"],["着払い(購入者負担)"]]
-              - if @errors.full_messages_for(:shipping_charge).any?
+              - if @item.errors.full_messages_for(:shipping_charge).any?
                 .alert
                   選択してください
             .shipping-form__means
+              .shipping-form__means--title
+                = f.label :name, "配送の方法"
+                %span.Required__label
+                  必須
+              .shipping-form__means--form.form-group
+                - if @item.shipping_charge == "送料込み(出品者負担)"
+                  = f.select :delivery_method,[["---",""],["未定"],["らくらくメルカリ便"],["ゆうメール"],["レターパック"],["普通郵便(定型、定形外)"],["クロネコヤマト"],["ゆうパック"],["クリックポスト"],["ゆうパケット"]],{},{id: "means"}
+                - else
+                  = f.select :delivery_method,[["---",""],["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{},{id: "means"}
             .shipping-form__area
               .shipping-form__area--title
                 = f.label :name, "発送元の地域"
@@ -116,7 +135,7 @@
                   必須
               .shipping-form__days--form.form-group
                 = f.select :delivery_days, [["---",""],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]]
-              - if @errors.full_messages_for(:delivery_days).any?
+              - if @item.errors.full_messages_for(:delivery_days).any?
                 .alert
                   選択してください
         .sale
@@ -134,32 +153,23 @@
                   ¥
                   .sale-form__price__box--form--field
                     = f.text_field :price, val:"", placeholder: "例）300", class: "price_form", autocomplete: 'off'
-              - if @errors.full_messages_for(:price).any?
+              - if @item.errors.full_messages_for(:price).any?
                 .alert
                   300以上9999999以下で入力してください
             .sale-form__commission
               .sale-form__commission--title
                 = f.label :name, "販売手数料(10%)"
               .sale-form__commission--price
-                \-
+                - i = @item.price / 10
+                ¥#{i}
             .sale-form__profit
               .sale-form__profit--title
                 = f.label :name, "販売利益"
               .sale-form__profit--price
-                \-
+                - result = @item.price - i
+                ¥#{result}
         .caution
-          %p
-            = link_to "禁止されている出品、行為", "#"
-            を必ずご確認ください。
-            %br
-            またブランド品でシリアルナンバー等がある場合はご記載ください。
-            = link_to "偽ブランドの販売", "#"
-            は犯罪であり処罰される可能性があります。
-            %br
-            また、出品を持ちまして
-            = link_to "加盟店規約", "#"
-            に同意したことになります。
-          = f.submit "出品する", class: "exhibit-btn"
+          = f.submit "変更する", class: "exhibit-btn"
           = link_to root_path, class: "back-btn" do
             もどる
   = render 'shared/footer_single'

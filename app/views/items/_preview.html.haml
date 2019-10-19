@@ -1,0 +1,8 @@
+.preimage{id: "preimg#{image_counter + 1}"}
+  .preimage__top
+    = image_tag image.image.url, alt: 'preview', height: '80px', width: '110px', id: "img#{image_counter + 1}"
+  .preimage__bottom
+    %p.preimage__bottom__side1
+      編集
+    %p.preimage__bottom__side2{id: "delete_btn#{image_counter}"}
+      削除

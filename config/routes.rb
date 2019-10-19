@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new, :create, :destroy] do
+  resources :items, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'search'
       get 'brand_suggestions'

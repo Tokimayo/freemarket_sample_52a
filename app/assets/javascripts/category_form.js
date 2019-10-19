@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   $(function () {
 
     function buildChild() {
-      var html =`<select class="select-wrap" id="child" name="item[category_id]"><option value="">---</option></select>`
+      var html =`<select class="select-wrap" id="child" name="item[parent_category]"><option value="">---</option></select>`
       return html;}
 
     function buildGrandChild() {
@@ -21,7 +21,6 @@ $(document).on('turbolinks:load', function() {
                         <select class="select--box" required:"required" id="size" name="item[size_id]"></select>
                       </div>
                     </div>`
-
         return html;}
 
       function buildSizeOption(sizingOption){
@@ -72,17 +71,17 @@ $(document).on('turbolinks:load', function() {
               $('#sizebox').remove();
               var parentValue = document.getElementById("grand_child").value;
               $.ajax({
-                  url:  '/items/search',
-                  type: "GET",
-                  data: { parent_id: parentValue },
-                  dataType: 'json'
+                url:  '/items/search',
+                type: "GET",
+                data: { parent_id: parentValue },
+                dataType: 'json'
               })
               .done(function(data) {
                 if(data.sizes == ""){$('#sizebox').css('display', 'none')
                 }else{
-                  $('.data-form__size').css('display', 'block')
+                  $('#sizabox').css('display', 'block')
                     var html = buildSize();
-                  $('.data-form__size--form').append(html)
+                  $('.data-form__size').append(html)
                   data.sizes.forEach(function(sizingOption){
                     var option = buildSizeOption(sizingOption);
                     $('#size').append(option);
@@ -92,6 +91,76 @@ $(document).on('turbolinks:load', function() {
             });
           });
         });
+      });
+    });
+
+    $("#child").on("change",function () {
+      $('#grand_child').remove();
+      $('#sizebox').remove();
+      var parentValue = document.getElementById("child").value;
+      $.ajax({
+        url: '/items/search',
+        type: "GET",
+        data: {parent_id: parentValue},
+        dataType: 'json'
+      })
+      .done(function (data) {
+        cnt = data.categories.length
+        if (cnt == 0) {
+          $('#grand_child').remove();
+        }else{
+          var html  = buildGrandChild();
+          $('.data-form__category--form-s').append(html)
+          data.categories.forEach(function(cateChild) {
+            var option  = buildOption(cateChild);
+            $('#grand_child').append(option);
+          })
+        }
+        $('#grand_child').on("change",function(){
+          $('#sizebox').remove();
+          var parentValue = document.getElementById("grand_child").value;
+          $.ajax({
+              url:  '/items/search',
+              type: "GET",
+              data: { parent_id: parentValue },
+              dataType: 'json'
+          })
+          .done(function(data) {
+            if(data.sizes == ""){$('#sizebox').css('display', 'none')
+            }else{
+              $('#sizebox').css('display', 'block')
+                var html = buildSize();
+              $('.data-form__size').append(html)
+              data.sizes.forEach(function(sizingOption){
+                var option = buildSizeOption(sizingOption);
+                $('#size').append(option);
+              });
+            }
+          });
+        });
+      });
+    });
+
+    $('#grand_child').on("change",function(){
+      $('#sizebox').remove();
+      var parentValue = document.getElementById("grand_child").value;
+      $.ajax({
+          url:  '/items/search',
+          type: "GET",
+          data: { parent_id: parentValue },
+          dataType: 'json'
+      })
+      .done(function(data) {
+        if(data.sizes == ""){$('#sizebox').css('display', 'none')
+        }else{
+          $('#sizebox').css('display', 'block')
+            var html = buildSize();
+          $('.data-form__size').append(html)
+          data.sizes.forEach(function(sizingOption){
+            var option = buildSizeOption(sizingOption);
+            $('#size').append(option);
+          });
+        }
       });
     });
   });
