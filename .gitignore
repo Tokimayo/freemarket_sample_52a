@@ -30,3 +30,9 @@ spec/fixtures/
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/secrets.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+vender/bundle/*

@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :users, through: :receipt
+  has_many :receipts, dependent: :destroy
   has_many :images, dependent: :destroy
   belongs_to :category, optional: true
   belongs_to :size, optional: true

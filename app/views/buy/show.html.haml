@@ -4,36 +4,25 @@
     %main.single-main
       = form_for "", method: :get, html: {class: 'form'} do |f|
         .item-detail__title
-          %h2 商品名
+          %h2
+            =@item.name
         .item-detail__main-box
           .item-detail__main-box--img
-            = image_tag 'acount.png', alt: 'item__detail--img', class:"item__detail--img" 
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'logo.svg', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
-            .item-detail__main-box--img-mini
-              = image_tag 'acount.png', alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+            -@item.images.each_with_index do | image, i |
+              -if i == 0
+                = image_tag "#{ image.image }", alt: 'item__detail--img', class: 'item__detail--img'
+                .item-detail__main-box--img-mini
+                  = image_tag "#{ image.image }", alt: 'item__detail--img-mini', class:"item__detail--img-mini"
+              - else
+                .item-detail__main-box--img-mini
+                  = image_tag "#{ image.image }", alt: 'item__detail--img-mini', class:"item__detail--img-mini"
           %table.item-detail__main-box--info-box
             %tr
               %th.category
                 出品名
               %th.content
-                = link_to "ユーザー名", "", class: 'single-text link-text'
+                = link_to "", class: 'single-text link-text' do
+                  =@user.nickname
                 .evaluation
                   = icon "fas", "laugh",  class: "rvaluation__icon--good"
                   100
@@ -45,49 +34,51 @@
               %th.category
                 カテゴリー
               %th.content
-                = link_to "家電・スマホ・カメラ", "", class: 'single-text link-text'
-                = link_to ">スマートフォン/携帯電話", "", class: 'single-text link-text'
-                = link_to ">バッテリー/充電器", "", class: 'single-text link-text'                  
+                -@categories.each_with_index do |category, i|
+                  = link_to  "", class: 'single-text link-text' do
+                    =((i > 0) ? ">" : "") + category.name
             %tr
               %th.category
                 ブランド
               %th.content
-                = link_to "アップル", "", class: 'single-text link-text'
+                = link_to "", class: 'single-text link-text' do
+                  =@item.brand.name
             %tr
               %th.category
                 商品の状態
               %th.content
-                新品、未使用
+                =@item.condition
             %tr
               %th.category
                 配送料の負担
               %th.content
-                送料込み(出品者負担)
+                =@item.shipping_charge
             %tr
               %th.category
                 配送の方法
               %th.content
-                普通郵便(提携、定形外)
+                =@item.delivery_method
             %tr
               %th.category
                 配送元地域
               %th.content
-                = link_to "北海道", "", class: 'single-text link-text'
+                = link_to "", class: 'single-text link-text' do
+                  =@item.delivery_source_area
             %tr
               %th.category
                 発送日の目安
               %th.content
-                1~2日で発送
+                =@item.delivery_days
         .item-detail__price-box
           %span.item-detail__price-box--price
-            ¥1,980
+            = "¥" + "#{@item.price}"
           %span.item-detail__price-box--tax
             (税込)
           %span.item-detail__price-box--send-fee
             送料込み
         = f.submit "購入画面に進む", {class: "item-detail__btn--buy"}
         .item-detail__detail-comment
-          詳細な商品の説明 詳細な商品の説明 詳細な商品の説明 詳細な商品の説明 詳細な商品の説明
+          =@item.description
         %button#like-btn.item-detail__btn.item-detail__btn--like{data: {flg: "off"}}
           = icon "far", "heart", class: "btn__icon--like"
           いいね!
@@ -121,57 +112,41 @@
       .contents.item-detail__another-items
         .contents-head.item-detail__another-items--head
           = link_to "", class: "another-items__head" do
-            ユーザー名さんのその他の商品
+            =@user.nickname + "さんのその他の商品"
         .contents-body.item-detail__another-items--contents-body
-          = link_to "", class: "item-box" do
-            = image_tag 'acount.png', alt: '', height: '213', width: '213'
-            .item-box__body
-              .item-box__body--name
-                sample
-              .item-box__body--price
-                ¥ 999
-          = link_to "", class: "item-box" do
-            = image_tag 'acount.png', alt: '', height: '213', width: '213'
-            .item-box__body
-              .item-box__body--name
-                sample
-              .item-box__body--price
-                ¥ 999
-          = link_to "", class: "item-box" do
-            = image_tag 'acount.png', alt: '', height: '213', width: '213'
-            .item-box__body
-              .item-box__body--name
-                sample
-              .item-box__body--price
-                ¥ 999
+          -@items.each_with_index do |item, i|
+            -if item.user_id == @item.user_id && i < 6
+              -if item.id != @item.id
+                = link_to buy_path(item.id), class: "item-box" do
+                  .item-box__img
+                    -item.images.each do | image |
+                      = image_tag "#{ image.image }", alt: '', class: 'item_img__index'
+                      -break
+                  .item-box__body
+                    .item-box__body--name
+                      = "#{item.name}"
+                    .item-box__body--price
+                      = "¥" + "#{item.price}"
       .contents.item-detail__another-items
         .contents-head.item-detail__another-items--head
           = link_to "", class: "another-items__head" do
-            カテゴリー小(カテゴリー大)のその他の商品
+            =@categories[2].name + "(" + @categories[0].name + ")のその他の商品"
         .contents-body.item-detail__another-items--contents-body
-          = link_to "", class: "item-box" do
-            = image_tag 'acount.png', alt: '', height: '213', width: '213'
-            .item-box__body
-              .item-box__body--name
-                sample
-              .item-box__body--price
-                ¥ 999
-          = link_to "", class: "item-box" do
-            = image_tag 'acount.png', alt: '', height: '213', width: '213'
-            .item-box__body
-              .item-box__body--name
-                sample
-              .item-box__body--price
-                ¥ 999
-          = link_to "", class: "item-box" do
-            = image_tag 'acount.png', alt: '', height: '213', width: '213'
-            .item-box__body
-              .item-box__body--name
-                sample
-              .item-box__body--price
-                ¥ 999
+          -@items.each_with_index do |item, i|
+            -if item.category_id == @item.category_id && i < 6
+              -if item.id != @item.id
+                = link_to buy_path(item.id), class: "item-box" do
+                  .item-box__img
+                    -item.images.each do | image |
+                      = image_tag "#{ image.image }", alt: '', class: 'item_img__index'
+                      -break
+                  .item-box__body
+                    .item-box__body--name
+                      = "#{item.name}"
+                    .item-box__body--price
+                      = "¥" + "#{item.price}"
     %p.pankuzu
       メルカリ >
       %span
-        商品名
+        =@item.name
     = render 'shared/footer'
