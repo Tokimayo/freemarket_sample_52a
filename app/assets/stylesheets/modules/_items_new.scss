@@ -70,13 +70,14 @@
             &__side2{
               border-left: $blockBorder;
             }
-            & a{
+            & p{
               width: 54px;
               line-height: 44px;
-              text-align: center;
-              display: inline-block;
+              padding:5px 12px;
+              display: inline;
               text-decoration: none;
               color: $iconBlueColor;
+              cursor: pointer;
             }
           }
         }

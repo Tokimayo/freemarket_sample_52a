@@ -79,9 +79,9 @@ $(document).on('turbolinks:load', function() {
               .done(function(data) {
                 if(data.sizes == ""){$('#sizebox').css('display', 'none')
                 }else{
-                  $('.data-form__size').css('display', 'block')
+                  $('#sizabox').css('display', 'block')
                     var html = buildSize();
-                  $('.data-form__size--form').append(html)
+                  $('.data-form__size').append(html)
                   data.sizes.forEach(function(sizingOption){
                     var option = buildSizeOption(sizingOption);
                     $('#size').append(option);
@@ -110,7 +110,7 @@ $(document).on('turbolinks:load', function() {
           $('#grand_child').remove();
         }else{
           var html  = buildGrandChild();
-          $('.data__category--form-s').append(html)
+          $('.data-form__category--form-s').append(html)
           data.categories.forEach(function(cateChild) {
             var option  = buildOption(cateChild);
             $('#grand_child').append(option);
@@ -130,7 +130,7 @@ $(document).on('turbolinks:load', function() {
             }else{
               $('#sizebox').css('display', 'block')
                 var html = buildSize();
-              $('.data__size').append(html)
+              $('.data-form__size').append(html)
               data.sizes.forEach(function(sizingOption){
                 var option = buildSizeOption(sizingOption);
                 $('#size').append(option);
@@ -155,7 +155,7 @@ $(document).on('turbolinks:load', function() {
         }else{
           $('#sizebox').css('display', 'block')
             var html = buildSize();
-          $('.data__size').append(html)
+          $('.data-form__size').append(html)
           data.sizes.forEach(function(sizingOption){
             var option = buildSizeOption(sizingOption);
             $('#size').append(option);
