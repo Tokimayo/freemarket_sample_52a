@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   }
 
   resources :buy, only: [:show] do
-    collection do
+    member do
       get 'purchase'
       get 'done'
     end
