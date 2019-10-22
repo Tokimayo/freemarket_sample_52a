@@ -254,9 +254,8 @@
       @include clearfix();
       & p{
       font-size: 14px;
-      & a{
+      & span{
         color: $iconBlueColor;
-        text-decoration: none;
       }
       }
       .exhibit-btn{
