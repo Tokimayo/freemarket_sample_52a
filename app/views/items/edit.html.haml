@@ -23,7 +23,7 @@
                   クリックしてファイルをアップロード
                 = f.fields_for :images do |i|
                   = i.label  :image, id:  "files" do
-                    = i.file_field :image
+                    = i.file_field :image, class: "hidden-field"
                     = i.check_box :_destroy, class: "delete_box"
             - if @item.errors.full_messages_for(:images).any?
               .alert
