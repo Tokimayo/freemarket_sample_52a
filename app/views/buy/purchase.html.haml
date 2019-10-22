@@ -3,7 +3,7 @@
   %main.single-main
     .single-title
       %h2 購入内容の確認
-    = form_for "", method: :get, html: {class: 'form'} do |f|
+    = form_for "", url: done_buy_path, method: :get, html: {class: 'form'} do |f|
       .field
         .buy__img--box
           = image_tag 'acount.png', alt: 'buy__img', class:"buy__img"
@@ -17,7 +17,12 @@
         支払い金額
         %span ¥799  
       .actions
-        = f.submit "購入する"
+        :plain
+          <script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button" data-key="pk_test_b2300fee5e99fa05c0269f12" data-on-created="onCreated"
+          data-text="購入する"
+          data-submit-text="支払う"
+          data-partial="true">
+          </script>
     .form.another-form__box
       .single-text
         %b 配送先
