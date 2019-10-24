@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :done do
-    amount_id {''}
-    card_id {''} 
-    currency_id {''}
+    amount {799}
+    card {'111'} 
+    currency {'jpy'}
   end
 end

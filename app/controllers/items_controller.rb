@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
  before_action :authenticate_user!, except: :index
  before_action :get_item, only: [:edit, :update]
  
-
+def itemcard
+  @item 
+end  
   helper_method :create_items_list
 
   def index

@@ -21,6 +21,7 @@ class BuyController < ApplicationController
       card: params['payjp-token'], 
       currency: 'jpy'
     )
-  end
-  
+    Buy.create(status: 1)
+    end
 end
+    
