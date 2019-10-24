@@ -23,10 +23,4 @@ RSpec.describe BuyController, type: :controller do
       end
     end
   end
-  describe 'GET #done' do 
-    it "renders the :charge template" do 
-      get :done, params: { id:1 }
-      expect(response).to render_template :done
-    end
-  end
 end 
