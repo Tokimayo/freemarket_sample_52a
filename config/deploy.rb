@@ -48,8 +48,8 @@ set :default_env, {
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],   
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"] 
-  KEYP: <%= ENV["KEYP"] %>
-  KEYS: <%= ENV["KEYS"] %>
+  # KEYP: <%= ENV["KEYP"] %>
+  # KEYS: <%= ENV["KEYS"] %>
 }
 
 # Default branch is :master
