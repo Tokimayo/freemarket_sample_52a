@@ -12,7 +12,7 @@
             %figure
               .icon-imageprofile
                 = image_tag 'acount.png', alt: '', height: '60', width: '60'
-            %input{name: "nickname", type: "text", value: "test", class: "profile__input"}
+            %input{name: "nickname", type: "text", value: "#{current_user.nickname}", class: "profile__input"}
           .setting__profile__text
             %textarea{class: "text-space", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
             %input{class: "below-input", size: ""}
