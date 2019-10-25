@@ -27,9 +27,12 @@
           font-size: 16px;
           &__btn{
             @include form-btn(0);
+            opacity: 0;
+            z-index: 2;
           }
           &__icon{
             @include form-btn(14px);
+            z-index: 1;
           }
         }
       }
