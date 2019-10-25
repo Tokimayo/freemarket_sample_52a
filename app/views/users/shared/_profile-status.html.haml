@@ -3,7 +3,7 @@
     .main__contents-sub-usericon
       = image_tag 'acount.png', alt: '', height: '60', width: '60'
     .main__contents-sub-username
-      test account
+      #{current_user.nickname}
     .main__contents-sub-userstatus   
       .evaluation
         評価
