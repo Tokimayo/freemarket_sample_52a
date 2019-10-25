@@ -1,16 +1,16 @@
 %nav.bread-crumbs
   %ul.bread-crumbs-segments
     %li.bread-crumbs-segments-over
-      = link_to "", class: "bread-crumbs-link" do
+      = link_to root_path, class: "bread-crumbs-link" do
         %span.bread-crumbs-text
           メルカリ
       .icon-angle-right-a
         = icon 'fas', 'angle-right'
-    %li.bread-crumbs-segments__second
-      = link_to "", class: "bread-crumbs-link-a" do
-        %span.bread-crumbs-text-second-profile 
+    %li.bread-crumbs-segments-over
+      = link_to user_path(current_user.id), class: "bread-crumbs-link" do
+        %span.bread-crumbs-text-second-profile
           マイページ
-      .icon-angle-right-b
+      .icon-angle-right-a
         = icon 'fas', 'angle-right'
 
     %li.bread-crumbs-segments__third
