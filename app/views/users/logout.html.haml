@@ -6,8 +6,8 @@
       %section.container
         %form{action: "", method: ""}
           .setting__profile__text-logout
-            %button{class: "below-btn-logout", size: ""}
+            = link_to  destroy_user_session_path, method: :delete, class: "below-btn-logout" do
               ログアウト
-    = render 'shared/side-contents-profile'
+    = render 'shared/sidecontent'
   = render 'shared/footer'
   = render 'shared/sell-btn'
