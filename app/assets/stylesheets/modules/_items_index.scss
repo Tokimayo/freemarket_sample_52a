@@ -9,6 +9,18 @@
         font-size: 28px;
         text-align: center;
       }
+      .contents-title {
+        margin-left: 10px;
+        & p {
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
+        & h3{
+          font-size: 12px;
+          margin-bottom: 16px;
+          color: $negativeGrayColor;
+        }
+      }
       .contents-body{
         @include clearfix();
         width: 1050px;

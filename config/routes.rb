@@ -48,8 +48,9 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
-      get 'search'
+      get 'ancestry'
       get 'brand_suggestions'
+      get 'search', to: 'items#search'
     end
   end
 end
