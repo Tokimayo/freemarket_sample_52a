@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :buy, only: [:show] do
-    collection do
+  resources :buy do
+    member do
       get 'purchase'
       get 'done'
     end

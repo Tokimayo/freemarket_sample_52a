@@ -23,4 +23,4 @@ RSpec.describe BuyController, type: :controller do
       end
     end
   end
-end
+end 

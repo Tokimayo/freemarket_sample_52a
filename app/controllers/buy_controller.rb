@@ -1,5 +1,6 @@
 class BuyController < ApplicationController
-  
+  require 'payjp'
+
   def new
   end
 
@@ -11,6 +12,16 @@ class BuyController < ApplicationController
     @categories = Category.where("(id = ?) OR (id = ?) OR (id = ?)" , category[0], category[1], @item.category_id)
   end
 
+
+
   def done
-  end
+    Payjp.api_key = ENV['KEYS']
+    Payjp::Charge.create(
+      amount: 799,
+      card: params['payjp-token'], 
+      currency: 'jpy'
+    )
+    Buy.create(status: 1)
+    end
 end
+    
