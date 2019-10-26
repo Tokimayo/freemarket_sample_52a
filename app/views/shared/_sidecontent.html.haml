@@ -2,22 +2,22 @@
   .side-content__alllists
     .mypage__property
       .mypage__property-list 
-        = link_to "", class: "mypage-active" do
+        = link_to user_path(current_user.id), class: "mypage-link-profile" do
           マイページ
           .icon-angle-right-b
             = icon 'fas', 'angle-right'
-        .mypage-non-active
-          お知らせ
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-        .mypage-non-active
-          やることリスト
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'  
-        .mypage-non-active
-          いいね！一覧
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
+        -# .mypage-non-active
+        -#   お知らせ
+        -#   .icon-angle-right-b
+        -#     = icon 'fas', 'angle-right'
+        -# .mypage-non-active
+        -#   やることリスト
+        -#   .icon-angle-right-b
+        -#     = icon 'fas', 'angle-right'  
+        -# .mypage-non-active
+        -#   いいね！一覧
+        -#   .icon-angle-right-b
+        -#     = icon 'fas', 'angle-right'
         .mypage-non-active
           = link_to new_item_path, class: "mypage-link" do
             出品する
@@ -25,64 +25,80 @@
               = icon 'fas', 'angle-right'
         = link_to list_items_users_path(current_user.id), class: "mypage-link" do
           .mypage-non-active
-            出品した商品-出品中
+            出品した商品
             .icon-angle-right-b
               = icon 'fas', 'angle-right'
-        = link_to list_items_users_path(current_user.id), class: "mypage-link" do
-          .mypage-non-active
-            出品した商品-取引中
-            .icon-angle-right-b
-              = icon 'fas', 'angle-right'
-        = link_to list_items_users_path(current_user.id), class: "mypage-link" do
-          .mypage-non-active
-            出品した商品-売却済み
-            .icon-angle-right-b
-              = icon 'fas', 'angle-right'
-        .mypage-non-active
-          購入した商品-取引中
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-        .mypage-non-active
-          購入した商品-過去の取引
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-        .mypage-non-active
-          ニュース一覧
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-        .mypage-non-active
-          評価一覧
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-        .mypage-non-active
-          ガイド
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-        .mypage-non-active
-          お問い合わせ
-          .icon-angle-right-b
-            = icon 'fas', 'angle-right'
-      .merpay__property
-        メルペイ
-      .merpay__property-list 
-        .merpay__property-list__profit
-          .profit-text
-            売上・振込申請
-            .icon-angle-right-b
-              = icon 'fas', 'angle-right'
-          .point-text
-            ポイント
-            .icon-angle-right-b
-              = icon 'fas', 'angle-right'
+        -# = link_to list_items_users_path(current_user.id), class: "mypage-link" do
+        -#   .mypage-non-active
+        -#     出品した商品-取引中
+        -#     .icon-angle-right-b
+        -#       = icon 'fas', 'angle-right'
+        -# = link_to list_items_users_path(current_user.id), class: "mypage-link" do
+        -#   .mypage-non-active
+        -#     出品した商品-売却済み
+        -#     .icon-angle-right-b
+        -#       = icon 'fas', 'angle-right'
+        -# .mypage-non-active
+        -#   購入した商品-取引中
+        -#   .icon-angle-right-b
+        -#     = icon 'fas', 'angle-right'
+        -# .mypage-non-active
+        -#   購入した商品-過去の取引
+        -#   .icon-angle-right-b
+        -#     = icon 'fas', 'angle-right'
+      -#   .mypage-non-active
+      -#     ニュース一覧
+      -#     .icon-angle-right-b
+      -#       = icon 'fas', 'angle-right'
+      -#   .mypage-non-active
+      -#     評価一覧
+      -#     .icon-angle-right-b
+      -#       = icon 'fas', 'angle-right'
+      -#   .mypage-non-active
+      -#     ガイド
+      -#     .icon-angle-right-b
+      -#       = icon 'fas', 'angle-right'
+      -#   .mypage-non-active
+      -#     お問い合わせ
+      -#     .icon-angle-right-b
+      -#       = icon 'fas', 'angle-right'
+      -# .merpay__property
+      -#   メルペイ
+      -# .merpay__property-list 
+      -#   .merpay__property-list__profit
+      -#     .profit-text
+      -#       売上・振込申請
+      -#       .icon-angle-right-b
+      -#         = icon 'fas', 'angle-right'
+      -#     .point-text
+      -#       ポイント
+      -#       .icon-angle-right-b
+      -#         = icon 'fas', 'angle-right'
       .merpay__property
         設定
       .merpay__property-list 
         .merpay__property-list__profit
           .profit-text
-            プロフィール
+            = link_to mypage_profile_users_path, class: "mypage-link" do
+              プロフィール
+            .icon-angle-right-b 
+              = icon 'fas', 'angle-right'
+          -# .profit-text
+          -#   発送元・お届け先変更
+          -#   .icon-angle-right-b 
+          -#     = icon 'fas', 'angle-right'
+          .profit-text
+            = link_to mypage_credit_users_path, class: "mypage-link" do
+              支払い方法
             .icon-angle-right-b 
               = icon 'fas', 'angle-right'
           .profit-text
-            発送元・お届け先変更
+            = link_to mypage_identification_users_path, class: "mypage-link" do
+              本人情報
+            .icon-angle-right-b 
+              = icon 'fas', 'angle-right'
+          .profit-text
+            = link_to logout_users_path, class: "mypage-link" do
+              ログアウト
             .icon-angle-right-b 
               = icon 'fas', 'angle-right'

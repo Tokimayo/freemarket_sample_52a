@@ -2,7 +2,7 @@
   = render 'shared/header'
   .single-container.item-detail__container
     %main.single-main
-      = form_for "", method: :get, html: {class: 'form'} do |f|
+      = form_for "", url: purchase_buy_path, method: :get, html: {class: 'form'} do |f|
         .item-detail__title
           %h2
             =@item.name

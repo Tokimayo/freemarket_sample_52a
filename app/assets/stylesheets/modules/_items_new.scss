@@ -67,15 +67,10 @@
             font-size: 14px;
             height: 44px;
             width: 110px;
-            &__side2{
-              border-left: $blockBorder;
-            }
             & p{
-              width: 54px;
               line-height: 44px;
-              padding:5px 12px;
+              padding:5px 41px;
               display: inline;
-              text-decoration: none;
               color: $iconBlueColor;
               cursor: pointer;
             }
@@ -154,6 +149,10 @@
               box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
               -webkit-overflow-scrolling: touch;
               cursor: pointer;
+              .brand_name{
+                padding: 16px 8px;
+                font-size: 14px;
+              }
               .brand_name:hover{
                 background: $iconBlueColor;
                 color: $baseWhiteColor;
@@ -255,9 +254,8 @@
       @include clearfix();
       & p{
       font-size: 14px;
-      & a{
+      & span{
         color: $iconBlueColor;
-        text-decoration: none;
       }
       }
       .exhibit-btn{
@@ -353,6 +351,9 @@
     text-decoration: none;
   }
   .delete_box{
+    display: none;
+  }
+  .hidden-field{
     display: none;
   }
 }

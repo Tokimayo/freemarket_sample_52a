@@ -16,7 +16,9 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(brands) {
       $(".data-form__brand--form--seggestions").empty();
-      if (brands.length !== 0) {
+      if (input == "") {
+        $('.brand_name').remove();
+      }else if (brands.length !== 0) {
         brands.forEach(function(brand){
           appendBrand(brand);
         });

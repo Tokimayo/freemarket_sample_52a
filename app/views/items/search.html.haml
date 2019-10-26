@@ -1,0 +1,23 @@
+.wrapper
+  = render 'shared/header'
+  .main
+    .contents
+      .contents-title
+        %p
+          %b #{params[:keyword]}
+          の検索結果
+        %h3  1- #{@item.count}件表示
+      .contents-body
+        -@item.each do |item|
+          = link_to buy_path(item.id), class: "item-box" do
+            .item-box__img
+              -item.images.each do | image |
+                = image_tag "#{ image.image }", alt: '', class: 'item_img__index'
+                -break
+            .item-box__body
+              .item-box__body--name
+                = "#{item.name}"
+              .item-box__body--price
+                = "¥" + "#{item.price}"
+  = render 'shared/footer'
+  = render 'shared/sell-btn'

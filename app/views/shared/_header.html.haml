@@ -3,7 +3,7 @@
     .header-top
       = link_to root_path, class: "header-top__logo" do
         = image_tag 'logo.svg', alt: 'mercari', height: '36', width: '134'
-      = form_tag "", class: "header-top__form"  do
+      = form_tag search_items_path, method: :get, class: "header-top__form"  do
         = text_field_tag :search,"", name: "keyword",placeholder: "何かお探しですか？",class: "form-search"
         = submit_tag '', name: :nil, class:"form-search__btn"
         = icon 'fas', 'search', class: "form-search__icon"
