@@ -12,8 +12,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string  :first_name_kana,    null: false
       t.string  :family_name_kana,   null: false
       t.text    :avator
-      t.integer :phone_number
-      t.integer :birthday
+      t.string  :phone_number, limit: 11
+      t.string  :birthday, limit: 11
       t.string  :introduction
 
       ## Recoverable
@@ -29,7 +29,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :last_sign_in_at
       # t.string   :current_sign_in_ip
       # t.string   :last_sign_in_ip
-
+      t.string :provider
+      t.string :uid
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at

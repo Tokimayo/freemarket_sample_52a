@@ -11,7 +11,7 @@ class CreateShippingAddresses < ActiveRecord::Migration[5.2]
       t.string :municipalities,null: false
       t.string :street_number,null: false
       t.string :building_name
-      t.integer :phone_number
+      t.string  :phone_number, limit: 11
       t.timestamps
     end
   end
