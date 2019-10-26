@@ -24,16 +24,17 @@
     display: inline-block;
     line-height: 1.2;
   }
+  .icon-angle-right-b{
+    @include icon-angle();
+  .fa{ 
+    @include fa();
+    @include icon-arrow
+  }
+  }  
   }   
 }
 
 
-.icon-angle-right-b{
-  @include icon-angle();
-.fa{ 
-  @include fa();
-}
-}
 
 .bread-crumbs-segments__third{
   font-weight: 600;

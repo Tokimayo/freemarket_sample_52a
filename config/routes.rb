@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :buy, only: [:show] do
-    collection do
+  resources :buy do
+    member do
       get 'purchase'
       get 'done'
     end
@@ -48,8 +48,9 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
-      get 'search'
+      get 'ancestry'
       get 'brand_suggestions'
+      get 'search', to: 'items#search'
     end
   end
 end

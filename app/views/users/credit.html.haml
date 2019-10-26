@@ -16,12 +16,12 @@
               =link_to '', class: "payment-btn" do 
                 %i.icon-card
                   .credit-box
-                    = fa_icon 'credit-card'
+                    = icon 'fas', 'credit-card'
                     クレジットカードを追加する 
           .payment-text
             .icon-angle-right-c
               支払い方法について
-              =fa_icon 'angle-right' 
-    = render 'shared/side-contents-profile'
+              =icon 'fas', 'angle-right' 
+    = render 'shared/sidecontent'
   = render 'shared/footer'
   = render 'shared/sell-btn'

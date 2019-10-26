@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function() {
       $('#sizebox').remove();
       var parentValue = document.getElementById("parent-form").value;
       $.ajax({
-        url: '/items/search',
+        url: '/items/ancestry',
         type: "GET",
         data: {parent_id: parentValue},
         dataType: 'json'
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function() {
           $('#sizebox').remove();
           var parentValue = document.getElementById("child").value;
           $.ajax({
-            url: '/items/search',
+            url: '/items/ancestry',
             type: "GET",
             data: {parent_id: parentValue},
             dataType: 'json'
@@ -71,7 +71,7 @@ $(document).on('turbolinks:load', function() {
               $('#sizebox').remove();
               var parentValue = document.getElementById("grand_child").value;
               $.ajax({
-                url:  '/items/search',
+                url:  '/items/ancestry',
                 type: "GET",
                 data: { parent_id: parentValue },
                 dataType: 'json'
@@ -99,7 +99,7 @@ $(document).on('turbolinks:load', function() {
       $('#sizebox').remove();
       var parentValue = document.getElementById("child").value;
       $.ajax({
-        url: '/items/search',
+        url: '/items/ancestry',
         type: "GET",
         data: {parent_id: parentValue},
         dataType: 'json'
@@ -120,7 +120,7 @@ $(document).on('turbolinks:load', function() {
           $('#sizebox').remove();
           var parentValue = document.getElementById("grand_child").value;
           $.ajax({
-              url:  '/items/search',
+              url:  '/items/ancestry',
               type: "GET",
               data: { parent_id: parentValue },
               dataType: 'json'
@@ -145,7 +145,7 @@ $(document).on('turbolinks:load', function() {
       $('#sizebox').remove();
       var parentValue = document.getElementById("grand_child").value;
       $.ajax({
-          url:  '/items/search',
+          url:  '/items/ancestry',
           type: "GET",
           data: { parent_id: parentValue },
           dataType: 'json'

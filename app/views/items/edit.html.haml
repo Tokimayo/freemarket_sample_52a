@@ -23,7 +23,7 @@
                   クリックしてファイルをアップロード
                 = f.fields_for :images do |i|
                   = i.label  :image, id:  "files" do
-                    = i.file_field :image
+                    = i.file_field :image, class: "hidden-field"
                     = i.check_box :_destroy, class: "delete_box"
             - if @item.errors.full_messages_for(:images).any?
               .alert
@@ -96,7 +96,7 @@
         .shipping
           .shipping__title
             %h3配送について
-            %a(href="" target="_blank" class="form-question")?
+            %p.form-question?
           .shipping-form
             .shipping-form__price
               .shipping-form__price--title
@@ -141,7 +141,7 @@
         .sale
           .sale__title
             %h3販売価格(300~9,999,999)
-            %a(href="" target="_blank" class="form-question")?
+            %p.form-question?
           .sale-form
             .sale-form__price
               .sale-form__price__box
