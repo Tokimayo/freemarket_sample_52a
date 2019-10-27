@@ -1,6 +1,6 @@
 .single-container.item-detail__container{
   .single-main{
-    width: 700px;
+    width: 49%;
     margin: 40px;
     .form{
       width: 100%;
@@ -39,7 +39,6 @@
           &--info-box{
             vertical-align: top;
             display: inline-block;
-            width: 300px;
             margin: 20px 8px;
             border-top: $blockBorder;
             border-right: $blockBorder;
