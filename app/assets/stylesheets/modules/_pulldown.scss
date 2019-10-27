@@ -37,6 +37,10 @@
   #user_shipping_address_attributes_prefectures{
     margin-right:3px;
     background-color: $baseWhiteColor;
+    background-image:url("icon_arrow.svg");
+    background-repeat:no-repeat;
+    background-size:18px 15px;
+    background-position:right 10px center;
   }
   .year{
     @include pulldown_birthday();
@@ -52,6 +56,10 @@
   .card_deadline_input{
     width: 130px;
     background-color: $baseWhiteColor;
+    background-image:url("icon_arrow.svg");
+    background-repeat:no-repeat;
+    background-size:18px 15px;
+    background-position:right 10px center;
   }
   .select__label{
     margin: 0 10px;

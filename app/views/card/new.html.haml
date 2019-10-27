@@ -36,8 +36,6 @@
             %option{value: "10"}10
             %option{value: "11"}11
             %option{value: "12"}12
-          =label_tag "exp_month" do
-            = icon 'fas', 'angle-down', class: "step4-pulldown__icon--month", for: "exp_month"
           %span.select__label 月
           %select#exp_year{name: "exp_year", type: "text", class:"card_deadline_input"}
             %option{value: ""} --
@@ -52,8 +50,6 @@
             %option{value: "2027"}27
             %option{value: "2028"}28
             %option{value: "2029"}29
-          =label_tag "exp_year" do
-            = icon 'fas', 'angle-down', class: "step4-pulldown__icon--year", for: "exp_year"
           %span.select__label 年
           %br
       .field
