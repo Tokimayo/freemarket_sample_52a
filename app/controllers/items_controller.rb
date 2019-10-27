@@ -8,7 +8,11 @@ class ItemsController < ApplicationController
    helper_method :create_items_list
  
    def index
-     @items = Item.all.order("created_at DESC")
+    if user_signed_in?
+      @items = Item.where.not(user_id: current_user.id  ).order("created_at DESC") 
+    else
+      @items = Item.all.order("created_at DESC")
+    end
    end
  
    def new
