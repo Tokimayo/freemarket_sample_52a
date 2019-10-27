@@ -37,8 +37,6 @@
             %br/
           .select-wrap
             = b.collection_select :prefectures, JpPrefecture::Prefecture.all, :name, :name
-            = b.label :"prefectures" do
-              = icon 'fas', 'angle-down', class: "pulldown__icon", for: "user_shipping_address_attributes_prefectures"
         .field
           .label-wrapper
             = b.label :"市区町村"
